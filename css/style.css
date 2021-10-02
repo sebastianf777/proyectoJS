@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --red: red;
+    --blue: blue;
+    --yellow: yellow;
+    --green: green;
+    --orange: orange;
+    --purple: purple;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background-color: var(--red);
+}
+
+h1 {
+    margin-top: 5px;
+    margin-left: 20px;
+    font-size: xx-large;
+}
+
+/* ARTICLE */
+
+article{
+ display: flex;
+ justify-content: center;
+}
+
+h2{
+    margin-top: 30px;
+}
+
+/* SECTION */
+
+.section {
+    display: flex;
+    justify-content: center;
+}
+
+.options,
+.options2 {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 150px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 140px;
+    border-radius: 50px;
+}
+
+.boton {
+    width: 100px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+.opt1 {
+    background-color: var(--blue);
+
+}
+
+.opt2 {
+    background-color: var(--green);
+
+}
+
+.opt3 {
+    background-color: var(--yellow);
+
+}
+
+.opt4 {
+    background-color: var(--orange);
+
+}
+
+.opt5 {
+    background-color: var(--red);
+
+}
+
+.opt6 {
+    background-color: var(--purple);
+
+}
