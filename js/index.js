@@ -1,13 +1,4 @@
-// const Bienvenida = () => {
-//   let nombre = prompt("¡Bienvenido! Señor o señora ...?");
-//   while (nombre == "") {
-//     alert("Por favor ingrese su nombre para poder continuar.\nA ver vamos de vuelta, una vez más :D");
-//     nombre = prompt("Te llamas...?");
-//   }
-//   alert(nombre + " te doy la bienvenida a mi desafio para Coderhouse n°4 xD");
-// }
-// Bienvenida();
-
+//BIENVENIDA
 
 const userInput = document.getElementById('userInput');
 const usuario = document.getElementById('usuario');
@@ -18,8 +9,7 @@ function updateValue(e) {
 }
 userInput.addEventListener('change', updateValue);
 
-
-
+//BOTONES
 
 const boton1 = () => {
 
@@ -92,7 +82,6 @@ const boton1 = () => {
 
 }
 
-
 const boton2 = () => {
   const adivinanza = () => {
     alert("¿Preparado para dos adivinanzas? O.o")
@@ -107,10 +96,9 @@ verde por fuera.
 Si no sabes,
 espera.
 (son dos palabras y la primera es un artículo)`).toLowerCase();
-      `${respuestaAdiv == `la pera` ? i = 5 && alert(`Bien ahí :D sigamos`) : alert(`Nooooope, 1 intento menos`)}`;
-    }
-    alert("La respuesta era la pera por si no acertaste")
+      `${respuestaAdiv == `la pera` ? i = 5 && alert(`Bien ahí :D sigamos`) : (i != 4 ? (i == 5 ? alert(`Será para la próxima :V`):alert(`Nooooope, 1 intento menos`)) : alert(`Último intento >_<`))}`;
 
+    }
   }
   adivinanza();
 
@@ -121,36 +109,22 @@ espera.
     for (let i = 1;
       (i < 6); i++) {
       let intentos = 6;
-
       let respuestaAdiv = prompt(
         `Tenés ${intentos - i} intentos
-Ahora otra adivinanza e.e Tenés 5 intentos
+Ahora otra adivinanza e.e
 Aquí va:
 El roer es mi trabajo,
 el queso mi aperitivo
 y el gato ha sido siempre
 mi más temido enemigo.
-(son dos palabras la primera es un artículo)`).toLowerCase();
-      `${respuestaAdiv == `el ratón` ? i = 5 && alert(`Bien ahí :D sigamos`) : alert(`Nooooope, 1 intento menos`)}`;
+(son dos palabras la primera es un artículo y una lleva acento *-*)`).toLowerCase();
+      `${respuestaAdiv == `el ratón` ? i = 5 && alert(`Bien ahí xD`) : (i != 4 ? (i == 5 ? alert(`Será para la próxima :V`):alert(`Nooooope, 1 intento menos`)) : alert(`Último intento >_<`))}`;
     }
 
-
-    //     for (let i = 1;
-    //       (i < 5) && (respuestaAdiv != "el ratón"); i++) {
-    //       let intentos = 5;
-    //       respuestaAdiv = prompt(`Tenés ${intentos - i} intentos
-    //   El roer es mi trabajo,
-    // el queso mi aperitivo
-    // y el gato ha sido siempre
-    // mi más temido enemigo.
-    // (son dos palabras)`).toLowerCase();
-
-    // }
-    alert("La respuesta era el ratón!. Eso fue todo por hoy")
+    alert("Eso fue todo por esta sección. Gracias por participar :)")
   }
   adivinanza2();
 }
-
 
 const boton3 = () => {
 
@@ -170,11 +144,12 @@ const boton3 = () => {
     alert(`
     Las respuestas eran:
     - Falso
-    https://verne.elpais.com/verne/2015/11/06/articulo/1446806286_013914.html
+    El alcohol da la sensación de calentarse por unos minutos, pero despues te cagas de frío (y no te das cuenta)
+    lo saqué de aquí :v => https://verne.elpais.com/verne/2015/11/06/articulo/1446806286_013914.html
     - Verdadero
-    Sí. La mitad de dos es 1 más 2 igual a tres.
+    Sí. La mitad de dos es 1, más 2 igual a tres.
     - Verdadero
-    Si (y el primero es Rusia por si te lo preguntabas)
+   (Y el primero es Rusia por si te lo preguntabas)
 
     Tus resultados fueron:
     - ${o3P.res1}
@@ -211,7 +186,6 @@ const boton4 = () => {
   resultado1 = lista.filter((Datos) => Datos.nombre == "Juan" && Datos.año <= 2012)
   let resultado2
   resultado2 = lista.filter((Datos) => Datos.apellido == "Roldán" && Datos.año <= 2012)
-  let resultado4
 
   const res4 = () => {
     let resultado4 = lista.sort(function (a, b) {
@@ -243,10 +217,6 @@ const boton4 = () => {
     alert(JSON.stringify(resultado6))
   }
 
-  // items.sort(function (a, b) {
-  //   if (a.name > b.name) {
-  //     return 1;
-
   let opcion = prompt(`Eres un detective y estás consultando la base de datos del RNR (Registro Nacional de Reincidencia).
 Estás investigando a 2 sospechosos, consigues dar con algunos de sus datos y sabes que el delito lo cometieron en el 2019.
 Tu primer sospechoso se llama Juan. EL segundo se apellida Roldán,  Al entrar al sistema, decides:
@@ -276,41 +246,3 @@ Tu primer sospechoso se llama Juan. EL segundo se apellida Roldán,  Al entrar a
   opcion == 6 ? res6() : null
 
 }
-
-
-// let frases = []
-
-// function palabras (p1, p2, p3){
-//   this.res1 = p1;
-//   this.res2 = p2;
-//   this.res3 = p3;
-// }
-
-// frases.push(new palabras(prompt(`Los planetas son...`), prompt(`donde los seres vivos...`), prompt(`y...`)))
-// frases.push(new palabras(prompt(`La vida es...`), prompt(`y deberiamos...`), prompt(`pero sobretodo...`)))
-
-// alert(`Tus historias terminaron así` + frases)
-
-// const cantPersonas = Number(prompt("Ingrese la cantidad de personas"));
-
-// for (let i = 0; i < cantPersonas; i++) {
-// 	const nombre = prompt(`Ingresa el nombre de la persona ${i + 1}`);
-// 	const apellido = prompt(`Ingresa el apellido de la persona ${i + 1}`);
-// 	const edad = prompt(`Ingresa el edad de la persona ${i + 1}`);
-// 	const ciudad = prompt(`Ingresa el ciudad de la persona ${i + 1}`);
-
-// 	const persona = new Persona(nombre, apellido, edad, ciudad);
-// 	personas.push(persona);
-// }
-
-// alert(`Tus historias terminaron así $(frases)`)
-
-// document.getElementById("o1").addEventListener("click", function() {
-//   boton1();
-// });
-// document.getElementById("o2").addEventListener("click", function() {
-//   boton2();
-// });
-// document.getElementById("o3").addEventListener("click", function() {
-//   boton3();
-// });
