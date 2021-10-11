@@ -246,3 +246,23 @@ Tu primer sospechoso se llama Juan. EL segundo se apellida Roldán,  Al entrar a
   opcion == 6 ? res6() : null
 
 }
+
+const boton5 = () => {
+  const o5 = document.getElementById("o5")
+  o5.classList.add("toggleD")
+
+  const sectionE = document.getElementById("espacio")
+  let counter = 1;
+  for(var i = 0; i < 3; i++) {
+    const block = document.createElement('div');
+    block.id = "idE" + (counter++);
+    sectionE.appendChild(block);
+    block.classList.add("divE")
+  }
+
+  document.getElementById("idE1").innerHTML = "<img src=img/Bear.svg width=150px>"
+  document.getElementById("idE2").innerHTML = "<img src=img/Cat.svg width=150px>"
+  document.getElementById("idE3").innerHTML = "<img src=img/Octopus.svg width=150px>"
+
+  
+}

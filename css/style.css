@@ -46,7 +46,7 @@ h2{
 
 .options,
 .options2 {
-    margin-top: 40px;
+    margin: 40px 0;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -96,4 +96,21 @@ h2{
 .opt6 {
     background-color: var(--purple);
 
+}
+
+/* BOTON 5 */
+
+#espacio{
+    display: flex;
+    flex-direction: row;
+}
+
+.divE{
+    width: 33%;
+    height: 150px;
+    margin: 0 30px;
+    cursor: pointer;
+}
+.toggleD{
+    display: none;
 }
