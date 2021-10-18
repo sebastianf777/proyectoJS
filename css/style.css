@@ -100,7 +100,7 @@ h2{
 
 /* BOTON 5 */
 
-#espacio{
+.espacioClass{
     display: flex;
     flex-direction: row;
 }
