@@ -3,11 +3,11 @@ const botonJuega = document.getElementById("o6")
 const listaItems = document.querySelector("#opciones")
 const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
 
-// const tablaItems = document.getElementById("listaItems")
+
 let itemsElegidos;
 
 function actualizarStorage() {
-    // TODO
+
     localStorage.setItem('itemsElegidos', JSON.stringify(itemsElegidos));
 }
 
@@ -18,15 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     itemsElegidos = itemsStorage || [];
 
     actualizarLista();
-    // if(carritoStorage === null) {
-    // 	carrito = [];
-    // } else {
-    // 	carrito = carritoStorage;
-    // }
+
 
      renderProducts(armas);
     
-    //  itemsElegidos.length >= 2 ? 
+  
 });
 function renderProducts(listadoOpciones) {
     opciones.innerHTML = ''
@@ -102,16 +98,10 @@ function agregarItem(e) {
             const yaExiste = itemsElegidos.some(item => item.id === itemAgregado.id);
 
             if (yaExiste) {
-                // const nuevosItems = itemsElegidos.map(item => {
                 {
-
-                    // if (item.id === itemAgregado.id) {
                     alert("Sólo puedes agregar un item del mismo tipo")
                 }
-                //     return item;
 
-                // });
-                // itemsElegidos = [...nuevosItems];
 
             } else {
 
@@ -122,9 +112,6 @@ function agregarItem(e) {
 
             actualizarStorage();
 
-
-            //     }else if(itemsElegidos.length == 3){
-            // opciones.classList.replace("toggleS", "toggleD")
 
 
 
@@ -137,27 +124,6 @@ listaItems.addEventListener('click', agregarItem);
 
 const boton6 = () => {
 
-
-    
-
-
-
-
-
-    
-    // document.addEventListener('click', () => {
-    //     const carritoStorage = JSON.parse(localStorage.getItem('carrito'));
-
-    //     carrito = carritoStorage || [];
-    //     // actualizarCarritoHTML();
-    //     // if(carritoStorage === null) {
-    //     // 	carrito = [];
-    //     // } else {
-    //     // 	carrito = carritoStorage;
-    //     // }
-
-    //     renderProducts(productos);
-    // });
     renderProducts(armas);
 
     opciones.classList.replace("toggleD", "toggleS")
@@ -173,12 +139,12 @@ botonCambiar.addEventListener("click", vaciarLista)
 
 function vaciarLista(e) {
     e.preventDefault();
-    // Vaciar el arreglo carrito;
+
     itemsElegidos = [];
 
-    // Actualizar HTML del carrito
+
     actualizarLista();
-    // Actualizar el storage del carrito
+
     actualizarStorage();
     opciones.classList.replace("toggleD", "toggleS")
 
