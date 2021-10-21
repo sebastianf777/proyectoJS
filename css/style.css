@@ -111,6 +111,22 @@ h2{
     margin: 0 30px;
     cursor: pointer;
 }
+
+
+.opt6{
+    width: auto;
+    min-width: 150px;
+}
+
+.opcionesBoton6, #listaItemsElegidos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .toggleD{
     display: none;
+}
+.toggleS{
+    display: flex;
+    flex-direction: row;
 }
