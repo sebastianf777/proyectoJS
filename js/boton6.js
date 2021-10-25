@@ -2,13 +2,21 @@ const opciones = document.getElementById("opciones")
 const botonJuega = document.getElementById("o6")
 const listaItems = document.querySelector("#opciones")
 const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
-
+const botonCambiar = document.getElementById("botonCambiar")
+botonCambiar.addEventListener("click", vaciarLista)
+listaItems.addEventListener('click', agregarItem);
 
 let itemsElegidos;
 
-function actualizarStorage() {
 
-    localStorage.setItem('itemsElegidos', JSON.stringify(itemsElegidos));
+const cambiarEmpezar = () => {
+    itemsElegidos.length == 3 ? $("#empezar").toggleClass("toggleS toggleD") : null
+}
+const cambiarEmpezar2 = () => {
+    $("#empezar").hasClass("toggleS") ? $("#empezar").toggleClass("toggleS toggleD") : `$("#empezar").toggleClass("toggleD toggleS")`
+}
+const empezarB = () => {
+    itemsElegidos.length == 3 ? $(".opt6").prepend(`<button id="empezar" class="toggleS">Empezar`) : $(".opt6").prepend(`<button id="empezar" class="toggleD">Empezar`)
 }
 
 
@@ -18,12 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     itemsElegidos = itemsStorage || [];
 
     actualizarLista();
+    renderProducts(armas);
+    empezarB();
 
-
-     renderProducts(armas);
-    
-  
 });
+
+function actualizarStorage() {
+
+    localStorage.setItem('itemsElegidos', JSON.stringify(itemsElegidos));
+}
+
 function renderProducts(listadoOpciones) {
     opciones.innerHTML = ''
 
@@ -43,6 +55,7 @@ function renderProducts(listadoOpciones) {
         opciones.innerHTML += html;
     });
 }
+
 function actualizarLista() {
     listaItemsElegidos.innerHTML = '';
 
@@ -68,13 +81,14 @@ function actualizarLista() {
     });
     if (itemsElegidos.length > 2) {
         botonJuega.classList.add("toggleD")
-        
+
 
         opciones.classList.replace("toggleS", "toggleD")
 
-        
+
     }
 }
+
 function agregarItem(e) {
     e.preventDefault();
 
@@ -92,7 +106,7 @@ function agregarItem(e) {
                 id: itemElegido.querySelector('a').dataset.id
             }
 
-
+            //termina if
 
 
             const yaExiste = itemsElegidos.some(item => item.id === itemAgregado.id);
@@ -112,7 +126,7 @@ function agregarItem(e) {
 
             actualizarStorage();
 
-
+            cambiarEmpezar();
 
 
 
@@ -120,7 +134,20 @@ function agregarItem(e) {
         }
     }
 }
-listaItems.addEventListener('click', agregarItem);
+
+function vaciarLista(e) {
+    e.preventDefault();
+
+    itemsElegidos = [];
+
+
+    actualizarLista();
+
+    actualizarStorage();
+    opciones.classList.replace("toggleD", "toggleS")
+    cambiarEmpezar2()
+}
+
 
 const boton6 = () => {
 
@@ -134,18 +161,8 @@ const boton6 = () => {
 
 }
 
-const botonCambiar = document.getElementById("botonCambiar")
-botonCambiar.addEventListener("click", vaciarLista)
-
-function vaciarLista(e) {
-    e.preventDefault();
-
-    itemsElegidos = [];
 
 
-    actualizarLista();
 
-    actualizarStorage();
-    opciones.classList.replace("toggleD", "toggleS")
 
-}
+//EMPIEZO A USAR MÁS JQUERY PARA DESAFIO
