@@ -7,7 +7,7 @@ botonCambiar.addEventListener("click", vaciarLista)
 listaItems.addEventListener('click', agregarItem);
 const randIndex = Math.floor(Math.random() * 6) + 1;
 const enemigoRandom = document.getElementById("enemigoRandom")
-const random = (e) => e.id == randIndex;
+const random = (enemigo) => enemigo.id == randIndex;
 enemigo = enemigos.filter(random)
 
 let itemsElegidos;
@@ -88,9 +88,7 @@ function actualizarLista() {
     if (itemsElegidos.length > 2) {
         botonJuega.classList.add("toggleD")
 
-
         opciones.classList.replace("toggleS", "toggleD")
-
 
     }
 }
@@ -98,9 +96,7 @@ function actualizarLista() {
 function agregarItem(e) {
     e.preventDefault();
 
-
     if (itemsElegidos.length <= 2) {
-
 
         if (e.target.classList.contains("agregar-item")) {
             const itemElegido = e.target.parentElement.parentElement;
@@ -113,30 +109,18 @@ function agregarItem(e) {
             }
 
             //termina if
-
-
             const yaExiste = itemsElegidos.some(item => item.id === itemAgregado.id);
 
             if (yaExiste) {
                 {
                     alert("Sólo puedes agregar un item del mismo tipo")
                 }
-
-
             } else {
-
                 itemsElegidos.push(itemAgregado);
-
             }
             actualizarLista();
-
             actualizarStorage();
-
             cambiarEmpezar();
-
-
-
-
         }
     }
 }
@@ -146,12 +130,10 @@ function vaciarLista(e) {
 
     itemsElegidos = [];
 
-
     actualizarLista();
-
     actualizarStorage();
-    opciones.classList.replace("toggleD", "toggleS")
     cambiarEmpezar2()
+    opciones.classList.replace("toggleD", "toggleS")
 }
 
 
@@ -187,4 +169,6 @@ function generarEnemigo(listadoEnemigos){
         enemigoRandom.innerHTML += html
 
 })
+$("#empezar").hide()
+$("#botonCambiar").hide()
 }
