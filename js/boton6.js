@@ -3,16 +3,87 @@ const botonJuega = document.getElementById("o6")
 const listaItems = document.querySelector("#opciones")
 const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
 const botonCambiar = document.getElementById("botonCambiar")
-botonCambiar.addEventListener("click", vaciarLista)
-listaItems.addEventListener('click', agregarItem);
 const randIndex = Math.floor(Math.random() * 6) + 1;
 const enemigoRandom = document.getElementById("enemigoRandom")
 const random = (enemigo) => enemigo.id == randIndex;
+
+botonCambiar.addEventListener("click", vaciarLista)
+listaItems.addEventListener('click', agregarItem);
 enemigo = enemigos.filter(random)
+
+
 
 let itemsElegidos;
 
 
+
+    let hitBtn = $("#listaItemsElegidos"),
+        reset = $('button.reset'),
+        hBar = $('.health-bar'),
+        bar = hBar.find('.bar'),
+        hit = hBar.find('.hit');
+    
+    hitBtn.on("click", function(e){
+     let statElegido = Number(e.target.parentElement.dataset.daño)                                                                                 
+    // let statElegido = Number(e.target)                                                                     
+
+      let total = hBar.data('total'),
+      value = hBar.data('value');
+      if (value < 0) {
+              log("you dead, reset");
+        return;
+      }
+      // max damage is essentially quarter of max life
+      let damage = statElegido
+      console.log(damage) 
+
+    //   let damage = Math.floor(Math.random()*total);
+      // damage = 100;
+      let newValue = value - damage;
+      // calculate the percentage of the total width
+      let barWidth = (newValue / total) * 100 ;
+      let hitWidth = (damage / value) * 100 + "%";
+      
+      // show hit bar and set the width
+      hit.css('width', hitWidth);
+      hBar.data('value', newValue);
+      
+      setTimeout(function(){
+        hit.css({'width': '0'});
+        bar.css('width', barWidth + "%");
+      }, 500);
+      //bar.css('width', total - value);
+      
+      log(value, damage, hitWidth);
+      
+      if( value < 0){
+        log("DEAD");
+      }
+    });
+    
+    reset.on('click', function(e){
+      hBar.data('value', hBar.data('total'));
+      
+      hit.css({'width': '0'});
+      
+          bar.css('width', '100%');
+          log("resetting health to 1000");
+    });
+
+  
+  
+  
+  function log(_total, _damage, _hitWidth){
+    let log = $('.log');
+    
+    if(_damage !== undefined && _hitWidth !== undefined) {
+        log.append("<div>H:"+_total+" D:"+_damage+" W:"+_hitWidth+" = " + (_total - _damage) + "</div>");
+    } else {
+      log.append("<div>"+_total+"</div>");
+    }
+  };
+
+///////////////////////////////////////////////////////////////
 const cambiarEmpezar = () => {
     itemsElegidos.length == 3 ? $("#empezar").show() : null
 }
@@ -74,7 +145,7 @@ function actualizarLista() {
         } = item;
         $('#listaItemsElegidos')
             .append(`
-              <div id="itemS${id}" class="itemS">
+              <div id="${id}" data-daño=${daño} class="itemS">
                       <img src="${imagen}" class="">
       
                       <div class="info-card">

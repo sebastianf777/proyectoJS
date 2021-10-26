@@ -14,7 +14,7 @@ const enemigos = [
         "id": 2
     },
     {
-        "imagen": "https://cdn.icon-icons.com/icons2/1320/PNG/512/-frankensteins-monster_86850.png",
+        "imagen": "https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-frankenstein-halloween-justicon-flat-justicon.png",
         "nombre": "Frank",
         "daño": 30,
         "hp": 300,
