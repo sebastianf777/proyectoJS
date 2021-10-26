@@ -5,30 +5,36 @@ const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
 const botonCambiar = document.getElementById("botonCambiar")
 botonCambiar.addEventListener("click", vaciarLista)
 listaItems.addEventListener('click', agregarItem);
+const randIndex = Math.floor(Math.random() * 6) + 1;
+const enemigoRandom = document.getElementById("enemigoRandom")
+const random = (e) => e.id == randIndex;
+enemigo = enemigos.filter(random)
 
 let itemsElegidos;
 
 
 const cambiarEmpezar = () => {
-    itemsElegidos.length == 3 ? $("#empezar").toggleClass("toggleS toggleD") : null
+    itemsElegidos.length == 3 ? $("#empezar").show() : null
 }
 const cambiarEmpezar2 = () => {
-    $("#empezar").hasClass("toggleS") ? $("#empezar").toggleClass("toggleS toggleD") : `$("#empezar").toggleClass("toggleD toggleS")`
+    $("#empezar").hide()
 }
 const empezarB = () => {
-    itemsElegidos.length == 3 ? $(".opt6").prepend(`<button id="empezar" class="toggleS">Empezar`) : $(".opt6").prepend(`<button id="empezar" class="toggleD">Empezar`)
+    itemsElegidos.length == 3 ? $(".opt6").prepend(`<button id="empezar">Empezar</button>`) : $(".opt6").prepend(`<button id="empezar" class="toggleD">Empezar</button>`)
 }
 
 
 document.addEventListener('DOMContentLoaded', () => {
     const itemsStorage = JSON.parse(localStorage.getItem('itemsElegidos'));
-
     itemsElegidos = itemsStorage || [];
 
     actualizarLista();
     renderProducts(armas);
     empezarB();
-
+    itemsElegidos.length != 3 ? $("#botonCambiar").hide() : $("#botonCambiar").show()
+    $("#empezar").click(function(){
+        generarEnemigo(enemigo)
+    })
 });
 
 function actualizarStorage() {
@@ -68,7 +74,7 @@ function actualizarLista() {
         } = item;
         $('#listaItemsElegidos')
             .append(`
-              <div id="item${id}">
+              <div id="itemS${id}" class="itemS">
                       <img src="${imagen}" class="">
       
                       <div class="info-card">
@@ -152,7 +158,7 @@ function vaciarLista(e) {
 const boton6 = () => {
 
     renderProducts(armas);
-
+    $("#botonCambiar").show()
     opciones.classList.replace("toggleD", "toggleS")
     botonJuega.classList.add("toggleD")
     const tituloH2 = document.createElement("h2")
@@ -162,7 +168,23 @@ const boton6 = () => {
 }
 
 
+function generarEnemigo(listadoEnemigos){
+    enemigoRandom.innerHTML = ''
 
+    listadoEnemigos.forEach(enemigo => {
+        const html = `
+            <div class="enemigo">
+                <img src="${enemigo.imagen}" class="">
 
+                <div class="info-card">
+                    <h4>${enemigo.nombre}</h4>
+                    <p class="precio">${enemigo.daño}</p>
+                    <p data-id="${enemigo.id}">nivel de dificultad ${enemigo.id}  </p>
+                </div>
+            </div>
+        `
+  
+        enemigoRandom.innerHTML += html
 
-//EMPIEZO A USAR MÁS JQUERY PARA DESAFIO
+})
+}
