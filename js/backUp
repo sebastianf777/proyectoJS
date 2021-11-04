@@ -1,0 +1,29 @@
+const espacioAvatars = document.getElementById("espacioAvatars")
+let contentHTML = "";
+const marvel = {
+    render: () => {
+        const urlAPI = "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=3941cce6bcf01110d3c19f39e662bffc&hash=ffbd7e41ef8d1adac6c011225ed3ddee"
+
+        fetch(urlAPI)
+            .then(res => res.json())
+            .then(json => {
+                for (const hero of json.data.results) {
+                    let urlHero = hero.urls[0].url;
+                    contentHTML += `
+        <div>
+            <a href="${urlHero}">
+            <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="heroAvatar">
+            </a>
+            
+        </div>
+    `
+                    // listaAvatars = json.data.results.slice(0,5)
+                }
+                // console.log(listaAvatars)
+                // renderAvatars(urlHero)
+                espacioAvatars.innerHTML = contentHTML
+
+            })
+    }
+}
+marvel.render();

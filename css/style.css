@@ -28,176 +28,72 @@ h1 {
 
 /* ARTICLE */
 
-article{
- display: flex;
- justify-content: center;
-}
-
-h2{
-    margin-top: 30px;
-}
-
-/* SECTION */
-
-.section {
+article {
     display: flex;
     justify-content: center;
 }
 
-.options,
+h2 {
+    margin-top: 30px;
+}
+
+
+
 .options2 {
-    margin: 40px 0;
+    margin: 20px 0;
     display: flex;
     justify-content: space-around;
     width: 100%;
     height: 150px;
 }
 
-.box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 140px;
-    border-radius: 50px;
-}
-
-.boton, #botonCambiar, #empezar {
+.boton,
+#botonCambiar,
+#empezar {
     width: 100px;
     height: 30px;
     border-radius: 50px;
     margin: 10px;
 }
 
-.opt1 {
-    background-color: var(--blue);
+/* BOTON ROJO */
 
-}
-
-.opt2 {
-    background-color: var(--green);
-
-}
-
-.opt3 {
-    background-color: var(--yellow);
-
-}
-
-.opt4 {
-    background-color: var(--orange);
-
-}
-
-.opt5 {
+.botonRojoContainer {
     background-color: var(--red);
+    margin: 0 20px;
 
 }
 
-.opt6 {
-    background-color: var(--purple);
-
-}
-
-/* BOTON 5 */
-
-.espacioClass{
+.espacioClass {
     display: flex;
     flex-direction: row;
+    margin: 20px;
 }
 
-.divE{
+.divE {
     width: 33%;
     height: 150px;
     margin: 0 30px;
     cursor: pointer;
 }
 
-
-.opt6{
-    width: auto;
-    min-width: 150px;
-
+.heroAvatar{
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
 }
+/* BOTON 6 */
 
-/* .agregar-item{
-    margin: 10px;
-} */
-.itemS{
-    cursor: pointer;
-    margin: 10px;
-}
-.info-card{
-    pointer-events: inherit;
-}
+/* ANIMACION SPINNER */
 
-.opcionesBoton6, #listaItemsElegidos{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.toggleD{
-    display: none;
-}
-.toggleS{
-    display: flex;
-    flex-direction: row;
-}
-
-#enemigoRandom{
-    display: flex;
-    justify-content: center;
-}
-
-#enemigo{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
-/* Barra de vida */
-
-.health-bar {
-    margin: 20px auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 200px;
-    height: 20px;
-    padding: 5px;
-    background: #ddd;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    position: relative;
-  }
-  .bar {
-    background: #c54;
-    width: 100%;
-    height: 10px;
-    position: relative;
-    
-    transition: width .5s linear;
-  }
-  
-  .hit {
-    background: rgba(255,255,255,0.6);
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 0px;
-    
-    transition: width .5s linear;
-  }
-
-  .lds-hourglass {
+.lds-hourglass {
     display: inline-block;
     position: relative;
     width: 64px;
     height: 64px;
-  }
-  .lds-hourglass:after {
+}
+
+.lds-hourglass:after {
     content: " ";
     display: block;
     border-radius: 50%;
@@ -208,18 +104,278 @@ h2{
     border: 26px solid #cef;
     border-color: #cef transparent #cef transparent;
     animation: lds-hourglass 1.2s infinite;
-  }
-  @keyframes lds-hourglass {
+}
+
+@keyframes lds-hourglass {
     0% {
-      transform: rotate(0);
-      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
+
     50% {
-      transform: rotate(900deg);
-      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
+
     100% {
-      transform: rotate(1800deg);
+        transform: rotate(1800deg);
     }
-  }
-  
+}
+
+/* CSS RESTO DEL BOTON PURPURA */
+
+.botonPurpuraContainer {
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    flex-wrap: wrap;
+    background-color: var(--purple);
+
+}
+
+.itemS {
+    cursor: pointer;
+    margin: 10px;
+}
+
+.imgItemS {
+    object-fit: contain;
+    object-position: center;
+    width: 70px;
+    height: 70px;
+}
+
+.info-card {
+    pointer-events: inherit;
+}
+
+#listaItemsElegidos {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.opcionesBoton6 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.toggleD {
+    display: none;
+}
+
+.toggleS {
+    display: flex;
+    flex-direction: row;
+}
+
+#enemigoRandom {
+    display: flex;
+    justify-content: center;
+}
+
+#enemigo {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 20px;
+}
+
+/* BARRA DE VIDA ENEMIGO */
+
+.health-bar {
+    margin: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    background: #ddd;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    flex-basis: max-content;
+    flex-basis: -moz-available;
+    border-radius: 5px;
+    position: relative;
+}
+
+.bar {
+    background: #c54;
+    width: 100%;
+    height: 10px;
+    position: relative;
+
+    transition: width .5s linear;
+}
+
+.hit {
+    background: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0px;
+
+    transition: width .5s linear;
+}
+
+
+/* ENEMIGO DEL BOTON PURPURA */
+
+.enemigo {
+    margin-top: 10px;
+}
+
+.enemigoYBarra {
+    margin: 20px 20px 20px 5px;
+}
+
+.imgEnemigo {
+    max-width: 200px;
+}
+
+
+.ulEnemigo li{
+    list-style: none;
+}
+/* LOG DE LOS DAÑOS AL ENEMIGO */
+
+.h4Enemigo,
+.pEnemigo {
+    margin: 2px;
+}
+
+.log {
+    height: 350px;
+    margin: 20px 0;
+    padding: 0 25px;
+}
+
+/* BORDEs ANIMADOs */
+
+.gradientBorder {
+    --border-width: 3px;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    /* text-transform: uppercase; */
+    color: white;
+    border-radius: var(--border-width);
+
+}
+
+@keyframes moveGradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradientLogs {
+    background: #222;
+}
+
+.gradientLogs::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%),
+            hsl(269, 85%, 66%),
+            hsl(314, 85%, 66%),
+            hsl(359, 85%, 66%),
+            hsl(44, 85%, 66%),
+            hsl(89, 85%, 66%),
+            hsl(134, 85%, 66%),
+            hsl(179, 85%, 66%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+}
+
+.gradientEnemy {
+    background: #222;
+}
+
+.gradientEnemy::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+
+    background: linear-gradient(60deg,
+            hsl(222, 100%, 2%),
+            hsl(241, 100%, 22%),
+            hsl(249, 100%, 13%),
+            hsl(271, 100%, 29%),
+            hsl(276, 100%, 13%),
+            hsl(0, 99%, 28%),
+            hsl(0, 100%, 10%),
+            hsl(0, 0%, 0%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+}
+
+.botonPurpuraContainer::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(60deg,
+            hsl(0, 100%, 41%),
+            hsl(0, 99%, 27%),
+            hsl(219, 98%, 36%),
+            hsl(251, 100%, 24%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+}
+
+.botonRojoContainer::after{
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(60deg,
+            hsl(29, 100%, 48%),
+            hsl(69, 98%, 49%),
+            hsl(2, 96%, 57%),
+            hsl(9, 100%, 57%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.imgAvatar{
+    width: 150px;
+}

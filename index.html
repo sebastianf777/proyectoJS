@@ -19,93 +19,77 @@
     <article>
         <h2>¡Bienvenido <input id="userInput" type="text"> <span id="usuario"></span><span>!</span></h2>
     </article>
-    <section>
-        <div class="options">
-            <div class="opt1 box">
-                <button class="boton" onclick="boton1()" id="o1">
-                    Tu elemento
-                </button>
-            </div>
-            <div class="opt2 box">
-                <button class="boton" onclick="boton2()" id="o2">
-                    Adivinanzas
-                </button>
-            </div>
 
-            <div class="opt3 box">
-                <button class="boton" onclick="boton3()" id="o3">
-                    True or False
-                </button>
-            </div>
-        </div>
-    </section>
-    <section id="espacio" class="espacioClass">
-    </section>
 
+
+    <!-- ESPACIO PARA ELEGIR ARMAS -->
     <section id="opciones" class="toggleD opcionesBoton6 ">
     </section>
+
+    <!-- ESPACIO PARA GENERAR ENEMIGO -->
     <section id="enemigo">
-        <div>
+        <div class="enemigoYBarra gradientBorder gradientEnemy">
             <div id="enemigoRandom">
-            
             </div>
             <div class="health-bar" data-total="1000" data-value="1000">
                 <div class="bar">
                     <div class="hit"></div>
                 </div>
-            
-                <!-- <button class="damage random">hit random</button> -->
-            <button class="reset">reset</button>
+
+                <button class="reset">reset</button>
             </div>
         </div>
-
-        <div class="log">
-
+        <div class="log gradientBorder gradientLogs">
         </div>
-        
-    </section>
-    <section>
-        <div class="options2">
-            <div class="opt4 box">
-                <button class="boton" onclick="boton4()" id="o4">
-                    Investiga
-                </button>
-            </div>
-            <div>
-                <div class="opt5 box">
-                    <img class="img5" src="" alt="">
-                    <button class="boton" onclick="boton5()" id="o5">
-                        Elige
-                    </button>
+        <div>
+            <div class="options2">
+
+                <!-- ESPACIO PARA BOTONES -->
+                <div>
+                    <div class="botonRojoContainer gradientBorder ">
+                   
+                        <button class="boton " id="botonRojo">
+                            Elige tu avatar +_+!
+                        </button>
+                    </div>
+                    <div id="botonACrear">
+                    </div>
                 </div>
-                <div id="botonACrear">
+   
+                <div class="botonPurpuraContainer gradientBorder">
+                    <div>
+                        <button class="boton" onclick="botonPurpura()" id="o6">
+                            Juega
+                        </button>
+                    </div>
+                    <div id="listaItemsElegidos">
+                    </div>
+                    <div>
+                        <button id="botonCambiar">
+                            Cambiar Items
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="opt6 box">
-                <button class="boton" onclick="boton6()" id="o6">
-                    Juega
-                </button>
-                <div id="listaItemsElegidos">
-                </div>
-                <button id="botonCambiar">
-                    Cambiar Items
-                </button>
             </div>
         </div>
     </section>
+
+    <!-- ESPACIO PARA ELEGIR AVATAR -->
+    <section id="espacioAvatars" class="espacioClass">
+    </section>
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
-    <script src="js/boton1.js"></script>
-    <script src="js/boton2.js"></script>
-    <script src="js/boton3.js"></script>
-    <script src="js/boton4.js"></script>
-    <script src="js/boton5.js"></script>
+    <script src="js/fetch.js"></script>
+
+    <script src="js/botonRojo.js"></script>
     <script src="js/armas.js"></script>
     <script src="js/enemigos.js"></script>
 
-    <script src="js/boton6.js"></script>
+    <script src="js/botonPurpura.js"></script>
 
 
 </body>

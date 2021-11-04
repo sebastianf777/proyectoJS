@@ -5,13 +5,13 @@ const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
 const botonCambiar = document.getElementById("botonCambiar")
 const randIndex = Math.floor(Math.random() * 6) + 1;
 const enemigoRandom = document.getElementById("enemigoRandom")
-const random = (enemigo) => enemigo.id == randIndex;
+const random = (enemigo) => enemigo.id == 20;
 enemigo = enemigos.filter(random)
+
+
 
 botonCambiar.addEventListener("click", vaciarLista)
 listaItems.addEventListener('click', agregarItem);
-
-
 
 
 
@@ -24,7 +24,7 @@ let itemsElegidos;
 
 //CREACION DEL BOTON EMPEZAR
 const empezarB = () => {
-    itemsElegidos.length == 3 ? $(".opt6").prepend(`<button id="empezar">Empezar</button>`) : $(".opt6").prepend(`<button id="empezar" class="toggleD">Empezar</button>`)
+    itemsElegidos.length == 3 ? $(".botonPurpuraContainer").prepend(`<div><button id="empezar">Empezar</button></div>`) : $(".botonPurpuraContainer").prepend(`<div><button id="empezar" class="toggleD">Empezar</button></div>`)
 }
 
 ///////////////////////////////////////////////////////////////
@@ -48,11 +48,30 @@ document.addEventListener('DOMContentLoaded', () => {
     empezarB();
     //ocultar barra de vida
     $(".health-bar").hide()
-    //crear funcion para el boton empezar
-    $("#empezar").click(function () {
-        generarEnemigo(enemigo)
-
+    //cambiar margin cuando se inicia la web de enemigoYBarra
+    $(".enemigoYBarra").css({
+        "margin": "0px"
     })
+    //ocultar div del enemigo
+    $(".enemigoYBarra").hide()
+    //ocultar log
+    $(".log").hide()
+    //crear funcion para el boton empezar
+
+
+    // $.ajax({
+    //     url: 'https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=3941cce6bcf01110d3c19f39e662bffc&hash=ffbd7e41ef8d1adac6c011225ed3ddee',
+    //     method: "GET",
+    //     dataType: 'json',
+    //     success: function (data) {
+
+            
+
+    //     },
+    //     error: function (xhr, status, error) {
+    //         console.log(error);
+    //     }
+    // });
     //cargar o no el boton de cambiar items
     itemsElegidos.length != 3 ? $("#botonCambiar").hide() : $("#botonCambiar").show()
 
@@ -96,7 +115,7 @@ function actualizarLista() {
         $('#listaItemsElegidos')
             .append(`
               <div id="${id}" data-daño=${daño} class="itemS">
-                      <img src="${imagen}" class="">
+                      <img src="${imagen}" class="imgItemS">
       
                       <div class="info-card">
                           <h4>${nombre}</h4>
@@ -158,7 +177,7 @@ function vaciarLista(e) {
 }
 
 
-const boton6 = () => {
+const botonPurpura = () => {
 
     renderProducts(armas);
     $("#botonCambiar").show()
@@ -182,10 +201,10 @@ const enemigoFunciones = () => {
         if (e.target.parentElement.dataset.daño == undefined) {
             $(".log").append(`<div>Haz clic en el arma!</div>`)
         } else {
-            let statElegido = Number(e.target.parentElement.dataset.daño)
+            const statElegido = Number(e.target.parentElement.dataset.daño)
             // let statElegido = Number(e.target)                                                                     
 
-            let total = enemigoStats.data('total'),
+            const total = enemigoStats.data('total'),
                 value = enemigoStats.data('value');
             if (value < 0) {
                 log("victoria!, enemigo derrotado!");
@@ -193,13 +212,13 @@ const enemigoFunciones = () => {
             }
             console.log(total)
             // max damage is essentially quarter of max life
-            let damage = statElegido
+            const damage = statElegido
             //   let damage = Math.floor(Math.random()*total);
             // damage = 100;
-            let newValue = value - damage;
+            const newValue = value - damage;
             // calculate the percentage of the total width
-            let barWidth = (newValue / total) * 100;
-            let hitWidth = (damage / value) * 100 + "%";
+            const barWidth = (newValue / total) * 100;
+            const hitWidth = (damage / value) * 100 + "%";
 
             // show hit bar and set the width
             hit.css('width', hitWidth);
@@ -220,9 +239,10 @@ const enemigoFunciones = () => {
 
     reset.on('click', function (e) {
 
-        log("resetting health to 1000");
-        $(".log").append(`<div class="lds-hourglass"></div>`)
         setTimeout(() => {
+            $("#enemigoRandom").empty()
+            $(".health-bar").hide()
+
             $('.log').empty()
             enemigoStats.data('value', enemigoStats.data('total'));
 
@@ -230,6 +250,7 @@ const enemigoFunciones = () => {
                 'width': '0'
             });
             bar.css('width', '100%');
+
         }, 1000);
 
     });
@@ -239,36 +260,79 @@ const enemigoFunciones = () => {
         let log = $('.log');
 
         if (_damage !== undefined && _hitWidth !== undefined) {
-            log.append(`<div class="logs">H:" + ${_total} +  D: + ${_damage} +  W: + ${_hitWidth} +  =  + (${_total} - ${_damage}) + </div>`);
+            log.prepend(`<div class="logs">H:" + ${_total} +  D: + ${_damage} +  W: + ${_hitWidth} +  =  + (${_total} - ${_damage}) + </div>`);
         } else {
-            log.append("<div>" + _total + "</div>");
+            log.prepend("<div>" + _total + "</div>");
         }
     };
 }
 
-function generarEnemigo(listadoEnemigos) {
-    enemigoRandom.innerHTML = ''
+function generarEnemigo(enemigo) {
 
+    // listadoEnemigos.forEach(enemigo => {
 
+        //  let power = Number(enemigo.powerstats.power);
+        //  let durability = Number(enemigo.powerstats.durability)
+        // let speed = Number(enemigo.powerstats.speed)
+        // let intelligence = Number(enemigo.powerstats.intelligence)
+        // let strength = Number(enemigo.powerstats.strength)
+        // let combat = Number(enemigo.powerstats.combat)
 
-    listadoEnemigos.forEach(enemigo => {
-        const html = `
-            <div class="enemigo" data-total="${enemigo.hp}" data-value="${enemigo.hp}">
-                <img src="${enemigo.imagen}" class="">
+        $("#enemigoRandom").append(`
+            <div class="enemigo" data-total="10000" data-value="10000">
+                <img src="${enemigo.thumbnail.path}.${enemigo.thumbnail.extension}" class="imgEnemigo">
 
                 <div class="info-card">
-                    <h4>${enemigo.nombre}</h4>
-                    <p class="precio">${enemigo.daño}</p>
-                    <p data-id="${enemigo.id}">nivel de dificultad ${enemigo.id}  </p>
+
+                    <h4 class="h4Enemigo">${enemigo.name}</h4>
+                    
+                    <ul class="ulEnemigo">
+                    <p class="pEnemigo">Estadísticas:</p>
+                    
+                    <li>Hp: 10000</li>
+                    <li>Daño: 10000</li>
+                    <li>Nivel de dificultad: 10000</li>
+
+                    </ul>
+   
                 </div>
             </div>
-        `
+        `)
+        // $("#enemigoRandom").append(`
+        //     <div class="enemigo" data-total="${durability * intelligence}" data-value="${durability * intelligence}">
+        //         <img src="${enemigo.images.sm}" class="imgEnemigo">
 
-        enemigoRandom.innerHTML += html
+        //         <div class="info-card">
 
-    })
-    enemigoFunciones()
-    $(".health-bar").fadeIn("slow")
-    $("#empezar").hide()
-    $("#botonCambiar").hide()
+        //             <h4 class="h4Enemigo">${enemigo.name}</h4>
+                    
+        //             <ul class="ulEnemigo">
+        //             <p class="pEnemigo">Estadísticas:</p>
+                    
+        //             <li>Hp: ${durability * intelligence}</li>
+        //             <li>Daño: ${combat * power}</li>
+        //             <li>Nivel de dificultad: ${power + durability + speed + intelligence + strength + combat}</li>
+
+        //             </ul>
+   
+        //         </div>
+        //     </div>
+        // `)
+    //  }
+//    )
+
+
+    $(".health-bar").fadeIn(500)
+        .fadeOut(500)
+        .fadeIn(500)
+        .fadeOut(500)
+        .fadeIn(1000);
+    $("#empezar").hide();
+    $("#botonCambiar").hide();
+    $(".enemigoYBarra").fadeIn(500)
+        .fadeOut(500)
+        .fadeIn(500)
+        .fadeOut(500)
+        .fadeIn(1000);
+
 }
