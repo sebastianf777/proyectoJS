@@ -67,7 +67,9 @@ h2 {
 .espacioClass {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin: 20px;
+    background-color: darkblue;
 }
 
 .divE {
@@ -77,11 +79,18 @@ h2 {
     cursor: pointer;
 }
 
-.heroAvatar{
+.heroAvatar {
     width: 150px;
     height: 150px;
     margin-left: 10px;
 }
+
+#espacioAvatars {
+    width: fit-content;
+    padding: 10px 10px 5px 0;
+    margin: 0 auto;
+}
+
 /* BOTON 6 */
 
 /* ANIMACION SPINNER */
@@ -128,22 +137,26 @@ h2 {
     width: 170px;
     display: flex;
     flex-direction: row;
-    height: 500px;
+    height: fit-content;
     flex-wrap: wrap;
     background-color: var(--purple);
+    padding: 20px 0;
 
 }
 
 .itemS {
     cursor: pointer;
     margin: 10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .imgItemS {
     object-fit: contain;
     object-position: center;
     width: 70px;
-    height: 70px;
+    margin: 0 15px;
 }
 
 .info-card {
@@ -157,10 +170,35 @@ h2 {
 
 }
 
-.opcionesBoton6 {
+.poderesAElegir {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 20px auto;
+    padding: 10px;
+    width: fit-content;
+}
+.poderesAElegir::after{
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%),
+            hsl(269, 85%, 66%),
+            hsl(314, 85%, 66%),
+            hsl(359, 85%, 66%),
+            hsl(44, 85%, 66%),
+            hsl(89, 85%, 66%),
+            hsl(134, 85%, 66%),
+            hsl(179, 85%, 66%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
 }
 
 .toggleD {
@@ -231,7 +269,7 @@ h2 {
 }
 
 .enemigoYBarra {
-    margin: 20px 20px 20px 5px;
+    margin: 20px 20px 20px 0px;
 }
 
 .imgEnemigo {
@@ -239,9 +277,10 @@ h2 {
 }
 
 
-.ulEnemigo li{
+.ulEnemigo li {
     list-style: none;
 }
+
 /* LOG DE LOS DAÑOS AL ENEMIGO */
 
 .h4Enemigo,
@@ -250,9 +289,20 @@ h2 {
 }
 
 .log {
+    width: 600px;
     height: 350px;
     margin: 20px 0;
     padding: 0 25px;
+}
+
+.logs {
+    width: 100%;
+}
+
+.enemigoDañado {
+
+    color: red;
+    min-width: 100px;
 }
 
 /* BORDEs ANIMADOs */
@@ -275,6 +325,29 @@ h2 {
     50% {
         background-position: 100% 50%;
     }
+}
+
+.espacioClass::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%),
+            hsl(269, 85%, 66%),
+            hsl(314, 85%, 66%),
+            hsl(359, 85%, 66%),
+            hsl(44, 85%, 66%),
+            hsl(89, 85%, 66%),
+            hsl(134, 85%, 66%),
+            hsl(179, 85%, 66%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
 }
 
 .gradientLogs {
@@ -351,7 +424,34 @@ h2 {
     animation: moveGradient 4s alternate infinite;
 }
 
-.botonRojoContainer::after{
+.botonRojoContainer::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(60deg,
+            hsl(29, 100%, 48%),
+            hsl(69, 98%, 49%),
+            hsl(2, 96%, 57%),
+            hsl(9, 100%, 57%));
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+}
+
+#puntuacionYResultados {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: darkblue;
+    margin: 20px;
+}
+
+#puntuacionYResultados::after {
     position: absolute;
     content: "";
     top: calc(-1 * var(--border-width));
@@ -376,6 +476,6 @@ h2 {
     }
 }
 
-.imgAvatar{
+.imgAvatar {
     width: 150px;
 }

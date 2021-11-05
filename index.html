@@ -23,7 +23,7 @@
 
 
     <!-- ESPACIO PARA ELEGIR ARMAS -->
-    <section id="opciones" class="toggleD opcionesBoton6 ">
+    <section id="opciones" class="toggleD poderesAElegir gradientBorder ">
     </section>
 
     <!-- ESPACIO PARA GENERAR ENEMIGO -->
@@ -40,6 +40,7 @@
             </div>
         </div>
         <div class="log gradientBorder gradientLogs">
+            <h3>Descubre que arma es efectiva contra tu enemigo!</h3>
         </div>
         <div>
             <div class="options2">
@@ -52,7 +53,13 @@
                             Elige tu avatar +_+!
                         </button>
                     </div>
-                    <div id="botonACrear">
+                    <div id="puntuacionYResultados" class="gradientBorder">
+                        <div id="puntuacion">
+                            <h4>Puntuacion:</h4>
+                        </div>
+                        <div id="resultados">
+                            <h4>Resultados:</h4>
+                        </div>
                     </div>
                 </div>
    
@@ -60,6 +67,11 @@
                     <div>
                         <button class="boton" onclick="botonPurpura()" id="o6">
                             Juega
+                        </button>
+                    </div>
+                    <div>
+                        <button id="next">
+                            Next
                         </button>
                     </div>
                     <div id="listaItemsElegidos">
@@ -75,21 +87,23 @@
     </section>
 
     <!-- ESPACIO PARA ELEGIR AVATAR -->
-    <section id="espacioAvatars" class="espacioClass">
+    <section id="espacioAvatars" class="espacioClass gradientBorder">
     </section>
 
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
     <script src="js/index.js"></script>
+    
     <script src="js/fetch.js"></script>
-
+    <script src="js/cargarPrimero.js"></script>
     <script src="js/botonRojo.js"></script>
-    <script src="js/armas.js"></script>
+    <script src="js/poderes.js"></script>
     <script src="js/enemigos.js"></script>
-
     <script src="js/botonPurpura.js"></script>
+
 
 
 </body>
