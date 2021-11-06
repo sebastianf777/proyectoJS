@@ -1,54 +1,40 @@
-const opciones = document.getElementById("opciones")
-const botonJuega = document.getElementById("o6")
-const listaItems = document.querySelector("#opciones")
-const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
-const botonCambiar = document.getElementById("botonCambiar")
-const randIndex = Math.floor(Math.random() * 6) + 1;
-const enemigoRandom = document.getElementById("enemigoRandom")
-const random = (enemigo) => enemigo.id == 20;
-enemigo = enemigos.filter(random)
-
-
-botonCambiar.addEventListener("click", vaciarLista)
-listaItems.addEventListener('click', agregarItem);
-
-
-
+// const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
+// const randIndex = Math.floor(Math.random() * 6) + 1;
+// const enemigoRandom = document.getElementById("enemigoRandom")
+// const random = (enemigo) => enemigo.id == 20;
+// enemigo = enemigos.filter(random)
+$("#botonCambiar").on("click", vaciarLista)
+$("#poderes").on('click', agregarItem);
 
 let itemsElegidos;
 
-
-
-
-
 //CREACION DEL BOTON EMPEZAR
-const empezarB = () => {
-    itemsElegidos.length == 3 ? $(".botonPurpuraContainer").prepend(`<div><button id="empezar">Empezar</button></div>`) : $(".botonPurpuraContainer").prepend(`<div><button id="empezar" class="toggleD">Empezar</button></div>`)
+const crearBotonEmpezar = () => {
+    itemsElegidos.length == 3 ? $(".botonPurpuraContainer").prepend(`<div class="wrap"><button class="button" id="empezar">Empezar</button></div>`) :
+        ($(".botonPurpuraContainer").prepend(`<div class="wrap"><button class="button" id="empezar" class="toggleD">Empezar</button></div>`), $("#empezar").hide() )
 }
 
-///////////////////////////////////////////////////////////////
-//CAMBIAR EMPEZAR SI APARECE O NO
+//FUNCION PARA MOSTRAR O NO EL BOTON EMPEZAR DEPENDIENDO SI HAY 3 PODERES ELEGIDOS
+
 const cambiarEmpezar = () => {
     itemsElegidos.length == 3 ? $("#empezar").show() : null
 }
-const cambiarEmpezar2 = () => {
-    $("#empezar").hide()
-}
 
-
-
-
+//FUNCION PARA GUARDAR EN STORAGE
 
 function actualizarStorage() {
 
     localStorage.setItem('itemsElegidos', JSON.stringify(itemsElegidos));
 }
 
+//FUNCION PARA RENDERIZAR PODERES A ELEGIR
+
 function renderProducts(listadoOpciones) {
-    opciones.innerHTML = ''
+    // $("#poderes").innerHTML = ''
 
     listadoOpciones.forEach(producto => {
-        const html = `
+        // const html = 
+        $("#poderes").append(`
             <div class="x">
                 <img src="${producto.imagen}" class="imgItemS">
 
@@ -58,15 +44,19 @@ function renderProducts(listadoOpciones) {
                     <a href="#" class="agregar-item" data-id="${producto.id}">Elegir</a>
                 </div>
             </div>
-        `
+        `)
         // listaProductos.innerHTML = listaProductos.innerHTML + html;
-        opciones.innerHTML += html;
+        // $("#poderes").innerHTML += html;
+        // $("#poderes").html(html);
+
     });
 }
 
-function actualizarLista() {
-    listaItemsElegidos.innerHTML = '';
+//FUNCION PARA CARGAR DEL ITEMSELEGIDOS DEL STORAGE O DE LA SESION EN CURSO
 
+function actualizarLista() {
+    // listaItemsElegidos.innerHTML = '';
+    $('#listaItemsElegidos').empty()
     itemsElegidos.forEach(item => {
         const {
             imagen,
@@ -74,8 +64,8 @@ function actualizarLista() {
             daño,
             id
         } = item;
+        let dañoRandom = Math.floor(Math.random() * 100) * daño;
 
-        let dañoRandom = Math.floor(Math.random() * 100) * daño; 
 
         $('#listaItemsElegidos')
             .append(`
@@ -89,12 +79,13 @@ function actualizarLista() {
               `);
     });
     if (itemsElegidos.length > 2) {
-        botonJuega.classList.add("toggleD")
-
+        $("#botonJuega").hide()
         $(".poderesAElegir").hide()
 
     }
 }
+
+//FUNCION PARA AGREGAR PODERES EN EL BOTON PURPURA
 
 function agregarItem(e) {
     e.preventDefault();
@@ -128,6 +119,8 @@ function agregarItem(e) {
     }
 }
 
+//FUNCION PARA VACIAR PODERES DEL BOTON PURPURA Y DEL STORAGE
+
 function vaciarLista(e) {
     e.preventDefault();
 
@@ -135,20 +128,18 @@ function vaciarLista(e) {
 
     actualizarLista();
     actualizarStorage();
-    cambiarEmpezar2()
-    opciones.classList.replace("toggleD", "toggleS")
+    $("#empezar").hide()
+    $(".poderesAElegir").show();
 }
 
 
 const botonPurpura = () => {
 
-    renderProducts(poderes);
+    // renderProducts(poderes);
     $("#botonCambiar").show()
-    opciones.classList.replace("toggleD", "toggleS")
-    botonJuega.classList.add("toggleD")
-    const tituloH2 = document.createElement("h2")
-    tituloH2.textContent = "Elige 3 poderes"
-    opciones.appendChild(tituloH2)
+    $("poderesAElegir").show()
+    $("#botonJuega").hide()
+
 
 }
 
@@ -164,14 +155,14 @@ const enemigoFunciones = () => {
     hitBtn.on("click", function (e) {
         $(".enemigoYBarra").fadeOut(200)
         $(".enemigoYBarra").fadeIn(200)
-            enemigoStats = $(".enemigo")
+        enemigoStats = $(".enemigo")
 
-            if (e.target.parentElement.dataset.daño == undefined) {
-                $(".log").append(`<div>Haz clic en el arma!</div>`)
-            } else if (enemigoStats.data('value') < 0) {
-                log("victoria!, enemigo derrotado!");
-                $("#next").show()
-            } else {
+        if (e.target.parentElement.dataset.daño == undefined) {
+            $(".log").append(`<div>Haz clic en el arma!</div>`)
+        } else if (enemigoStats.data('value') < 0) {
+            log("victoria!, enemigo derrotado!");
+            $("#next").show()
+        } else {
             const statElegido = Number(e.target.parentElement.dataset.daño)
             // let statElegido = Number(e.target)                                                                     
 
@@ -203,7 +194,7 @@ const enemigoFunciones = () => {
             //bar.css('width', total - value);
 
             log(value, damage, hitWidth);
-           
+
         }
 
     });
@@ -211,22 +202,22 @@ const enemigoFunciones = () => {
 
 
 
-function log(_total, _damage, _hitWidth) {
-    let log = $('.log');
+    function log(_total, _damage, _hitWidth) {
+        let log = $('.log');
 
-    if (_damage !== undefined && _hitWidth !== undefined && _total >= _total * 1 / 100) {
-        log.prepend(`<div class="logs">Enemigo Hp ${_total}: <span class="enemigoDañado"> - ${_damage}</span></div>`);
-        setTimeout(() => {
-            log.children().last().remove();
-        }, 500);
-    } else {
-        log.prepend(`<div class="enemigoDañado"> ${_total} Haz click en "NEXT" para continuar  </div>`);
-    }
-};
+        if (_damage !== undefined && _hitWidth !== undefined && _total >= _total * 1 / 100) {
+            log.prepend(`<div class="logs">Enemigo Hp ${_total}: <span class="enemigoDañado"> - ${_damage}</span></div>`);
+            setTimeout(() => {
+                log.children().last().remove();
+            }, 500);
+        } else {
+            log.prepend(`<div class="enemigoDañado"> ${_total} Haz click en "NEXT" para continuar  </div>`);
+        }
+    };
 }
 
 function generarEnemigo(enemigo) {
-    let hpEnemigo = Math.floor((Math.random() * 100) + 1) * 1000; 
+    let hpEnemigo = Math.floor((Math.random() * 100) + 1) * 1000;
 
     $("#enemigoRandom").append(`
             <div class="enemigo" data-total="${hpEnemigo}" data-value="${hpEnemigo}">

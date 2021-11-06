@@ -3,15 +3,14 @@ const urlAPI = "https://gateway.marvel.com:443/v1/public/characters?ts=1&limit=1
 fetch(urlAPI)
     .then(res => res.json())
     .then(json => {
-        console.log(json.data)
+
         let dataMarvel = json.data.results.filter(data => data.thumbnail.path.includes("image_not_available") == false)
         let enemigosDerrotados = 0;
+
         function numeroR() {
             nRandom = Math.floor(Math.random() * (dataMarvel.length - 1))
             return nRandom
         }
-        console.log(dataMarvel)
-        console.log("arriba es datamarvel")
 
         numeroR()
 
@@ -20,8 +19,8 @@ fetch(urlAPI)
             numeroR()
             let listaAvatars = dataMarvel.slice(nRandom, (nRandom + 5))
 
-            console.log(nRandom)
-            console.log(listaAvatars)
+            // console.log(nRandom)
+            // console.log(listaAvatars)
 
 
             renderAvatars(listaAvatars)
@@ -37,29 +36,54 @@ fetch(urlAPI)
         })
 
         $("#empezar").click(function () {
+            if (enemigosDerrotados > 0) {
+                initTimer("00:30");
+                let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
+                enemigosDerrotados = 0
+                $("#resultados").empty()
+                $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
+                function empezarDeNuevo() {
+                    $(".health-bar").hide()
+                    $('.log').empty()
+                    $(".enemigo").data('value', $(".enemigo").data('total'));
+                    $('.health-bar').find('.hit').css({
+                        'width': '0'
+                    });
+                    $('.health-bar').find('.bar').css('width', '100%');
 
+                    generarEnemigo(dataFiltrada)
+                }
+                empezarDeNuevo()
+                // $("#listaItemsElegidos").empty()
 
-            let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
-            console.log(dataFiltrada)
+                // $("#listaItemsElegidos").show()
 
-            $(".enemigoYBarra").css({
-                "margin": "20px 20px 20px 40px"
-            })
+            } else {
+                initTimer("00:30");
+                $("#listaItemsElegidos").show()
 
-            generarEnemigo(dataFiltrada)
-             enemigoFunciones()
-            $(".log").show()
+                let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
+                console.log(dataFiltrada)
+
+                $(".enemigoYBarra").css({
+                    "margin": "20px 20px 20px 40px"
+                })
+                enemigoFunciones()
+
+               generarEnemigo(dataFiltrada)
+                $(".log").show()
+            }
 
         })
         $("#next").click(function () {
             // function reset () {
             if ($(".bar").width() <= 0) {
                 enemigosDerrotados++;
-        $("#resultados").empty()
-        $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
+                $("#resultados").empty()
+                $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
 
                 console.log(enemigosDerrotados)
-            // enemigoFunciones()
+                // enemigoFunciones()
 
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
 
@@ -75,7 +99,8 @@ fetch(urlAPI)
                         'width': '0'
                     });
                     $('.health-bar').find('.bar').css('width', '100%');
-                 
+                    actualizarLista();
+
                     generarEnemigo(dataFiltrada)
                     $("#next").hide()
                 }, 2000);
