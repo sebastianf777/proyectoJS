@@ -133,6 +133,10 @@ h2 {
 
 /* CSS RESTO DEL BOTON PURPURA */
 
+.agregar-item{
+  cursor: pointer;
+}
+
 .botonPurpuraContainer {
     width: 170px;
     display: flex;
@@ -308,7 +312,7 @@ h2 {
 /* BORDEs ANIMADOs */
 
 .gradientBorder {
-    --border-width: 3px;
+    --border-width: 7px;
 
     position: relative;
     display: flex;

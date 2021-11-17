@@ -79,6 +79,7 @@ fetch(urlAPI)
             // function reset () {
             if ($(".bar").width() <= 0) {
                 enemigosDerrotados++;
+                $(".gradientEnemy").css("background", "#222")
                 $("#resultados").empty()
                 $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
 

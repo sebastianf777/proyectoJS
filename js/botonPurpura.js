@@ -1,8 +1,3 @@
-// const listaItemsElegidos = document.querySelector('#listaItemsElegidos');
-// const randIndex = Math.floor(Math.random() * 6) + 1;
-// const enemigoRandom = document.getElementById("enemigoRandom")
-// const random = (enemigo) => enemigo.id == 20;
-// enemigo = enemigos.filter(random)
 $("#botonCambiar").on("click", vaciarLista)
 $("#poderes").on('click', agregarItem);
 
@@ -11,7 +6,7 @@ let itemsElegidos;
 //CREACION DEL BOTON EMPEZAR
 const crearBotonEmpezar = () => {
     itemsElegidos.length == 3 ? $(".botonPurpuraContainer").prepend(`<div class="wrap"><button class="button" id="empezar">Empezar</button></div>`) :
-        ($(".botonPurpuraContainer").prepend(`<div class="wrap"><button class="button" id="empezar" class="toggleD">Empezar</button></div>`), $("#empezar").hide() )
+        ($(".botonPurpuraContainer").prepend(`<div class="wrap"><button class="button" id="empezar" class="toggleD">Empezar</button></div>`), $("#empezar").hide())
 }
 
 //FUNCION PARA MOSTRAR O NO EL BOTON EMPEZAR DEPENDIENDO SI HAY 3 PODERES ELEGIDOS
@@ -35,19 +30,19 @@ function renderProducts(listadoOpciones) {
     listadoOpciones.forEach(producto => {
         // const html = 
         $("#poderes").append(`
-            <div class="x">
-                <img src="${producto.imagen}" class="imgItemS">
+            <div>
+                
 
                 <div class="x">
+                <img src="${producto.imagen}" class="imgItemS agregar-item">
+
                     <h4>${producto.nombre}</h4>
                     <p class="x"data-daño="${producto.daño}">Daño base:${producto.daño} x1</p>
-                    <a href="#" class="agregar-item" data-id="${producto.id}">Elegir</a>
+                    <h5 data-id="${producto.id}">Id = ${producto.id}</h5>
+                    <h6 data-type="${producto.type}"> Daño tipo:${producto.type}</h6>
                 </div>
             </div>
         `)
-        // listaProductos.innerHTML = listaProductos.innerHTML + html;
-        // $("#poderes").innerHTML += html;
-        // $("#poderes").html(html);
 
     });
 }
@@ -61,6 +56,7 @@ function actualizarLista() {
         const {
             imagen,
             nombre,
+            type,
             daño,
             id
         } = item;
@@ -69,7 +65,7 @@ function actualizarLista() {
 
         $('#listaItemsElegidos')
             .append(`
-              <div id="${id}" data-daño="${dañoRandom}" class="itemS">
+              <div id="${id}" data-daño="${dañoRandom}" data-type="${type}" class="itemS">
                       <img src="${imagen}" class="imgItemS">
       
                       <div class="x">
@@ -99,7 +95,9 @@ function agregarItem(e) {
                 imagen: itemElegido.querySelector('img').src,
                 nombre: itemElegido.querySelector('h4').textContent,
                 daño: itemElegido.querySelector('p').dataset.daño,
-                id: itemElegido.querySelector('a').dataset.id
+                id: itemElegido.querySelector('h5').dataset.id,
+                type: itemElegido.querySelector('h6').dataset.type
+
             }
 
             //termina if
@@ -151,6 +149,7 @@ const enemigoFunciones = () => {
         bar = hBar.find('.bar');
     let hit = hBar.find('.hit')
     let enemigoStats
+    // const types = ["earth", "fire", "energy", "electricity", "water", "poison"]
 
     hitBtn.on("click", function (e) {
         $(".enemigoYBarra").fadeOut(200)
@@ -164,7 +163,8 @@ const enemigoFunciones = () => {
             $("#next").show()
         } else {
             const statElegido = Number(e.target.parentElement.dataset.daño)
-            // let statElegido = Number(e.target)                                                                     
+            const tipoDePoder = e.target.parentElement.dataset.type
+            // el stat elegido del poder a usar y el tipo                                                                    
 
             const total = enemigoStats.data('total'),
                 value = enemigoStats.data('value');
@@ -178,11 +178,15 @@ const enemigoFunciones = () => {
             // calculate the percentage of the total width
             const barWidth = (newValue / total) * 100;
             const hitWidth = (damage / value) * 100 + "%";
+            console.log(barWidth)
+            console.log(hitWidth)
+
 
             // show hit bar and set the width
             hit.css('width', hitWidth);
             enemigoStats.data('value', newValue);
-
+            let i = 0
+            i = Math.ceil(barWidth);
             setTimeout(function () {
                 // console.log(e.target.parentElement.dataset.daño)
                 hit.css({
@@ -190,10 +194,46 @@ const enemigoFunciones = () => {
                 });
                 bar.css('width', barWidth + "%");
 
+
+                switch (tipoDePoder) {
+
+                    case "poison":
+                        i++
+
+                        console.log(i);
+                        let poison = "hue-rotate(" + i + "deg)"
+
+                        return $(".imgEnemigo").css("filter", poison)
+                            .css("border", "2px solid green")
+
+
+                        break;
+                    case "fire":
+                        let fire = "opacity( 0."+(i)+")"
+
+                        return $(".imgEnemigo").css("filter", fire)
+                                               .css("border", "2px solid red"),
+                                $(".gradientEnemy") .css("background", "url(./img/fireGif.gif)")
+
+                        break;
+                    case "water":
+                        return $(".imgEnemigo").css("filter", "blur(2px)")
+                        break;
+                    case "electricity":
+                        return $(".imgEnemigo").css("filter", "blur(2px)")
+                        break;
+                    case "energy":
+                        return $(".imgEnemigo").css("filter", "blur(2px)")
+                        break;
+                    default:
+                        break;
+                }
             }, 500);
             //bar.css('width', total - value);
 
             log(value, damage, hitWidth);
+
+
 
         }
 
@@ -243,15 +283,12 @@ function generarEnemigo(enemigo) {
 
     $(".health-bar").fadeIn(500)
         .fadeOut(500)
-        .fadeIn(500)
-        .fadeOut(500)
+
         .fadeIn(1000);
     $("#empezar").hide();
     $("#botonCambiar").hide();
-    $(".enemigoYBarra").fadeIn(500)
-        .fadeOut(500)
-        .fadeIn(500)
-        .fadeOut(500)
-        .fadeIn(1000);
+    $(".enemigoYBarra").fadeIn(100)
+        .fadeOut(100)
+        .fadeIn(100);
 
 }
