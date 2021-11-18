@@ -1,11 +1,11 @@
 const urlAPI = "https://gateway.marvel.com:443/v1/public/characters?ts=1&limit=100&apikey=3941cce6bcf01110d3c19f39e662bffc&hash=ffbd7e41ef8d1adac6c011225ed3ddee"
+let enemigosDerrotados = 0;
 
 fetch(urlAPI)
     .then(res => res.json())
     .then(json => {
 
         let dataMarvel = json.data.results.filter(data => data.thumbnail.path.includes("image_not_available") == false)
-        let enemigosDerrotados = 0;
 
         function numeroR() {
             nRandom = Math.floor(Math.random() * (dataMarvel.length - 1))
@@ -59,7 +59,7 @@ fetch(urlAPI)
                 // $("#listaItemsElegidos").show()
 
             } else {
-                initTimer("00:30");
+                initTimer("01:30");
                 $("#listaItemsElegidos").show()
 
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
@@ -77,7 +77,9 @@ fetch(urlAPI)
         })
         $("#next").click(function () {
             // function reset () {
-            if ($(".bar").width() <= 0) {
+                $("#next").hide()
+                $("#listaItemsElegidos").hide()
+            // if ($(".bar").width() <= 0) {
                 enemigosDerrotados++;
                 $(".gradientEnemy").css("background", "#222")
                 $("#resultados").empty()
@@ -100,12 +102,11 @@ fetch(urlAPI)
                         'width': '0'
                     });
                     $('.health-bar').find('.bar').css('width', '100%');
-                    actualizarLista();
-
+                    // actualizarLista();
                     generarEnemigo(dataFiltrada)
-                    $("#next").hide()
+                    $("#listaItemsElegidos").show()
                 }, 2000);
-            }
+            // }
         })
         $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
 

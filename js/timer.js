@@ -79,9 +79,11 @@ function initTimer (t) {
 
 }
 function countdownFinished() {
+   $("#listaItemsElegidos").empty()
+
     setTimeout(function () {
         $("#next").hide()
-
+        $(".gradientEnemy").css("background", "#222")
         $(".log").empty()
         $(".log").append(`<div>Buen intento! Mientras mayor sea la puntuación, tendrás más poderes disponibles! </div>`)
         $("#enemigoRandom").empty()

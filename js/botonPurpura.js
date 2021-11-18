@@ -33,7 +33,7 @@ function renderProducts(listadoOpciones) {
             <div>
                 
 
-                <div class="x">
+                <div class="grupo${producto.grupo}">
                 <img src="${producto.imagen}" class="imgItemS agregar-item">
 
                     <h4>${producto.nombre}</h4>
@@ -121,11 +121,11 @@ function agregarItem(e) {
 
 function vaciarLista(e) {
     e.preventDefault();
-
+    enemigosDerrotados < 10 ? $(".grupo2").hide() : $(".grupo2").show();
     itemsElegidos = [];
-
     actualizarLista();
     actualizarStorage();
+
     $("#empezar").hide()
     $(".poderesAElegir").show();
 }
@@ -152,8 +152,8 @@ const enemigoFunciones = () => {
     // const types = ["earth", "fire", "energy", "electricity", "water", "poison"]
 
     hitBtn.on("click", function (e) {
-        $(".enemigoYBarra").fadeOut(200)
-        $(".enemigoYBarra").fadeIn(200)
+        // $(".enemigoYBarra").fadeOut(200)
+        // $(".enemigoYBarra").fadeIn(200)
         enemigoStats = $(".enemigo")
 
         if (e.target.parentElement.dataset.daño == undefined) {
@@ -201,29 +201,51 @@ const enemigoFunciones = () => {
                         i++
 
                         console.log(i);
-                        let poison = "hue-rotate(" + i + "deg)"
+                        let poisonEffect = "opacity( 0." + (i) + ")"
+                        let poisonEffect2 = "hue-rotate(" + i + "deg)"
 
-                        return $(".imgEnemigo").css("filter", poison)
-                            .css("border", "2px solid green")
+                        return $(".imgEnemigo").css("filter", poisonEffect + poisonEffect2)
+                                              
+                                               .css("border", "2px solid green"),
+                            $(".gradientEnemy").css("background", "url(./img/poisonGif.gif)")
 
 
                         break;
                     case "fire":
-                        let fire = "opacity( 0."+(i)+")"
+                        let fire = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", fire)
                                                .css("border", "2px solid red"),
-                                $(".gradientEnemy") .css("background", "url(./img/fireGif.gif)")
+                            $(".gradientEnemy").css("background", "url(./img/magicFire.webp)")
 
                         break;
                     case "water":
-                        return $(".imgEnemigo").css("filter", "blur(2px)")
-                        break;
+                        let water = "opacity( 0." + (i) + ")"
+                        return $(".imgEnemigo").css("filter", water)
+                                               .css("border", "2px solid red"),
+                            $(".gradientEnemy").css("background", "url(./img/waterGif.gif)")
+
+                            break;
                     case "electricity":
-                        return $(".imgEnemigo").css("filter", "blur(2px)")
+                        let electricity = "opacity( 0." + (i) + ")"
+
+                        return $(".imgEnemigo").css("filter", electricity)
+                                               .css("border", "2px solid yellow"),
+                            $(".gradientEnemy").css("background", "url(./img/sparkEffect.webp)")
                         break;
                     case "energy":
-                        return $(".imgEnemigo").css("filter", "blur(2px)")
+                        let energy = "opacity( 0." + (i) + ")"
+
+                        return $(".imgEnemigo").css("filter", energy)
+                                               .css("border", "2px solid white"),
+                            $(".gradientEnemy").css("background", "url(./img/energyEffect.gif)")
+                        break;
+                        case "earth":
+                        let earth = "opacity( 0." + (i) + ")"
+
+                        return $(".imgEnemigo").css("filter", earth)
+                                               .css("border", "2px solid brown"),
+                            $(".gradientEnemy").css("background", "url(./img/earthEffect.webp)")
                         break;
                     default:
                         break;

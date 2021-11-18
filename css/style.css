@@ -3,21 +3,12 @@
     padding: 0;
 }
 
-:root {
-    --red: red;
-    --blue: blue;
-    --yellow: yellow;
-    --green: green;
-    --orange: orange;
-    --purple: purple;
-}
-
 nav {
     display: flex;
     justify-content: center;
     width: 100%;
     height: 50px;
-    background-color: var(--red);
+    background-color: red;
 }
 
 h1 {
@@ -43,8 +34,7 @@ h2 {
     margin: 20px 0;
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    height: 150px;
+height: 900px;
 }
 
 .boton,
@@ -59,8 +49,10 @@ h2 {
 /* BOTON ROJO */
 
 .botonRojoContainer {
-    background-color: var(--red);
+    background-color: rgb(255, 123, 0);
     margin: 0 20px;
+    height: 150px;
+
 
 }
 
@@ -143,7 +135,7 @@ h2 {
     flex-direction: row;
     height: fit-content;
     flex-wrap: wrap;
-    background-color: var(--purple);
+    background-color: rgb(138, 66, 138);
     padding: 20px 0;
 
 }
@@ -161,6 +153,13 @@ h2 {
     object-position: center;
     width: 70px;
     margin: 0 15px;
+    box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
+
+}
+
+.itemS div h4{
+  text-align: center;
+margin-top: 5px;
 }
 
 .info-card {
@@ -274,6 +273,7 @@ h2 {
 
 .enemigoYBarra {
     margin: 20px 20px 20px 0px;
+    height: 400px;
 }
 
 .imgEnemigo {
@@ -588,12 +588,12 @@ h2 {
 
 
 
-.wrap {
-    height: 100%;
+/* .wrap {
+
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
   
   .button {
     min-width: 30px;
@@ -603,12 +603,12 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 1.3px;
     font-weight: 700;
-    color: #313133;
-    background: #4FD1C5;
-  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    color: rgb(182, 166, 219);
+
+  background: linear-gradient(90deg, rgb(196, 1, 255) 0%, rgb(65, 1, 107) 100%);
     border: none;
     border-radius: 100px;
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
     transition: all 0.3s ease-in-out 0s;
     cursor: pointer;
     outline: none;
@@ -621,21 +621,26 @@ h2 {
     border-radius: 100px;
     min-width: calc(100% + 12px);
     min-height: calc(100% + 12px);
-    border: 6px solid #00FFCB;
-    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    border: 6px solid #ad03fc;
+    box-shadow: 0 0 60px rgba(234, 236, 236, 0.64);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: all .3s ease-in-out 0s;
+
   }
   
+
+
   .button:hover, .button:focus {
-    color: #313133;
+    color: #e4dceb;
     transform: translateY(-6px);
   }
   
+
+
   button:hover::before, button:focus::before {
     opacity: 1;
   }
@@ -644,7 +649,7 @@ h2 {
     content: '';
     width: 30px; height: 30px;
     border-radius: 100%;
-    border: 6px solid #00FFCB;
+    border: 6px solid #ae03fd;
     position: absolute;
     z-index: -1;
     top: 50%;
@@ -652,7 +657,22 @@ h2 {
     transform: translate(-50%, -50%);
     animation: ring 1.5s infinite;
   }
-  
+
+  #botonRojo{
+    background: linear-gradient(90deg, rgb(251, 12, 12) 0%, rgb(255, 8, 0) 100%);;
+    box-shadow: 12px 12px 24px rgba(255, 251, 1, 0.801);
+    color: yellow;
+    margin: 0 20px;
+  }
+
+  #botonRojo::after{
+    border: 6px solid #f81403;
+
+  }
+  #botonRojo::before{
+    border: 6px solid #f81403;
+
+  }
   button:hover::after, button:focus::after {
     animation: none;
     display: none;
