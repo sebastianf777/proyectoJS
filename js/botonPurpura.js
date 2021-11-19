@@ -134,9 +134,10 @@ function vaciarLista(e) {
 const botonPurpura = () => {
 
     // renderProducts(poderes);
-    $("#botonCambiar").show()
-    $("poderesAElegir").show()
-    $("#botonJuega").hide()
+    $("#enemigoRandom").empty();
+    $("#botonCambiar").show();
+    $("poderesAElegir").show();
+    $("#botonJuega").hide();
 
 
 }

@@ -39,7 +39,7 @@ fetch(urlAPI)
             if (enemigosDerrotados > 0) {
                 initTimer("00:30");
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
-                enemigosDerrotados = 0
+                // enemigosDerrotados = 0
                 $("#resultados").empty()
                 $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
                 function empezarDeNuevo() {

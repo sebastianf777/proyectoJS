@@ -1,86 +1,133 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
-    background-color: red;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  background-color: red;
 }
 
 h1 {
-    margin-top: 5px;
-    margin-left: 20px;
-    font-size: xx-large;
+  margin-top: 5px;
+  margin-left: 20px;
+  font-size: xx-large;
 }
+
+/* BIENVENIDA */
+
+#bienvenida {
+  margin: 20px 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#bienvenida h2 {
+  margin: 20px;
+  width: 90%;
+}
+
+.bienvenidaClass {
+  background-color: green;
+  font-size: 13px;
+}
+
+.bienvenidaClass::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+.imgBienvenida, .imgBienvenida2{
+  cursor: pointer;
+}
+
 
 /* ARTICLE */
 
 article {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 h2 {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 
 
 .options2 {
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-around;
-height: 900px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  height: 900px;
 }
 
 .boton,
 #botonCambiar,
 #empezar {
-    width: 100px;
-    height: fit-content;
-    border-radius: 50px;
-    margin: 10px;
+  width: 100px;
+  height: fit-content;
+  border-radius: 50px;
+  margin: 10px;
 }
 
 /* BOTON ROJO */
 
 .botonRojoContainer {
-    background-color: rgb(255, 123, 0);
-    margin: 0 20px;
-    height: 150px;
+  background-color: rgb(255, 123, 0);
+  margin: 0 20px;
+  height: 150px;
 
 
 }
 
 .espacioClass {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 20px;
-    background-color: darkblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px;
+  background-color: darkblue;
 }
 
 .divE {
-    width: 33%;
-    height: 150px;
-    margin: 0 30px;
-    cursor: pointer;
+  width: 33%;
+  height: 150px;
+  margin: 0 30px;
+  cursor: pointer;
 }
 
 .heroAvatar {
-    width: 150px;
-    height: 150px;
-    margin-left: 10px;
+  width: 150px;
+  height: 150px;
+  margin-left: 10px;
 }
 
 #espacioAvatars {
-    width: fit-content;
-    padding: 10px 10px 5px 0;
-    margin: 0 auto;
+  width: fit-content;
+  padding: 10px 10px 5px 0;
+  margin: 0 auto;
 }
 
 /* BOTON 6 */
@@ -88,400 +135,401 @@ height: 900px;
 /* ANIMACION SPINNER */
 
 .lds-hourglass {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
 }
 
 .lds-hourglass:after {
-    content: " ";
-    display: block;
-    border-radius: 50%;
-    width: 0;
-    height: 0;
-    margin: 6px;
-    box-sizing: border-box;
-    border: 26px solid #cef;
-    border-color: #cef transparent #cef transparent;
-    animation: lds-hourglass 1.2s infinite;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid #cef;
+  border-color: #cef transparent #cef transparent;
+  animation: lds-hourglass 1.2s infinite;
 }
 
 @keyframes lds-hourglass {
-    0% {
-        transform: rotate(0);
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    }
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
 
-    50% {
-        transform: rotate(900deg);
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 
-    100% {
-        transform: rotate(1800deg);
-    }
+  100% {
+    transform: rotate(1800deg);
+  }
 }
 
 /* CSS RESTO DEL BOTON PURPURA */
 
-.agregar-item{
+.agregar-item {
   cursor: pointer;
 }
 
 .botonPurpuraContainer {
-    width: 170px;
-    display: flex;
-    flex-direction: row;
-    height: fit-content;
-    flex-wrap: wrap;
-    background-color: rgb(138, 66, 138);
-    padding: 20px 0;
+  width: 170px;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  flex-wrap: wrap;
+  background-color: rgb(138, 66, 138);
+  padding: 20px 0;
 
 }
 
 .itemS {
-    cursor: pointer;
-    margin: 10px;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+  cursor: pointer;
+  margin: 10px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .imgItemS {
-    object-fit: contain;
-    object-position: center;
-    width: 70px;
-    margin: 0 15px;
-    box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
+  object-fit: contain;
+  object-position: center;
+  width: 70px;
+  margin: 0 15px;
+  box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
 
 }
 
-.itemS div h4{
+.itemS div h4 {
   text-align: center;
-margin-top: 5px;
+  margin-top: 5px;
 }
 
 .info-card {
-    pointer-events: inherit;
+  pointer-events: inherit;
 }
 
 #listaItemsElegidos {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-around;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
 
 }
 
 .poderesAElegir {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 20px auto;
-    padding: 10px;
-    width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20px auto;
+  padding: 10px;
+  width: fit-content;
 }
-.poderesAElegir::after{
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg,
-            hsl(224, 85%, 66%),
-            hsl(269, 85%, 66%),
-            hsl(314, 85%, 66%),
-            hsl(359, 85%, 66%),
-            hsl(44, 85%, 66%),
-            hsl(89, 85%, 66%),
-            hsl(134, 85%, 66%),
-            hsl(179, 85%, 66%));
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+
+.poderesAElegir::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
 
 .toggleD {
-    display: none;
+  display: none;
 }
 
 .toggleS {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #enemigoRandom {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #enemigo {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 5px 0;
 }
 
 /* BARRA DE VIDA ENEMIGO */
 
 .health-bar {
-    margin: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 200px;
-    height: 20px;
-    padding: 5px;
-    background: #ddd;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    flex-basis: max-content;
-    flex-basis: -moz-available;
-    border-radius: 5px;
-    position: relative;
+  margin: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100px;
+  height: 20px;
+  padding: 5px;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  flex-basis: max-content;
+  flex-basis: -moz-available;
+  border-radius: 5px;
+  position: relative;
 }
 
 .bar {
-    background: #c54;
-    width: 100%;
-    height: 10px;
-    position: relative;
+  background: #c54;
+  width: 100%;
+  height: 10px;
+  position: relative;
 
-    transition: width .5s linear;
+  transition: width .5s linear;
 }
 
 .hit {
-    background: rgba(255, 255, 255, 0.6);
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 0px;
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0px;
 
-    transition: width .5s linear;
+  transition: width .5s linear;
 }
 
 
 /* ENEMIGO DEL BOTON PURPURA */
 
 .enemigo {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .enemigoYBarra {
-    margin: 20px 20px 20px 0px;
-    height: 400px;
+  margin: 20px 20px 0 0 !important;
+  height: 400px;
 }
 
 .imgEnemigo {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 
 .ulEnemigo li {
-    list-style: none;
+  list-style: none;
 }
 
 /* LOG DE LOS DAÑOS AL ENEMIGO */
 
 .h4Enemigo,
 .pEnemigo {
-    margin: 2px;
+  margin: 2px;
 }
 
 .log {
-    width: 600px;
-    height: 350px;
-    margin: 20px 0;
-    padding: 0 25px;
+  width: 500px;
+  height: 350px;
+  margin: 20px 0;
+  padding: 0 25px;
 }
 
 .logs {
-    width: 100%;
+  width: 100%;
 }
 
 .enemigoDañado {
 
-    color: red;
-    min-width: 100px;
+  color: red;
+  min-width: 100px;
 }
 
 /* BORDEs ANIMADOs */
 
 .gradientBorder {
-    --border-width: 7px;
+  --border-width: 7px;
 
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    /* text-transform: uppercase; */
-    color: white;
-    border-radius: var(--border-width);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  /* text-transform: uppercase; */
+  color: white;
+  border-radius: var(--border-width);
 
 }
 
 @keyframes moveGradient {
-    50% {
-        background-position: 100% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .espacioClass::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg,
-            hsl(224, 85%, 66%),
-            hsl(269, 85%, 66%),
-            hsl(314, 85%, 66%),
-            hsl(359, 85%, 66%),
-            hsl(44, 85%, 66%),
-            hsl(89, 85%, 66%),
-            hsl(134, 85%, 66%),
-            hsl(179, 85%, 66%));
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
 
 .gradientLogs {
-    background: #222;
+  background: #222;
 }
 
 .gradientLogs::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg,
-            hsl(224, 85%, 66%),
-            hsl(269, 85%, 66%),
-            hsl(314, 85%, 66%),
-            hsl(359, 85%, 66%),
-            hsl(44, 85%, 66%),
-            hsl(89, 85%, 66%),
-            hsl(134, 85%, 66%),
-            hsl(179, 85%, 66%));
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
 
 .gradientEnemy {
-    background: #222;
+  background: #222;
 }
 
 .gradientEnemy::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
 
-    background: linear-gradient(60deg,
-            hsl(222, 100%, 2%),
-            hsl(241, 100%, 22%),
-            hsl(249, 100%, 13%),
-            hsl(271, 100%, 29%),
-            hsl(276, 100%, 13%),
-            hsl(0, 99%, 28%),
-            hsl(0, 100%, 10%),
-            hsl(0, 0%, 0%));
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+  background: linear-gradient(60deg,
+      hsl(222, 100%, 2%),
+      hsl(241, 100%, 22%),
+      hsl(249, 100%, 13%),
+      hsl(271, 100%, 29%),
+      hsl(276, 100%, 13%),
+      hsl(0, 99%, 28%),
+      hsl(0, 100%, 10%),
+      hsl(0, 0%, 0%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
 
 .botonPurpuraContainer::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg,
-            hsl(0, 100%, 41%),
-            hsl(0, 99%, 27%),
-            hsl(219, 98%, 36%),
-            hsl(251, 100%, 24%));
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(0, 100%, 41%),
+      hsl(0, 99%, 27%),
+      hsl(219, 98%, 36%),
+      hsl(251, 100%, 24%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
 
 .botonRojoContainer::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg,
-            hsl(29, 100%, 48%),
-            hsl(69, 98%, 49%),
-            hsl(2, 96%, 57%),
-            hsl(9, 100%, 57%));
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(29, 100%, 48%),
+      hsl(69, 98%, 49%),
+      hsl(2, 96%, 57%),
+      hsl(9, 100%, 57%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
 
 #puntuacionYResultados {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: darkblue;
-    margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: darkblue;
+  margin: 20px;
 }
 
 #puntuacionYResultados::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg,
-            hsl(29, 100%, 48%),
-            hsl(69, 98%, 49%),
-            hsl(2, 96%, 57%),
-            hsl(9, 100%, 57%));
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(29, 100%, 48%),
+      hsl(69, 98%, 49%),
+      hsl(2, 96%, 57%),
+      hsl(9, 100%, 57%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
 }
 
 @keyframes moveGradient {
-    50% {
-        background-position: 100% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .imgAvatar {
-    width: 150px;
+  width: 150px;
 }
 
 /* TIMER */
@@ -497,92 +545,103 @@ margin-top: 5px;
     -ms-user-select: none;
     user-select: none;
   } */
-  
-  /* body {
+
+/* body {
     background: #d7d7d7;
     color: white;
   } */
-  
-  /*=================
+
+/*=================
   * TIMER
   *=================*/
-  .timer {
-    width: fit-content;
-    height: fit-content;
-    display: block;
-    /* position: absolute; */
-    top: 50%;
-    left: 50%;
-    /* margin-left: -275px;
+.timer {
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  /* margin-left: -275px;
     margin-top: -124px; */
-    color: white;
-  }
-  .timer * {
-    cursor: default;
-  }
-  .timer h3 {
-    width: 100%;
-    font-size: 26px;
-    letter-spacing: 4px;
-    text-align: center;
-  }
-  .timer--clock {
-    width: 100px;
-    height: 20px;
-    /* position: relative; */
-    padding-left: 6px;
-    margin-top: 22px;
-    overflow: hidden;
-  }
-  .timer--clock .clock-display-grp {
-    width: 100%;
-    position: relative;
-  }
-  .timer--clock .clock-display-grp .number-grp {
-    width: auto;
-    display: block;
-    height: 156px;
-    float: left;
-    overflow: hidden;
-  }
-  .timer--clock .clock-display-grp .number-grp .number-grp-wrp {
-    width: 100%;
-    position: relative;
-  }
-  .timer--clock .clock-display-grp .number-grp .number-grp-wrp .num {
-    width: 100%;
-    position: relative;
-    height: 156px;
-  }
-  .timer--clock .clock-display-grp .number-grp .number-grp-wrp .num p {
-    width: auto;
-    display: table;
-    font-size: 20px;
-    line-height: 15px;
-    font-weight: bold;
-  }
-  .timer--clock .clock-separator {
-    width: auto;
-    float: left;
-    display: block;
-    height: 15px;
-  }
-  .timer--clock .clock-separator p {
-    width: auto;
-    display: table;
-    font-size: 20px;
-    line-height: 15px;
-    font-weight: bold;
-  }
-  .timer h4 {
-    width: 100%;
-    font-size: 10px;
-    letter-spacing: 6px;
-    text-align: center;
-    padding-top: 25px;
-    float: left;
-  }
-  
+  color: white;
+}
+
+.timer * {
+  cursor: default;
+}
+
+.timer h3 {
+  width: 100%;
+  font-size: 26px;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+.timer--clock {
+  width: 100px;
+  height: 20px;
+  /* position: relative; */
+  padding-left: 6px;
+  margin-top: 22px;
+  overflow: hidden;
+}
+
+.timer--clock .clock-display-grp {
+  width: 100%;
+  position: relative;
+}
+
+.timer--clock .clock-display-grp .number-grp {
+  width: auto;
+  display: block;
+  height: 156px;
+  float: left;
+  overflow: hidden;
+}
+
+.timer--clock .clock-display-grp .number-grp .number-grp-wrp {
+  width: 100%;
+  position: relative;
+}
+
+.timer--clock .clock-display-grp .number-grp .number-grp-wrp .num {
+  width: 100%;
+  position: relative;
+  height: 156px;
+}
+
+.timer--clock .clock-display-grp .number-grp .number-grp-wrp .num p {
+  width: auto;
+  display: table;
+  font-size: 20px;
+  line-height: 15px;
+  font-weight: bold;
+}
+
+.timer--clock .clock-separator {
+  width: auto;
+  float: left;
+  display: block;
+  height: 15px;
+}
+
+.timer--clock .clock-separator p {
+  width: auto;
+  display: table;
+  font-size: 20px;
+  line-height: 15px;
+  font-weight: bold;
+}
+
+.timer h4 {
+  width: 100%;
+  font-size: 10px;
+  letter-spacing: 6px;
+  text-align: center;
+  padding-top: 25px;
+  float: left;
+}
+
 /* BOTONES ANIMACION */
 
 
@@ -594,103 +653,112 @@ margin-top: 5px;
     align-items: center;
     justify-content: center;
   } */
-  
-  .button {
-    min-width: 30px;
-    min-height: 6px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.3px;
-    font-weight: 700;
-    color: rgb(182, 166, 219);
+
+.button {
+  min-width: 30px;
+  min-height: 6px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: rgb(182, 166, 219);
 
   background: linear-gradient(90deg, rgb(196, 1, 255) 0%, rgb(65, 1, 107) 100%);
-    border: none;
-    border-radius: 100px;
-    box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
-    transition: all 0.3s ease-in-out 0s;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    padding: 10px;
-    }
-  
-  button::before {
+  border: none;
+  border-radius: 100px;
+  box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+
+button::before {
   content: '';
-    border-radius: 100px;
-    min-width: calc(100% + 12px);
-    min-height: calc(100% + 12px);
-    border: 6px solid #ad03fc;
-    box-shadow: 0 0 60px rgba(234, 236, 236, 0.64);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: all .3s ease-in-out 0s;
+  border-radius: 100px;
+  min-width: calc(100% + 12px);
+  min-height: calc(100% + 12px);
+  border: 6px solid #ad03fc;
+  box-shadow: 0 0 60px rgba(234, 236, 236, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
 
-  }
-  
-
-
-  .button:hover, .button:focus {
-    color: #e4dceb;
-    transform: translateY(-6px);
-  }
-  
+}
 
 
-  button:hover::before, button:focus::before {
+
+.button:hover,
+.button:focus {
+  color: #e4dceb;
+  transform: translateY(-6px);
+}
+
+
+
+button:hover::before,
+button:focus::before {
+  opacity: 1;
+}
+
+button::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #ae03fd;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+#botonRojo {
+  background: linear-gradient(90deg, rgb(251, 12, 12) 0%, rgb(255, 8, 0) 100%);
+  ;
+  box-shadow: 12px 12px 24px rgba(255, 251, 1, 0.801);
+  color: yellow;
+  margin: 0 20px;
+}
+
+#botonRojo::after {
+  border: 6px solid #f81403;
+
+}
+
+#botonRojo::before {
+  border: 6px solid #f81403;
+
+}
+
+button:hover::after,
+button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
     opacity: 1;
   }
-  
-  button::after {
-    content: '';
-    width: 30px; height: 30px;
-    border-radius: 100%;
-    border: 6px solid #ae03fd;
-    position: absolute;
-    z-index: -1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: ring 1.5s infinite;
-  }
 
-  #botonRojo{
-    background: linear-gradient(90deg, rgb(251, 12, 12) 0%, rgb(255, 8, 0) 100%);;
-    box-shadow: 12px 12px 24px rgba(255, 251, 1, 0.801);
-    color: yellow;
-    margin: 0 20px;
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
   }
+}
 
-  #botonRojo::after{
-    border: 6px solid #f81403;
-
-  }
-  #botonRojo::before{
-    border: 6px solid #f81403;
-
-  }
-  button:hover::after, button:focus::after {
-    animation: none;
-    display: none;
-  }
-  
-  @keyframes ring {
-    0% {
-      width: 30px;
-      height: 30px;
-      opacity: 1;
-    }
-    100% {
-      width: 300px;
-      height: 300px;
-      opacity: 0;
-    }
-  }
-  /* .reload {
+/* .reload {
     width: 125px;
     height: 14px;
     position: absolute;

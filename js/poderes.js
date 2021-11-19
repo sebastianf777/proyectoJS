@@ -16,15 +16,15 @@ const poderes = [
         "grupo": 2
     },
     {
-        "imagen": "../img/magicFireLvl1.svg",
+        "imagen": "../img/magicFire.svg",
         "type": "fire",
-        "nombre": "Ring of Fire",
+        "nombre": "Fire Beam",
         "daño": 100,
         "id": 3,
         "grupo": 2
     },
     {
-        "imagen": "../img/magicPoisonLvl1.svg",
+        "imagen": "../img/magicPoison.svg",
         "type": "poison",
         "nombre": "Toxic Smoke",
         "daño": 100,
@@ -32,7 +32,7 @@ const poderes = [
         "grupo": 1
     },
     {
-        "imagen": "../img/sparkSpiritLvl1.svg",
+        "imagen": "../img/sparkRain.svg",
         "type": "electricity",
         "nombre": "Spark Rain",
         "daño": 100,
@@ -40,7 +40,7 @@ const poderes = [
         "grupo": 2
     },
     {
-        "imagen": "../img/waterBoltLvl1.svg",
+        "imagen": "../img/waterShots.svg",
         "type": "water",
         "nombre": "Water Shots",
         "daño": 100,
