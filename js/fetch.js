@@ -37,7 +37,7 @@ fetch(urlAPI)
 
         $("#empezar").click(function () {
             if (enemigosDerrotados > 0) {
-                initTimer("00:30");
+                initTimer("01:00");
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
                 // enemigosDerrotados = 0
                 $("#resultados").empty()
@@ -54,12 +54,15 @@ fetch(urlAPI)
                     generarEnemigo(dataFiltrada)
                 }
                 empezarDeNuevo()
+                if(enemigosDerrotados >= 10){
+                    $("#listaItemsElegidos").addClass("container")
+                }
                 // $("#listaItemsElegidos").empty()
 
                 // $("#listaItemsElegidos").show()
 
             } else {
-                initTimer("01:30");
+                initTimer("01:00");
                 $("#listaItemsElegidos").show()
 
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
@@ -76,19 +79,13 @@ fetch(urlAPI)
 
         })
         $("#next").click(function () {
-            // function reset () {
                 $("#next").hide()
                 $("#listaItemsElegidos").hide()
-            // if ($(".bar").width() <= 0) {
                 enemigosDerrotados++;
                 $(".gradientEnemy").css("background", "#222")
                 $("#resultados").empty()
                 $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
                 actualizarLista();
-
-                console.log(enemigosDerrotados)
-                // enemigoFunciones()
-
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
 
                 $(".log").prepend(`<div>resetting health to 1000</div>
@@ -110,12 +107,5 @@ fetch(urlAPI)
         })
         $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
 
-        // reset.on('click', function (e) {
-
-        //     setTimeout(() => {
-
-        //     }, 1000);
-
-        // });
     })
     .catch(error => console.log(error))

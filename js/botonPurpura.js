@@ -128,6 +128,7 @@ function agregarItem(e) {
 function vaciarLista(e) {
     e.preventDefault();
     enemigosDerrotados < 10 ? $(".grupo2").hide() : $(".grupo2").show();
+    enemigosDerrotados < 20 ? $(".grupo3").hide() : $(".grupo3").show();
     itemsElegidos = [];
     actualizarLista();
     actualizarStorage();
@@ -229,7 +230,7 @@ const enemigoFunciones = () => {
                     case "water":
                         let water = "opacity( 0." + (i) + ")"
                         return $(".imgEnemigo").css("filter", water)
-                                               .css("border", "2px solid red"),
+                                               .css("border", "2px solid blue"),
                             $(".gradientEnemy").css("background", "url(./img/waterGif.gif)")
 
                             break;
@@ -253,6 +254,33 @@ const enemigoFunciones = () => {
                         return $(".imgEnemigo").css("filter", earth)
                                                .css("border", "2px solid brown"),
                             $(".gradientEnemy").css("background", "url(./img/earthEffect.webp)")
+                        break;
+                        case "telekinesis":
+                        let telekinesis = "opacity( 0." + (i) + ")"
+
+                        return $(".imgEnemigo").css("filter", telekinesis)
+                                               .css("border", "2px solid grey"),
+                            $(".gradientEnemy").css("background", "url(./img/telekineticBalls.webp)")
+                                               .css("background-position-x", "center")
+                                               .css("background-position-y", "center")
+                        break;
+                        case "dimensional":
+                        let dimensional = "opacity( 0." + (i) + ")"
+
+                        return $(".imgEnemigo").css("filter", dimensional)
+                                               .css("border", "2px solid orange"),
+                            $(".gradientEnemy").css("background", "url(./img/dimensionBreaking.gif)")
+                                               .css("background-position-x", "center")
+                                               .css("background-position-y", "center")
+                        break;
+                        case "death":
+                        let death = "opacity( 0." + (i) + ")"
+
+                        return $(".imgEnemigo").css("filter", death)
+                                               .css("border", "2px solid black"),
+                            $(".gradientEnemy").css("background", "url(./img/death.gif)")
+                                               .css("background-position-x", "center")
+                                               .css("background-position-y", "center")
                         break;
                     default:
                         break;

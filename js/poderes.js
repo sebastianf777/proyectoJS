@@ -46,5 +46,29 @@ const poderes = [
         "daño": 100,
         "id": 6,
         "grupo": 1
+    },
+    {
+        "imagen": "../img/telekineticBalls.svg",
+        "type": "telekinesis",
+        "nombre": "Telekinetic Balls",
+        "daño": 100,
+        "id": 7,
+        "grupo": 3
+    },
+    {
+        "imagen": "../img/dimensionBreaking.svg",
+        "type": "dimensional",
+        "nombre": "Dimension Breaking",
+        "daño": 100,
+        "id": 8,
+        "grupo": 3
+    },
+    {
+        "imagen": "../img/death.svg",
+        "type": "death",
+        "nombre": "Death Invocation",
+        "daño": 100,
+        "id": 9,
+        "grupo": 3
     }
 ]
