@@ -35,17 +35,23 @@ function renderProducts(listadoOpciones) {
 
                 <div class="grupo${producto.grupo}">
                 <img src="${producto.imagen}" class="imgItemS agregar-item">
-
+                <p class="x"data-daño="${producto.daño}"></p>
+                <h5 data-id="${producto.id}"></h5>
+                <h6 data-type="${producto.type}"></h6>
                     <h4>${producto.nombre}</h4>
-                    <p class="x"data-daño="${producto.daño}">Daño base:${producto.daño} x1</p>
-                    <h5 data-id="${producto.id}">Id = ${producto.id}</h5>
-                    <h6 data-type="${producto.type}"> Daño tipo:${producto.type}</h6>
+                    
                 </div>
             </div>
         `)
 
     });
 }
+
+//DEJO COMENTADO PARA FUTURAS ACTUALIZACIONES
+// <p class="x"data-daño="${producto.daño}">Daño base:${producto.daño} x1</p>
+                    // <h5 data-id="${producto.id}">Id = ${producto.id}</h5>
+                    // <h6 data-type="${producto.type}"> Daño tipo:${producto.type}</h6>
+
 
 //FUNCION PARA CARGAR DEL ITEMSELEGIDOS DEL STORAGE O DE LA SESION EN CURSO
 
@@ -273,7 +279,12 @@ const enemigoFunciones = () => {
             setTimeout(() => {
                 log.children().last().remove();
             }, 500);
-        } else {
+        }else if ( _total === undefined){
+            log.prepend(`<div class="enemigoDañado"> Haz click en "EMPEZAR" para continuar  </div>`);
+
+        }
+        
+        else {
             log.prepend(`<div class="enemigoDañado"> ${_total} Haz click en "NEXT" para continuar  </div>`);
         }
     };

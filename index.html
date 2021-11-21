@@ -7,17 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet"> 
     <title>Document</title>
 </head>
 
 <body>
     <header>
         <nav>
-            <h1>Projecto JavaScript</h1>
+            <div class="logoZf">
+                <img src="img/logo-zf.png" alt="zf logo">
+                <p>"Creado por Sebastian Fontana. © 2021 Zf"</p>
+            </div>
+            <div class="créditos">Créditos</div>
+            <h1>Projecto JavaScript</h1><span><div class="instrucciones">Instrucciones</div></span>
+            <div class="marvel">
+                <img src="img/marvelLogo.png" alt="marvel logo">
+                <p>"Data provided by Marvel. © 2014 Marvel"</p>
+            </div>
         </nav>
     </header>
-    <article>
+    <article id="bienvenidaArticle">
         <div id="bienvenida" class="bienvenidaClass gradientBorder">
             <h2 id="h2Inicial">¡Bienvenido a mi proyecto de JavaScript para Coderhouse!</h2>
         </div>
@@ -60,10 +71,10 @@
                     </div>
                     <div id="puntuacionYResultados" class="gradientBorder">
                         <div id="puntuacion">
-                            <h4>Puntuacion:</h4>
+                            <h4>Ronda:</h4>
                         </div>
                         <div id="resultados">
-                            <h4>Resultados:</h4>
+                            <!-- <h4>Resultados:</h4> -->
                         </div>
                         <div class="timer">
                         

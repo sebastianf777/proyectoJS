@@ -3,36 +3,138 @@
   padding: 0;
 }
 
+
+body{
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+
+}
+
 nav {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-color: red;
+  align-items: center;
+}
+
+
+
+.logoZf, .marvel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 50px;
+
+}
+.logoZf img{
+  width: 100px;
+  height: 70px;
+  margin-left: 60px;
+  object-fit: contain;
+  position: absolute;
+
+}
+.logoZf p{
+  margin-top: 50px;
+}
+ .marvel img{
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+.logoZf p, .marvel p {
+  font-size: 10px;
 }
 
 h1 {
-  margin-top: 5px;
-  margin-left: 20px;
+  margin: 5px 20px 0;
+  text-align: center;
   font-size: xx-large;
 }
 
+nav span{
+  display: flex;
+}
+
+.créditos, .instrucciones{
+  margin: 15px 7px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(90deg, rgb(196, 1, 255) 0%, rgb(65, 1, 107) 100%);
+  border-radius: 100px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #e4dceb;
+
+}
+
+.créditos::before, .instrucciones::before{
+  content: '';
+  border-radius: 100px;
+  min-width: calc(100% + 12px);
+  min-height: calc(100% + 12px);
+  box-shadow: 0 0 60px rgba(234, 236, 236, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease-in-out 0s;
+  opacity: 1;
+
+}
+.créditos:hover, .instrucciones:hover{
+  color: white;
+  transform: translateY(-2px);
+  border: 6px solid white;
+  
+
+}
 /* BIENVENIDA */
+
+
+
+#bienvenidaArticle{
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 85vh;
+}
 
 #bienvenida {
   margin: 20px 30px 0;
   display: flex;
   justify-content: center;
   flex-direction: row;
+  width: 100%;
+  align-items:unset;
 }
 
-#bienvenida h2 {
+#bienvenida h2, #bienvenida p {
+
   margin: 20px;
   width: 90%;
 }
 
+#bienvenida p {
+  font-size: 20px;
+ 
+  font-family: 'Nunito', sans-serif;
+
+  /* font-variant-caps: all-petite-caps; */
+  /* letter-spacing: 1px; */
+}
+
 .bienvenidaClass {
-  background-color: green;
+  background-color: darkblue;
   font-size: 13px;
 }
 
@@ -59,10 +161,50 @@ h1 {
   animation: moveGradient 4s alternate infinite;
 }
 
-.imgBienvenida, .imgBienvenida2{
+.imgBienvenida, .imgBienvenida2,.imgBienvenida3,.imgBienvenida32,.imgBienvenida21, .salir{
   cursor: pointer;
 }
+.mensaje1, .mensaje2, .mensaje3{
+  display: flex;
+  flex-direction: row;
+}
 
+.instrucciones1, .instrucciones2, .instrucciones3{
+  display: flex;
+  flex-direction: column;
+}
+.instrucciones1 div, .instrucciones2 div, .instrucciones3 div{
+  margin: 0 auto;
+}
+.instrucciones1 div img {
+  width: 400px;
+  margin: 0 20px;
+}
+.instrucciones2 div img{
+  margin: 0 10px 0 0;
+max-width: 738px;
+
+}
+.instrucciones3 div{
+  display: flex;
+  align-items: center;
+}
+.instrucciones3 div img{
+  margin: 0 30px 0 0;
+  max-height: 270px;
+
+
+}
+
+.botones{
+  display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.salir{
+  height: 45px;
+margin-top: 10px;
+}
 
 /* ARTICLE */
 
@@ -107,8 +249,7 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 20px;
-  background-color: darkblue;
+  background-color: red;
 }
 
 .divE {
@@ -127,7 +268,7 @@ h2 {
 #espacioAvatars {
   width: fit-content;
   padding: 10px 10px 5px 0;
-  margin: 0 auto;
+  margin: 25px auto 0;
 }
 
 /* BOTON 6 */
@@ -529,7 +670,9 @@ h2 {
 }
 
 .imgAvatar {
-  width: 150px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* TIMER */
@@ -582,7 +725,8 @@ h2 {
   height: 20px;
   /* position: relative; */
   padding-left: 6px;
-  margin-top: 22px;
+  margin: 0px 5px 5px -2px;
+display: flex;
   overflow: hidden;
 }
 
@@ -642,6 +786,10 @@ h2 {
   float: left;
 }
 
+.minutes-group.clock-display-grp{
+  display: flex;
+justify-content: flex-end;
+}
 /* BOTONES ANIMACION */
 
 
@@ -758,6 +906,17 @@ button:focus::after {
   }
 }
 
+#resultados{
+  margin: 5px 0 5px 0;
+  font-size: 20px;
+  color: red;
+}
+#puntuacion{
+  text-transform: uppercase;
+  font-family: 'Nunito', sans-serif;
+  margin: 10px 0 5px 0;
+  
+}
 /* .reload {
     width: 125px;
     height: 14px;

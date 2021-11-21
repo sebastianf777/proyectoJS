@@ -84,6 +84,7 @@ fetch(urlAPI)
                 $(".gradientEnemy").css("background", "#222")
                 $("#resultados").empty()
                 $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
+                actualizarLista();
 
                 console.log(enemigosDerrotados)
                 // enemigoFunciones()
@@ -102,7 +103,6 @@ fetch(urlAPI)
                         'width': '0'
                     });
                     $('.health-bar').find('.bar').css('width', '100%');
-                    // actualizarLista();
                     generarEnemigo(dataFiltrada)
                     $("#listaItemsElegidos").show()
                 }, 2000);
