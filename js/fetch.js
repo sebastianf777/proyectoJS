@@ -19,10 +19,6 @@ fetch(urlAPI)
             numeroR()
             let listaAvatars = dataMarvel.slice(nRandom, (nRandom + 5))
 
-            // console.log(nRandom)
-            // console.log(listaAvatars)
-
-
             renderAvatars(listaAvatars)
             $("#espacioAvatars").show()
 
@@ -36,6 +32,13 @@ fetch(urlAPI)
         })
 
         $("#empezar").click(function () {
+            $("#pause, #play").show()
+            $("h1").hide()
+            $("body").css("background", "url(./img/fondo1.gif)")
+                     .css("background-repeat", "no-repeat")
+                     .css("background-position", "bottom")
+                     .css("background-size", "cover")
+            $("enemigoYBarra").show()
             if (enemigosDerrotados > 0) {
                 initTimer("01:00");
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
@@ -54,12 +57,7 @@ fetch(urlAPI)
                     generarEnemigo(dataFiltrada)
                 }
                 empezarDeNuevo()
-                if(enemigosDerrotados >= 10){
-                    $("#listaItemsElegidos").addClass("container")
-                }
-                // $("#listaItemsElegidos").empty()
-
-                // $("#listaItemsElegidos").show()
+                
 
             } else {
                 initTimer("01:00");
@@ -88,10 +86,11 @@ fetch(urlAPI)
                 actualizarLista();
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
 
-                $(".log").prepend(`<div>resetting health to 1000</div>
+                $(".log").prepend(`<div>Preparando próxima ronda</div>
             <div class="lds-hourglass"></div>`)
-
+                $(".botonPurpuraContainer").prepend(`<div class="lds-hourglass"></div>`)
                 setTimeout(() => {
+                    $(".lds-hourglass").remove()
                     $("#enemigoRandom").empty()
                     $(".health-bar").hide()
                     $('.log').empty()

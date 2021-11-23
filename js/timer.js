@@ -1,13 +1,13 @@
  TweenLite.defaultEase = Expo.easeOut;
 
  // other ways --> "0:15" "03:5" "5:2"
-//  initTimer("00:30");
-var reloadBtn = document.querySelector('.reload');
-var timerEl = document.querySelector('.timer');
+ //  initTimer("00:30");
+ var reloadBtn = document.querySelector('.reload');
+ var timerEl = document.querySelector('.timer');
 
-function initTimer (t) {
-   
-   var self = this,
+ function initTimer(t) {
+
+    let self = this,
        timerEl = document.querySelector('.timer'),
        minutesGroupEl = timerEl.querySelector('.minutes-group'),
        secondsGroupEl = timerEl.querySelector('.seconds-group'),
@@ -22,88 +22,97 @@ function initTimer (t) {
           secondNum: secondsGroupEl.querySelector('.second')
        };
 
-   var time = {
-      min: t.split(':')[0],
-      sec: t.split(':')[1]
-   };
+    let time = {
+       min: t.split(':')[0],
+       sec: t.split(':')[1]
+    };
 
-   var timeNumbers;
+    let timeNumbers;
 
-   function updateTimer() {
+    function updateTimer() {
 
-      var timestr;
-      var date = new Date();
+       let timestr;
+       let date = new Date();
 
-      date.setHours(0);
-      date.setMinutes(time.min);
-      date.setSeconds(time.sec);
+       date.setHours(0);
+       date.setMinutes(time.min);
+       date.setSeconds(time.sec);
 
-      var newDate = new Date(date.valueOf() - 1000);
-      var temp = newDate.toTimeString().split(" ");
-      var tempsplit = temp[0].split(':');
+       let newDate = new Date(date.valueOf() - 1000);
+       let temp = newDate.toTimeString().split(" ");
+       let tempsplit = temp[0].split(':');
 
-      time.min = tempsplit[1];
-      time.sec = tempsplit[2];
+       time.min = tempsplit[1];
+       time.sec = tempsplit[2];
 
-      timestr = time.min + time.sec;
-      timeNumbers = timestr.split('');
-      updateTimerDisplay(timeNumbers);
+       timestr = time.min + time.sec;
+       timeNumbers = timestr.split('');
+       updateTimerDisplay(timeNumbers);
 
-      if(timestr === '0000')
-         countdownFinished();
+       if (timestr === '0000')
+          countdownFinished();
 
-      if(timestr != '0000')
-         setTimeout(updateTimer, 1000);
+       if (timestr != '0000')
+          setTimeout(updateTimer, 1000);
 
-   }
+    }
 
-   function updateTimerDisplay(arr) {
+    function updateTimerDisplay(arr) {
 
-      animateNum(minutesGroup.firstNum, arr[0]);
-      animateNum(minutesGroup.secondNum, arr[1]);
-      animateNum(secondsGroup.firstNum, arr[2]);
-      animateNum(secondsGroup.secondNum, arr[3]);
+       animateNum(minutesGroup.firstNum, arr[0]);
+       animateNum(minutesGroup.secondNum, arr[1]);
+       animateNum(secondsGroup.firstNum, arr[2]);
+       animateNum(secondsGroup.secondNum, arr[3]);
 
-   }
+    }
 
-   function animateNum (group, arrayValue) {
+    function animateNum(group, arrayValue) {
 
-      TweenMax.killTweensOf(group.querySelector('.number-grp-wrp'));
-      TweenMax.to(group.querySelector('.number-grp-wrp'), 1, {
-         y: - group.querySelector('.num-' + arrayValue).offsetTop
-      });
+       TweenMax.killTweensOf(group.querySelector('.number-grp-wrp'));
+       TweenMax.to(group.querySelector('.number-grp-wrp'), 1, {
+          y: -group.querySelector('.num-' + arrayValue).offsetTop
+       });
 
-   }
-   
-   setTimeout(updateTimer, 1000);
+    }
 
-}
-function countdownFinished() {
-   $("#listaItemsElegidos").empty()
+    setTimeout(updateTimer, 1000);
 
-    setTimeout(function () {
-        $("#next").hide()
-        $(".gradientEnemy").css("background", "#222")
-        $(".log").empty()
-        $(".log").append(`<div>Buen intento! Mientras mayor sea la puntuación, tendrás más poderes disponibles! </div>`)
-        $("#enemigoRandom").empty()
-
-        $("#listaItemsElegidos").empty()
-        $("#botonJuega").html("Intentar de nuevo!")
-        $("#botonJuega").show()
-        
-    //    TweenMax.set(reloadBtn, { scale: 0.8, display: 'block' });
-    //    TweenMax.to(timerEl, 1, { opacity: 0.2 });
-    //    TweenMax.to(reloadBtn, 0.5, { scale: 1, opacity: 1 }); 
-    }, 1000);
  }
- 
-//  reloadBtn.addEventListener('click', function () {
-//     TweenMax.to(this, 0.5, { opacity: 0, onComplete:
-//        function () { 
-//           reloadBtn.style.display= "none";
-//        } 
-//     });
-//     TweenMax.to(timerEl, 1, { opacity: 1 });
-//     initTimer("12:35");
-//  });
+
+ function countdownFinished() {
+    $("#listaItemsElegidos").empty()
+    $(".enemigoYBarra").hide()
+    $(".lds-hourglass").remove()
+    setTimeout(() => {
+      $(".botonPurpuraContainer").prepend(`<div class="lds-hourglass"></div>`)
+      $(".log").prepend(`<div>Se terminó el tiempo! se habrá desbloqueado algo? :O</div>
+              <div class="lds-hourglass"></div>`)
+    }, 500);
+    
+    setTimeout(function () {
+       $(".lds-hourglass").remove()
+       $(".enemigoYBarra").hide()
+       $("#next").hide()
+       $(".gradientEnemy").css("background", "#222")
+       $(".log").empty()
+       $(".log").append(`<div>Buen intento! Mientras mayor sea la puntuación, tendrás más poderes disponibles! </div>`)
+       $("#enemigoRandom").empty()
+       $("#listaItemsElegidos").empty()
+       $("#botonJuega").html("Intentar de nuevo!")
+       $("#botonJuega").show()
+
+       //    TweenMax.set(reloadBtn, { scale: 0.8, display: 'block' });
+       //    TweenMax.to(timerEl, 1, { opacity: 0.2 });
+       //    TweenMax.to(reloadBtn, 0.5, { scale: 1, opacity: 1 }); 
+    }, 6000);
+ }
+
+ //  reloadBtn.addEventListener('click', function () {
+ //     TweenMax.to(this, 0.5, { opacity: 0, onComplete:
+ //        function () { 
+ //           reloadBtn.style.display= "none";
+ //        } 
+ //     });
+ //     TweenMax.to(timerEl, 1, { opacity: 1 });
+ //     initTimer("12:35");
+ //  });

@@ -85,6 +85,36 @@ function actualizarLista() {
         $(".poderesAElegir").hide()
 
     }
+    if(enemigosDerrotados>= 20){
+        $("#listaItemsElegidos div").removeClass("itemS").addClass("item")
+        $("body").css("background", "url(./img/fondo3.gif)")
+                 .css("background-repeat", "no-repeat")
+                 .css("background-position", "bottom")
+                 .css("background-size", "cover")
+        $("nav").css("opacity", "0.4")
+     
+    }
+    else if(enemigosDerrotados >= 10){
+        $("#listaItemsElegidos").addClass("container");
+        $("body").css("background", "url(./img/fondo2.gif)")
+                 .css("background-repeat", "no-repeat")
+                 .css("background-position", "bottom")
+                 .css("background-size", "cover");
+        $(".botonPurpuraContainer").addClass("botonPurpuraContainer2")
+        $(".botonPurpuraContainer2").removeClass("botonPurpuraContainer")
+        $(".botonPurpuraContainer2").css("width", "400px")
+                                   .css("height", "400px")
+                                   .css("border-radius","200px");
+        $(".botonRojoContainer").addClass("botonRojoContainer2")
+        $(".botonRojoContainer2").removeClass("botonRojoContainer")
+        $(".botonRojoContainer2").css("border-radius","200px");
+        $(".gradientLogs").addClass("gradientLogs2")
+        $(".gradientLogs2").removeClass("gradientLogs")
+        $(".gradientLogs2").css("border-radius","200px");
+        $("#botonCambiar").css("margin", "0")
+        $("#empezar").css("margin", "0")
+
+    }
 }
 
 //FUNCION PARA AGREGAR PODERES EN EL BOTON PURPURA
@@ -132,7 +162,6 @@ function vaciarLista(e) {
     itemsElegidos = [];
     actualizarLista();
     actualizarStorage();
-
     $("#empezar").hide()
     $(".poderesAElegir").show();
 }
@@ -141,6 +170,7 @@ function vaciarLista(e) {
 const botonPurpura = () => {
 
     // renderProducts(poderes);
+    
     $("#enemigoRandom").empty();
     $("#botonCambiar").show();
     $("poderesAElegir").show();
@@ -163,12 +193,21 @@ const enemigoFunciones = () => {
         // $(".enemigoYBarra").fadeOut(200)
         // $(".enemigoYBarra").fadeIn(200)
         enemigoStats = $(".enemigo")
-
+  
+        setTimeout(() => {
+        $(".log").children("div").remove()
+            
+        }, 500);
         if (e.target.parentElement.dataset.daño == undefined) {
             $(".log").append(`<div>Haz clic en el arma!</div>`)
+            
+
         } else if (enemigoStats.data('value') < 0) {
-            log("victoria!, enemigo derrotado!");
+            
+
+            $("#listaItemsElegidos").hide()
             $("#next").show()
+            
         } else {
             const statElegido = Number(e.target.parentElement.dataset.daño)
             const tipoDePoder = e.target.parentElement.dataset.type
@@ -215,8 +254,9 @@ const enemigoFunciones = () => {
                         return $(".imgEnemigo").css("filter", poisonEffect + poisonEffect2)
                                               
                                                .css("border", "2px solid green"),
-                            $(".gradientEnemy").css("background", "url(./img/poisonGif.gif)")
-
+                            $(".gradientEnemy").css("background", "url(./img/poisonGif.gif)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/poisonGif.gif)") : null;
+                               
 
                         break;
                     case "fire":
@@ -224,14 +264,16 @@ const enemigoFunciones = () => {
 
                         return $(".imgEnemigo").css("filter", fire)
                                                .css("border", "2px solid red"),
-                            $(".gradientEnemy").css("background", "url(./img/magicFire.webp)")
+                            $(".gradientEnemy").css("background", "url(./img/magicFire.webp)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/magicFire.webp)") : null;
 
                         break;
                     case "water":
                         let water = "opacity( 0." + (i) + ")"
                         return $(".imgEnemigo").css("filter", water)
                                                .css("border", "2px solid blue"),
-                            $(".gradientEnemy").css("background", "url(./img/waterGif.gif)")
+                            $(".gradientEnemy").css("background", "url(./img/waterGif.gif)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/waterGif.webp)") : null;
 
                             break;
                     case "electricity":
@@ -239,21 +281,27 @@ const enemigoFunciones = () => {
 
                         return $(".imgEnemigo").css("filter", electricity)
                                                .css("border", "2px solid yellow"),
-                            $(".gradientEnemy").css("background", "url(./img/sparkEffect.webp)")
+                            $(".gradientEnemy").css("background", "url(./img/sparkEffect.webp)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/sparkEffect.webp)") : null;
+
                         break;
                     case "energy":
                         let energy = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", energy)
                                                .css("border", "2px solid white"),
-                            $(".gradientEnemy").css("background", "url(./img/energyEffect.gif)")
+                            $(".gradientEnemy").css("background", "url(./img/energyEffect.gif)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/energyEffect.gif)") : null;
+
                         break;
                         case "earth":
                         let earth = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", earth)
                                                .css("border", "2px solid brown"),
-                            $(".gradientEnemy").css("background", "url(./img/earthEffect.webp)")
+                            $(".gradientEnemy").css("background", "url(./img/earthEffect.webp)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/earthEffect.webp)") : null;
+
                         break;
                         case "telekinesis":
                         let telekinesis = "opacity( 0." + (i) + ")"
@@ -262,7 +310,9 @@ const enemigoFunciones = () => {
                                                .css("border", "2px solid grey"),
                             $(".gradientEnemy").css("background", "url(./img/telekineticBalls.webp)")
                                                .css("background-position-x", "center")
-                                               .css("background-position-y", "center")
+                                               .css("background-position-y", "center"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/telekineticBalls.webp)") : null;
+
                         break;
                         case "dimensional":
                         let dimensional = "opacity( 0." + (i) + ")"
@@ -271,7 +321,9 @@ const enemigoFunciones = () => {
                                                .css("border", "2px solid orange"),
                             $(".gradientEnemy").css("background", "url(./img/dimensionBreaking.gif)")
                                                .css("background-position-x", "center")
-                                               .css("background-position-y", "center")
+                                               .css("background-position-y", "center"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/dimensionBreaking.gif)") : null;
+
                         break;
                         case "death":
                         let death = "opacity( 0." + (i) + ")"
@@ -280,13 +332,15 @@ const enemigoFunciones = () => {
                                                .css("border", "2px solid black"),
                             $(".gradientEnemy").css("background", "url(./img/death.gif)")
                                                .css("background-position-x", "center")
-                                               .css("background-position-y", "center")
+                                               .css("background-position-y", "center"),
+                                               enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/death.gif)") : null;
+
                         break;
                     default:
                         break;
                 }
             }, 500);
-            //bar.css('width', total - value);
+     
 
             log(value, damage, hitWidth);
 
@@ -304,9 +358,9 @@ const enemigoFunciones = () => {
 
         if (_damage !== undefined && _hitWidth !== undefined && _total >= _total * 1 / 100) {
             log.prepend(`<div class="logs">Enemigo Hp ${_total}: <span class="enemigoDañado"> - ${_damage}</span></div>`);
-            setTimeout(() => {
-                log.children().last().remove();
-            }, 500);
+            // setTimeout(() => {
+            //     log.children().last().remove();
+            // }, 500);
         }else if ( _total === undefined){
             log.prepend(`<div class="enemigoDañado"> Haz click en "EMPEZAR" para continuar  </div>`);
 

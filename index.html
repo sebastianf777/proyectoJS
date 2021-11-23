@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -21,7 +21,15 @@
                 <p>"Creado por Sebastian Fontana. © 2021 Zf"</p>
             </div>
             <div class="créditos">Créditos/Links</div>
-            <h1>Projecto JavaScript</h1><span><div class="instrucciones">Instrucciones</div></span>
+            <h1>Projecto JavaScript</h1><span>
+
+                <div class="audio" id="play">Play</div>
+                <div class="audio" id="pause">Pause</div>
+                <!-- <div id="status"></div> -->
+            </span><span>
+                <div class="instrucciones">Instrucciones</div>
+            </span>
+
             <div class="marvel">
                 <img src="img/marvelLogo.png" alt="marvel logo">
                 <p>"Data provided by Marvel. © 2014 Marvel"</p>
@@ -34,9 +42,9 @@
     </article>
 
 
-<!-- ESPACIO PARA ELEGIR AVATAR -->
-<section id="espacioAvatars" class="espacioClass gradientBorder">
-</section>
+    <!-- ESPACIO PARA ELEGIR AVATAR -->
+    <section id="espacioAvatars" class="espacioClass gradientBorder">
+    </section>
 
     <!-- ESPACIO PARA ELEGIR ARMAS -->
     <section id="poderes" class="poderesAElegir gradientBorder ">
@@ -55,7 +63,7 @@
             </div>
         </div>
         <div class="log gradientBorder gradientLogs">
-            <h3>Descubre que arma es efectiva contra tu enemigo!</h3>
+            <div>Descubre que arma es efectiva contra tu enemigo!</div>
         </div>
         <div>
             <div class="options2">
@@ -75,7 +83,7 @@
                         <div id="resultados">
                         </div>
                         <div class="timer">
-                        
+
                             <div class="timer--clock">
                                 <div class="minutes-group clock-display-grp">
                                     <div class="first number-grp">
@@ -221,7 +229,7 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -249,7 +257,7 @@
         </div>
     </section>
 
-    
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -264,6 +272,7 @@
     <script src="js/enemigos.js"></script>
     <script src="js/botonPurpura.js"></script>
     <script src="js/animaciones.js"></script>
+    <script src="js/audio.js"></script>
 
 
 

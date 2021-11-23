@@ -1,4 +1,4 @@
-let radius = 100; // adjust to move out items in and out 
+let radius = 100; 
 let fields = $('.item'),
   container = $('#container'),
   width = container.width(),

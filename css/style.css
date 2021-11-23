@@ -58,12 +58,18 @@ h1 {
   font-size: x-large;
   font-weight: 800;
 }
-
+/* h1 span{
+  display: flex;
+  justify-content: center;
+} */
+#play, #pause, #status{
+  display: none;
+}
 nav span{
   display: flex;
 }
 
-.créditos, .instrucciones{
+.créditos, .instrucciones, .audio{
   margin: 15px 7px;
   letter-spacing: 1.3px;
   font-weight: 700;
@@ -81,7 +87,7 @@ nav span{
 
 }
 
-.créditos::before, .instrucciones::before{
+.créditos::before, .instrucciones::before, .audio::before{
   content: '';
   border-radius: 100px;
   min-width: calc(100% + 12px);
@@ -95,7 +101,7 @@ nav span{
   opacity: 1;
 
 }
-.créditos:hover, .instrucciones:hover{
+.créditos:hover, .instrucciones:hover, .audio:hover{
   color: white;
   transform: translateY(-2px);
   border: 6px solid white;
@@ -272,7 +278,13 @@ h2 {
 
 
 }
+.botonRojoContainer2 {
+  background-color: rgb(255, 123, 0);
+  margin: 0 20px;
+  height: 150px;
 
+
+}
 .espacioClass {
   display: flex;
   flex-direction: row;
@@ -346,6 +358,16 @@ h2 {
 }
 
 .botonPurpuraContainer {
+  width: 170px;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  flex-wrap: wrap;
+  background-color: rgb(138, 66, 138);
+  padding: 20px 0;
+
+}
+.botonPurpuraContainer2 {
   width: 170px;
   display: flex;
   flex-direction: row;
@@ -583,7 +605,9 @@ h2 {
 .gradientLogs {
   background: #222;
 }
-
+.gradientLogs2 {
+  background: #222;
+}
 .gradientLogs::after {
   position: absolute;
   content: "";
@@ -606,11 +630,35 @@ h2 {
   border-radius: calc(2 * var(--border-width));
   animation: moveGradient 4s alternate infinite;
 }
-
+.gradientLogs2::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: 200px;
+  animation: moveGradient 4s alternate infinite;
+}
 .gradientEnemy {
   background: #222;
 }
+.gradientEnemy2{
+  background: #222;
 
+}
 .gradientEnemy::after {
   position: absolute;
   content: "";
@@ -634,6 +682,29 @@ h2 {
   border-radius: calc(2 * var(--border-width));
   animation: moveGradient 4s alternate infinite;
 }
+.gradientEnemy2::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+
+  background: linear-gradient(60deg,
+      hsl(222, 100%, 2%),
+      hsl(241, 100%, 22%),
+      hsl(249, 100%, 13%),
+      hsl(271, 100%, 29%),
+      hsl(276, 100%, 13%),
+      hsl(0, 99%, 28%),
+      hsl(0, 100%, 10%),
+      hsl(0, 0%, 0%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: 200px;
+  animation: moveGradient 4s alternate infinite;
+}
 
 .botonPurpuraContainer::after {
   position: absolute;
@@ -653,6 +724,24 @@ h2 {
   border-radius: calc(2 * var(--border-width));
   animation: moveGradient 4s alternate infinite;
 }
+.botonPurpuraContainer2::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(0, 100%, 41%),
+      hsl(0, 99%, 27%),
+      hsl(219, 98%, 36%),
+      hsl(251, 100%, 24%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: 200px;
+  animation: moveGradient 4s alternate infinite;
+}
 
 .botonRojoContainer::after {
   position: absolute;
@@ -670,6 +759,24 @@ h2 {
   background-size: 300% 300%;
   background-position: 0 50%;
   border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+.botonRojoContainer2::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(29, 100%, 48%),
+      hsl(69, 98%, 49%),
+      hsl(2, 96%, 57%),
+      hsl(9, 100%, 57%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: 200px;
   animation: moveGradient 4s alternate infinite;
 }
 
@@ -974,11 +1081,13 @@ button:focus::after {
   border-radius: 50%;
   position: relative;
   /* background: #f00; */
-  animation: spin 5s linear infinite reverse;
+  animation: spin 5s  infinite reverse;
+  /* linear */
   cursor: pointer;
 }
 @keyframes spin {
   100% {
+
     transform: rotate(1turn);
   }
 }
