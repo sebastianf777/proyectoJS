@@ -49,8 +49,8 @@ function renderProducts(listadoOpciones) {
 
 //DEJO COMENTADO PARA FUTURAS ACTUALIZACIONES
 // <p class="x"data-daño="${producto.daño}">Daño base:${producto.daño} x1</p>
-                    // <h5 data-id="${producto.id}">Id = ${producto.id}</h5>
-                    // <h6 data-type="${producto.type}"> Daño tipo:${producto.type}</h6>
+// <h5 data-id="${producto.id}">Id = ${producto.id}</h5>
+// <h6 data-type="${producto.type}"> Daño tipo:${producto.type}</h6>
 
 
 //FUNCION PARA CARGAR DEL ITEMSELEGIDOS DEL STORAGE O DE LA SESION EN CURSO
@@ -85,32 +85,40 @@ function actualizarLista() {
         $(".poderesAElegir").hide()
 
     }
-    if(enemigosDerrotados>= 20){
+    if (enemigosDerrotados >= 20) {
         $("#listaItemsElegidos div").removeClass("itemS").addClass("item")
         $("body").css("background", "url(./img/fondo3.gif)")
-                 .css("background-repeat", "no-repeat")
-                 .css("background-position", "bottom")
-                 .css("background-size", "cover")
+            .css("background-repeat", "no-repeat")
+            .css("background-position", "bottom")
+            .css("background-size", "cover")
         $("nav").css("opacity", "0.4")
-     
-    }
-    else if(enemigosDerrotados >= 10){
+        $(".gradientLogs2").fadeOut()
+        $(".puntuacionGradient2").css("opacity", "0.8")
+        $(".botonRojoContainer2").css("opacity", "0.8")
+
+    } else if (enemigosDerrotados >= 10) {
         $("#listaItemsElegidos").addClass("container");
         $("body").css("background", "url(./img/fondo2.gif)")
-                 .css("background-repeat", "no-repeat")
-                 .css("background-position", "bottom")
-                 .css("background-size", "cover");
+            .css("background-repeat", "no-repeat")
+            .css("background-position", "bottom")
+            .css("background-size", "cover");
         $(".botonPurpuraContainer").addClass("botonPurpuraContainer2")
         $(".botonPurpuraContainer2").removeClass("botonPurpuraContainer")
         $(".botonPurpuraContainer2").css("width", "400px")
-                                   .css("height", "400px")
-                                   .css("border-radius","200px");
+            .css("height", "400px")
+            .css("border-radius", "200px");
         $(".botonRojoContainer").addClass("botonRojoContainer2")
         $(".botonRojoContainer2").removeClass("botonRojoContainer")
-        $(".botonRojoContainer2").css("border-radius","200px");
+        $(".botonRojoContainer2").css("border-radius", "200px");
         $(".gradientLogs").addClass("gradientLogs2")
         $(".gradientLogs2").removeClass("gradientLogs")
-        $(".gradientLogs2").css("border-radius","200px");
+        $(".gradientLogs2").css("border-radius", "200px");
+        $(".log").css("width", "200px");
+        $(".gradientEnemy").addClass("gradientEnemy2")
+        $(".gradientEnemy2").removeClass("gradientEnemy")
+        $(".gradientEnemy2").css("border-radius", "200px");
+        $(".puntuacionGradient").addClass("puntuacionGradient2")
+        $(".puntuacionGradient2").removeClass("puntuacionGradient")
         $("#botonCambiar").css("margin", "0")
         $("#empezar").css("margin", "0")
 
@@ -157,10 +165,11 @@ function agregarItem(e) {
 
 function vaciarLista(e) {
     e.preventDefault();
+    $("#listaItemsElegidos").show();
     enemigosDerrotados < 10 ? $(".grupo2").hide() : $(".grupo2").show();
     enemigosDerrotados < 20 ? $(".grupo3").hide() : $(".grupo3").show();
     itemsElegidos = [];
-    actualizarLista();
+    // actualizarLista();
     actualizarStorage();
     $("#empezar").hide()
     $(".poderesAElegir").show();
@@ -170,7 +179,7 @@ function vaciarLista(e) {
 const botonPurpura = () => {
 
     // renderProducts(poderes);
-    
+
     $("#enemigoRandom").empty();
     $("#botonCambiar").show();
     $("poderesAElegir").show();
@@ -187,27 +196,25 @@ const enemigoFunciones = () => {
         bar = hBar.find('.bar');
     let hit = hBar.find('.hit')
     let enemigoStats
-    // const types = ["earth", "fire", "energy", "electricity", "water", "poison"]
 
     hitBtn.on("click", function (e) {
-        // $(".enemigoYBarra").fadeOut(200)
-        // $(".enemigoYBarra").fadeIn(200)
+
         enemigoStats = $(".enemigo")
-  
-        setTimeout(() => {
-        $(".log").children("div").remove()
-            
-        }, 500);
+
+       
         if (e.target.parentElement.dataset.daño == undefined) {
             $(".log").append(`<div>Haz clic en el arma!</div>`)
-            
+            setTimeout(() => {
+                $(".log").children("div").remove()
+    
+            }, 500);
 
         } else if (enemigoStats.data('value') < 0) {
-            
 
+            enemigosDerrotados >= 29 ? null : $(".log").append(`<div>Victoria! click en next para la siguiente ronda!</div>`)
             $("#listaItemsElegidos").hide()
             $("#next").show()
-            
+
         } else {
             const statElegido = Number(e.target.parentElement.dataset.daño)
             const tipoDePoder = e.target.parentElement.dataset.type
@@ -252,36 +259,36 @@ const enemigoFunciones = () => {
                         let poisonEffect2 = "hue-rotate(" + i + "deg)"
 
                         return $(".imgEnemigo").css("filter", poisonEffect + poisonEffect2)
-                                              
-                                               .css("border", "2px solid green"),
-                            $(".gradientEnemy").css("background", "url(./img/poisonGif.gif)"),
+
+                            .css("border", "2px solid green"),
+                            $(".enemigoYBarra").css("background", "url(./img/poisonGif.gif)"),
                             enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/poisonGif.gif)") : null;
-                               
+
 
                         break;
                     case "fire":
                         let fire = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", fire)
-                                               .css("border", "2px solid red"),
-                            $(".gradientEnemy").css("background", "url(./img/magicFire.webp)"),
+                            .css("border", "2px solid red"),
+                            $(".enemigoYBarra").css("background", "url(./img/magicFire.webp)"),
                             enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/magicFire.webp)") : null;
 
                         break;
                     case "water":
                         let water = "opacity( 0." + (i) + ")"
                         return $(".imgEnemigo").css("filter", water)
-                                               .css("border", "2px solid blue"),
-                            $(".gradientEnemy").css("background", "url(./img/waterGif.gif)"),
+                            .css("border", "2px solid blue"),
+                            $(".enemigoYBarra").css("background", "url(./img/waterGif.gif)"),
                             enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/waterGif.webp)") : null;
 
-                            break;
+                        break;
                     case "electricity":
                         let electricity = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", electricity)
-                                               .css("border", "2px solid yellow"),
-                            $(".gradientEnemy").css("background", "url(./img/sparkEffect.webp)"),
+                            .css("border", "2px solid yellow"),
+                            $(".enemigoYBarra").css("background", "url(./img/sparkEffect.webp)"),
                             enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/sparkEffect.webp)") : null;
 
                         break;
@@ -289,61 +296,69 @@ const enemigoFunciones = () => {
                         let energy = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", energy)
-                                               .css("border", "2px solid white"),
-                            $(".gradientEnemy").css("background", "url(./img/energyEffect.gif)"),
+                            .css("border", "2px solid white"),
+                            $(".enemigoYBarra").css("background", "url(./img/energyEffect.gif)"),
                             enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/energyEffect.gif)") : null;
 
                         break;
-                        case "earth":
+                    case "earth":
                         let earth = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", earth)
-                                               .css("border", "2px solid brown"),
-                            $(".gradientEnemy").css("background", "url(./img/earthEffect.webp)"),
+                            .css("border", "2px solid brown"),
+                            $(".enemigoYBarra").css("background", "url(./img/earthEffect.webp)"),
                             enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/earthEffect.webp)") : null;
 
                         break;
-                        case "telekinesis":
+                    case "telekinesis":
                         let telekinesis = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", telekinesis)
-                                               .css("border", "2px solid grey"),
-                            $(".gradientEnemy").css("background", "url(./img/telekineticBalls.webp)")
-                                               .css("background-position-x", "center")
-                                               .css("background-position-y", "center"),
-                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/telekineticBalls.webp)") : null;
+                            .css("border", "2px solid grey"),
+                            $(".enemigoYBarra").css("background", "url(./img/telekineticBalls.webp)")
+                            .css("background-position-x", "center")
+                            .css("background-position-y", "center"),
+                            enemigosDerrotados >= 20 ? ($(".botonPurpuraContainer2").css("background", "url(./img/telekineticBalls.webp)")
+                                                                                    .css("background-position-x", "center")
+                                                                                    .css("background-position-y", "center")) : null;
 
                         break;
-                        case "dimensional":
+                    case "dimensional":
                         let dimensional = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", dimensional)
-                                               .css("border", "2px solid orange"),
-                            $(".gradientEnemy").css("background", "url(./img/dimensionBreaking.gif)")
-                                               .css("background-position-x", "center")
-                                               .css("background-position-y", "center"),
-                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/dimensionBreaking.gif)") : null;
-
+                            .css("border", "2px solid orange"),
+                            $(".enemigoYBarra").css("background", "url(./img/dimensionBreaking.gif)")
+                            .css("background-position-x", "center")
+                            .css("background-position-y", "center"),
+                            enemigosDerrotados >= 20 ? ($(".botonPurpuraContainer2").css("background", "url(./img/dimensionBreaking.gif)")
+                                                                                    .css("background-position-x", "center")
+                                                                                    .css("background-position-y", "center")) : null;
                         break;
-                        case "death":
+                    case "death":
                         let death = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", death)
-                                               .css("border", "2px solid black"),
-                            $(".gradientEnemy").css("background", "url(./img/death.gif)")
-                                               .css("background-position-x", "center")
-                                               .css("background-position-y", "center"),
-                                               enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/death.gif)") : null;
+                            .css("border", "2px solid black"),
+                            $(".enemigoYBarra").css("background", "url(./img/death.gif)")
+                            .css("background-position-x", "center")
+                            .css("background-position-y", "center"),
+                            enemigosDerrotados >= 20 ? ($(".botonPurpuraContainer2").css("background", "url(./img/death.gif)")
+                                                                                    .css("background-position-x", "center")
+                                                                                    .css("background-position-y", "center")) : null;
 
                         break;
                     default:
                         break;
                 }
             }, 500);
-     
+
 
             log(value, damage, hitWidth);
-
+            setTimeout(() => {
+                $(".log").children(".logs").remove()
+    
+            }, 500);
 
 
         }
@@ -361,12 +376,10 @@ const enemigoFunciones = () => {
             // setTimeout(() => {
             //     log.children().last().remove();
             // }, 500);
-        }else if ( _total === undefined){
+        } else if (_total === undefined) {
             log.prepend(`<div class="enemigoDañado"> Haz click en "EMPEZAR" para continuar  </div>`);
 
-        }
-        
-        else {
+        } else {
             log.prepend(`<div class="enemigoDañado"> ${_total} Haz click en "NEXT" para continuar  </div>`);
         }
     };

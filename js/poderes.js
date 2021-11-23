@@ -1,6 +1,6 @@
 const poderes = [
     {
-        "imagen": "../img/energyFlow.svg",
+        "imagen": "./img/energyFlow.svg",
         "nombre": "Energy Flow",
         "type": "energy",
         "daño": 100,
@@ -8,7 +8,7 @@ const poderes = [
         "grupo": 1
     },
     {
-        "imagen": "../img/earthManipulation.svg",
+        "imagen": "./img/earthManipulation.svg",
         "nombre": "Earth Manipulation",
         "type": "earth",
         "daño": 100,
@@ -16,7 +16,7 @@ const poderes = [
         "grupo": 2
     },
     {
-        "imagen": "../img/magicFire.svg",
+        "imagen": "./img/magicFire.svg",
         "type": "fire",
         "nombre": "Fire Beam",
         "daño": 100,
@@ -24,7 +24,7 @@ const poderes = [
         "grupo": 2
     },
     {
-        "imagen": "../img/magicPoison.svg",
+        "imagen": "./img/magicPoison.svg",
         "type": "poison",
         "nombre": "Toxic Smoke",
         "daño": 100,
@@ -32,7 +32,7 @@ const poderes = [
         "grupo": 1
     },
     {
-        "imagen": "../img/sparkRain.svg",
+        "imagen": "./img/sparkRain.svg",
         "type": "electricity",
         "nombre": "Spark Rain",
         "daño": 100,
@@ -40,7 +40,7 @@ const poderes = [
         "grupo": 2
     },
     {
-        "imagen": "../img/waterShots.svg",
+        "imagen": "./img/waterShots.svg",
         "type": "water",
         "nombre": "Water Shots",
         "daño": 100,
@@ -48,7 +48,7 @@ const poderes = [
         "grupo": 1
     },
     {
-        "imagen": "../img/telekineticBalls.svg",
+        "imagen": "./img/telekineticBalls.svg",
         "type": "telekinesis",
         "nombre": "Telekinetic Balls",
         "daño": 100,
@@ -56,7 +56,7 @@ const poderes = [
         "grupo": 3
     },
     {
-        "imagen": "../img/dimensionBreaking.svg",
+        "imagen": "./img/dimensionBreaking.svg",
         "type": "dimensional",
         "nombre": "Dimension Breaking",
         "daño": 100,
@@ -64,7 +64,7 @@ const poderes = [
         "grupo": 3
     },
     {
-        "imagen": "../img/death.svg",
+        "imagen": "./img/death.svg",
         "type": "death",
         "nombre": "Death Invocation",
         "daño": 100,

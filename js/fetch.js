@@ -32,12 +32,12 @@ fetch(urlAPI)
         })
 
         $("#empezar").click(function () {
-            $("#pause, #play").show()
+            $("#pause, #play, .music").show()
             $("h1").hide()
-            $("body").css("background", "url(./img/fondo1.gif)")
-                     .css("background-repeat", "no-repeat")
-                     .css("background-position", "bottom")
-                     .css("background-size", "cover")
+            enemigosDerrotados == 0 ? ($("body").css("background", "url(./img/fondo1.gif)")
+                .css("background-repeat", "no-repeat")
+                .css("background-position", "bottom")
+                .css("background-size", "cover")) : null
             $("enemigoYBarra").show()
             if (enemigosDerrotados > 0) {
                 initTimer("01:00");
@@ -45,6 +45,7 @@ fetch(urlAPI)
                 // enemigosDerrotados = 0
                 $("#resultados").empty()
                 $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
+
                 function empezarDeNuevo() {
                     $(".health-bar").hide()
                     $('.log').empty()
@@ -57,7 +58,7 @@ fetch(urlAPI)
                     generarEnemigo(dataFiltrada)
                 }
                 empezarDeNuevo()
-                
+
 
             } else {
                 initTimer("01:00");
@@ -71,15 +72,32 @@ fetch(urlAPI)
                 })
                 enemigoFunciones()
 
-               generarEnemigo(dataFiltrada)
+                generarEnemigo(dataFiltrada)
                 $(".log").show()
             }
 
         })
         $("#next").click(function () {
-                $("#next").hide()
-                $("#listaItemsElegidos").hide()
-                enemigosDerrotados++;
+
+            $("#next").hide()
+
+            $("#listaItemsElegidos").hide()
+            enemigosDerrotados++;
+            enemigosDerrotados >= 20 ? ($("#ocultoB").show(), $("#ocultoA").hide()): null
+
+            if (enemigosDerrotados >= 30) {
+        $(".gradientLogs2").fadeIn()
+                $("#puntuacionYResultados, #botonRojoDiv, .enemigoYBarra, #botonPurpura").hide()
+                $(".gradientLogs2").css("opacity", "1")
+                $("nav").css("opacity", "1")
+                $(".log").prepend(`<div>Eso fue todo gracias! espero que lo hagas disfrutado!</div>`)
+
+            } else {
+                enemigosDerrotados >= 10 ? ($("#empezar").empty(), $("#botonCambiar").empty(),
+                    $("#empezar").append(`<img src = "https://img.icons8.com/external-wanicon-flat-wanicon/30/000000/external-videogame-stay-at-home-wanicon-flat-wanicon.png" alt="img">`),
+                    $("#botonCambiar").append(`<img src = "https://img.icons8.com/external-becris-flat-becris/30/000000/external-transfer-customer-loyalty-program-becris-flat-becris.png" alt="img">`),
+                    $(".botonPurpuraContainer2").prepend(`<div class="lds-hourglass"></div>`)
+                ) : null
                 $(".gradientEnemy").css("background", "#222")
                 $("#resultados").empty()
                 $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
@@ -101,7 +119,8 @@ fetch(urlAPI)
                     $('.health-bar').find('.bar').css('width', '100%');
                     generarEnemigo(dataFiltrada)
                     $("#listaItemsElegidos").show()
-                }, 2000);
+                }, 1000);
+            }
             // }
         })
         $("#resultados").append(`<div>${enemigosDerrotados}</div>`)

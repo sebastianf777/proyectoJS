@@ -2,8 +2,8 @@
 
  // other ways --> "0:15" "03:5" "5:2"
  //  initTimer("00:30");
- var reloadBtn = document.querySelector('.reload');
- var timerEl = document.querySelector('.timer');
+ let reloadBtn = document.querySelector('.reload');
+ let timerEl = document.querySelector('.timer');
 
  function initTimer(t) {
 
@@ -48,6 +48,9 @@
        timestr = time.min + time.sec;
        timeNumbers = timestr.split('');
        updateTimerDisplay(timeNumbers);
+       if(timestr === '0001')
+       $("#next").hide();
+       
 
        if (timestr === '0000')
           countdownFinished();
@@ -83,10 +86,17 @@
     $("#listaItemsElegidos").empty()
     $(".enemigoYBarra").hide()
     $(".lds-hourglass").remove()
+    $(".botonPurpuraContainer2").prepend(`<div class="lds-hourglass"></div>`)
+    $("#next").hide();
+    
     setTimeout(() => {
       $(".botonPurpuraContainer").prepend(`<div class="lds-hourglass"></div>`)
-      $(".log").prepend(`<div>Se terminó el tiempo! se habrá desbloqueado algo? :O</div>
-              <div class="lds-hourglass"></div>`)
+      
+       enemigosDerrotados >= 30 ? $(".log").append("Cualquier consulta, tienes la info en créditos/links") : $(".log").prepend(`<div>Se terminó el tiempo! se habrá desbloqueado algo? :O</div>
+       <div class="lds-hourglass"></div>)`)
+
+       $("#next").hide();
+
     }, 500);
     
     setTimeout(function () {
@@ -95,7 +105,9 @@
        $("#next").hide()
        $(".gradientEnemy").css("background", "#222")
        $(".log").empty()
-       $(".log").append(`<div>Buen intento! Mientras mayor sea la puntuación, tendrás más poderes disponibles! </div>`)
+
+        
+       enemigosDerrotados >= 30 ? ($(".log").append("Si quieres empezar de nuevo, debes recargar la página. Tendrás tus últimas 3 habilidades elegidas guardadas por el primer intento *_*"), $(".gradientLogs2").css("opacity", "1") ): $(".log").append(`<div>Buen intento! Mientras mayor sea la puntuación, tendrás más poderes disponibles! </div>`)
        $("#enemigoRandom").empty()
        $("#listaItemsElegidos").empty()
        $("#botonJuega").html("Intentar de nuevo!")
@@ -104,7 +116,7 @@
        //    TweenMax.set(reloadBtn, { scale: 0.8, display: 'block' });
        //    TweenMax.to(timerEl, 1, { opacity: 0.2 });
        //    TweenMax.to(reloadBtn, 0.5, { scale: 1, opacity: 1 }); 
-    }, 6000);
+    }, 4000);
  }
 
  //  reloadBtn.addEventListener('click', function () {

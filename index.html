@@ -20,14 +20,15 @@
                 <img src="img/logo-zf.png" alt="zf logo">
                 <p>"Creado por Sebastian Fontana. © 2021 Zf"</p>
             </div>
-            <div class="créditos">Créditos/Links</div>
+            <div class="créditos" tabindex="1">Créditos/Links</div>
             <h1>Projecto JavaScript</h1><span>
 
-                <div class="audio" id="play">Play</div>
-                <div class="audio" id="pause">Pause</div>
+                <div class="audio" id="play" tabindex="2"><img src="https://img.icons8.com/nolan/30/play.png"/></div>
+                <div class="music"><img src="https://img.icons8.com/fluency/48/000000/apple-music.png"/></div>
+                <div class="audio" id="pause" tabindex="3"><img src="https://img.icons8.com/nolan/30/pause.png"/></div>
                 <!-- <div id="status"></div> -->
             </span><span>
-                <div class="instrucciones">Instrucciones</div>
+                <div class="instrucciones" tabindex="4">Instrucciones</div>
             </span>
 
             <div class="marvel">
@@ -63,20 +64,20 @@
             </div>
         </div>
         <div class="log gradientBorder gradientLogs">
-            <div>Descubre que arma es efectiva contra tu enemigo!</div>
+            <div class="logs">Descubre que arma es efectiva contra tu enemigo!</div>
         </div>
         <div>
             <div class="options2">
 
                 <!-- ESPACIO PARA BOTONES -->
                 <div>
-                    <div class="botonRojoContainer gradientBorder wrap">
+                    <div id="botonRojoDiv" class="botonRojoContainer gradientBorder wrap">
 
                         <button class="boton button" id="botonRojo">
                             Avatar
                         </button>
                     </div>
-                    <div id="puntuacionYResultados" class="gradientBorder">
+                    <div id="puntuacionYResultados" class="gradientBorder puntuacionGradient">
                         <div id="puntuacion">
                             <h4>Ronda:</h4>
                         </div>
@@ -234,7 +235,7 @@
                     </div>
                 </div>
 
-                <div class="botonPurpuraContainer gradientBorder">
+                <div id="botonPurpura" class="botonPurpuraContainer gradientBorder">
                     <div class="wrap">
                         <button class="boton button" onclick="botonPurpura()" id="botonJuega">
                             Juega

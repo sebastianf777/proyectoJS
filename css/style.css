@@ -62,11 +62,30 @@ h1 {
   display: flex;
   justify-content: center;
 } */
-#play, #pause, #status{
+.music{
   display: none;
+  height: 30px;
+  margin-top: 15px;
+}
+
+#play{
+  background: linear-gradient(90deg, rgb(29, 4, 139) 0%, rgb(65, 1, 107) 100%);
+}
+
+
+
+#play, #pause{
+  display: none;
+  height: 30px;
+  margin: 15px 10px;
 }
 nav span{
   display: flex;
+}
+
+#ocultoB{
+  display: none;
+  flex-direction: row;
 }
 
 .créditos, .instrucciones, .audio{
@@ -101,7 +120,8 @@ nav span{
   opacity: 1;
 
 }
-.créditos:hover, .instrucciones:hover, .audio:hover{
+
+.créditos:hover, .instrucciones:hover{
   color: white;
   transform: translateY(-2px);
   border: 6px solid white;
@@ -267,6 +287,13 @@ h2 {
   height: fit-content;
   border-radius: 50px;
   margin: 10px;
+  
+}
+
+#botonCambiar{
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
 }
 
 /* BOTON ROJO */
@@ -282,9 +309,26 @@ h2 {
   background-color: rgb(255, 123, 0);
   margin: 0 20px;
   height: 150px;
+}
 
+.botonRojoContainer2 .imgAvatar{
+  border-radius: 200px;
 
 }
+
+.gradientEnemy2 #enemigoRandom .enemigo .imgEnemigo{
+  border-radius: 200px;
+}
+
+.gradientEnemy2 .health-bar {
+
+  width: auto;
+  top: -40px;
+  position: relative;
+}
+
+
+
 .espacioClass {
   display: flex;
   flex-direction: row;
@@ -374,8 +418,21 @@ h2 {
   height: fit-content;
   flex-wrap: wrap;
   background-color: rgb(138, 66, 138);
-  padding: 20px 0;
 
+}
+
+.botonPurpuraContainer2 div #empezar{
+  height: 55px;
+  left: 10px;
+}
+.botonPurpuraContainer2 div #botonCambiar{
+  right: 10px;
+}
+
+.botonPurpuraContainer2 div #botonCambiar, .botonPurpuraContainer2 div #empezar{
+  width: 55px;
+  font-size: 13px;
+  z-index: 10;
 }
 
 .itemS {
@@ -466,7 +523,7 @@ h2 {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  margin: 5px 0;
+  margin: 5px 20px;
 }
 
 /* BARRA DE VIDA ENEMIGO */
@@ -548,7 +605,8 @@ h2 {
 }
 
 .logs {
-  width: 100%;
+  min-width: 100%;
+  text-align: center;
 }
 
 .enemigoDañado {
@@ -571,6 +629,10 @@ h2 {
   color: white;
   border-radius: var(--border-width);
 
+}
+
+.puntuacionGradient2{
+border-radius: 100px;
 }
 
 @keyframes moveGradient {
@@ -636,7 +698,7 @@ h2 {
   top: calc(-1 * var(--border-width));
   left: calc(-1 * var(--border-width));
   z-index: -1;
-  width: calc(100% + var(--border-width) * 2);
+  width: 265px;
   height: calc(100% + var(--border-width) * 2);
   background: linear-gradient(60deg,
       hsl(224, 85%, 66%),
@@ -657,6 +719,7 @@ h2 {
 }
 .gradientEnemy2{
   background: #222;
+  width: 400px;
 
 }
 .gradientEnemy::after {
@@ -688,7 +751,7 @@ h2 {
   top: calc(-1 * var(--border-width));
   left: calc(-1 * var(--border-width));
   z-index: -1;
-  width: calc(100% + var(--border-width) * 2);
+  width: 415px;
   height: calc(100% + var(--border-width) * 2);
 
   background: linear-gradient(60deg,
@@ -788,7 +851,7 @@ h2 {
   margin: 20px;
 }
 
-#puntuacionYResultados::after {
+.puntuacionGradient::after {
   position: absolute;
   content: "";
   top: calc(-1 * var(--border-width));
@@ -804,6 +867,24 @@ h2 {
   background-size: 300% 300%;
   background-position: 0 50%;
   border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+.puntuacionGradient2::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(29, 100%, 48%),
+      hsl(69, 98%, 49%),
+      hsl(2, 96%, 57%),
+      hsl(9, 100%, 57%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: 100px;
   animation: moveGradient 4s alternate infinite;
 }
 

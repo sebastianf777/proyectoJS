@@ -1,40 +1,10 @@
 //BOTON ROJO "ELIGE TU AVATAR"
 
-
-
-// const botonACrear = document.getElementById("botonACrear")
-// const sectionE = document.getElementById("espacio")
-
-// const cambiarClase = () => {
-//     sectionE.classList.replace("toggleD", "espacioClass");
-//     botonACrear.removeChild(botonACrear.lastChild)
-//     $(".botonPurpuraContainer").hide()
-
-// }
-
-// const crearBoton = () => {
-//     const boton = document.createElement("button");
-//     boton.textContent = "Quieres cambiar de Avatar?"
-//     botonACrear.appendChild(boton);
-//     boton.id = "botonNuevo";
-//     boton.addEventListener("click", cambiarClase);
-
-
-
-// }
-
-//  $( document ).ready(function() {
-//     listaDeAvatars = []
-
-//     $(".heroAvatar").click(function () {
-//         elegirAvatar()
-//     })
-//  });
 let avatarElegido = []
 
 function renderAvatars(listadoAvatars) {
 
-    $(".botonPurpuraContainer").hide()
+    $("#botonPurpura").hide()
     listadoAvatars.forEach(avatar => {
         $("#espacioAvatars").append(`
                 <div>
@@ -58,15 +28,15 @@ function elegirAvatar(e) {
         const itemAgregado = {
             imagen: avatarAElegir.getAttribute("src"),
         }
-        $(".botonRojoContainer").empty()
-        $(".botonRojoContainer").append(`
+        $("#botonRojoDiv").empty()
+        $("#botonRojoDiv").append(`
                 <img src="${itemAgregado.imagen}" class="imgAvatar"></img>`)
-        $(".botonPurpuraContainer").show()
+        $("#botonPurpura").show()
         $("#espacioAvatars").hide()
         // avatarElegido.push(itemAgregado) ;
         $(".imgAvatar").click(function (e) {
             
-            $(".botonPurpuraContainer").hide()
+            $("#botonPurpura").hide()
 
 
             $("#espacioAvatars").show()
