@@ -1438,6 +1438,7 @@ margin-bottom: 30px;
   #enemigo{
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 5px 0;
   }
   
   .enemigo{
@@ -1462,15 +1463,15 @@ margin-bottom: 30px;
     height: 100px;
   }
   .enemigoYBarra{
-    width: 50%;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: 10px 0;
   }
   
   .log{
     height: 200px;
-    margin: 20px;
-    width: 30%;
+    margin: 20px 0;
+    width: 150px !important;
   }
   
   #enemigoRandom{
@@ -1540,6 +1541,7 @@ margin-bottom: 30px;
     font-size: 0px;
   
   }
+
   .gradientEnemy2::after{
     width: 105%;
   }
