@@ -701,7 +701,7 @@ border-radius: 100px;
   top: calc(-1 * var(--border-width));
   left: calc(-1 * var(--border-width));
   z-index: -1;
-  width: 265px;
+  width: calc(100% + var(--border-width) * 2);
   height: calc(100% + var(--border-width) * 2);
   background: linear-gradient(60deg,
       hsl(224, 85%, 66%),
@@ -754,7 +754,7 @@ border-radius: 100px;
   top: calc(-1 * var(--border-width));
   left: calc(-1 * var(--border-width));
   z-index: -1;
-  width: 415px;
+  width: calc(100% + var(--border-width) * 2);
   height: calc(100% + var(--border-width) * 2);
 
   background: linear-gradient(60deg,
