@@ -196,12 +196,13 @@ nav span{
   
 }
 .mensaje0{
+  
   justify-content: space-around;
 }
 
 .mensaje0 div{
   max-width: 1200px;
-  padding: 0 100px;
+  padding: 0;
 }
 #bienvenida .mensaje0 div p{
   width: 100%;
@@ -233,7 +234,7 @@ object-fit: contain;
 .instrucciones2 div img{
   margin: 0 10px 0 0;
 max-width: 738px;
-
+width: 400px;
 }
 .instrucciones3 div{
   display: flex;
@@ -405,10 +406,10 @@ h2 {
   width: 170px;
   display: flex;
   flex-direction: row;
-  height: fit-content;
+  height: 470px;
   flex-wrap: wrap;
   background-color: rgb(138, 66, 138);
-  padding: 20px 0;
+  padding: 10px 0;
 
 }
 .botonPurpuraContainer2 {
@@ -603,6 +604,7 @@ h2 {
   height: 350px;
   margin: 20px 0;
   padding: 0 25px;
+  /* overflow: hidden; */
 }
 
 .logs {
@@ -1176,12 +1178,55 @@ button:focus::after {
 
 @media only screen and (min-width: 741px) and (max-width: 990px) {
 
+nav{
+  margin-bottom: 20px;
+}
+#espacioAvatars{
+  position: absolute;
+  z-index: 100;
+  top: 105px;
+  left: 0;
+  right: 0;
+}
+#espacioAvatars div img{
+  width: 100px;
+  height: 100px;
+}
+#poderes{
+  position: absolute;
+z-index: 100;
+left: 0;
+  right: 0;
+}
+
 .logoZf, .marvel{
   margin: 0;
+}
+.logoZf img{
+  margin: 0 30px;
 }
 .logoZf p, .marvel p{
   font-size: 8px;
   text-align: center;
+}
+.mensaje0{
+  margin: 10px;
+}
+.mensaje0 div{
+  padding: 0;
+}
+.mensaje0 div span a img{
+  width: 100px;
+  height: 60px;
+
+}
+.imgAvatar{
+  width: 150px;
+  height: 150px;
+}
+.instrucciones1 div img,.instrucciones2 div img, .instrucciones3 div .instrucciones3{
+  width: 300px;
+  margin: 10px;
 }
 #enemigo{
   flex-direction: row;
@@ -1196,14 +1241,26 @@ button:focus::after {
   max-width: 150px;
 }
 .enemigoYBarra{
-  width: 45%;
-  height: 250px;
+  width: 350px;
+  height: 350px;
+  margin: 0px 40px 10px 0 !important;
+  background-position-x: center !important;
+  background-position-y: center !important;
+  background-size: cover !important;
 }
 
 .log{
-  height: 200px;
-  margin: 20px 0;
-  width: 45%;
+  height: 190px;
+  margin: 0px 10px 10px 0;
+  width: 40%;
+
+}
+.log div{
+  font-size: 12px;
+
+}
+.gradientLogs2{
+  width: 400px;
 }
 
 #enemigoRandom{
@@ -1211,30 +1268,81 @@ button:focus::after {
 width: 500px;
 }
 
-.botonPurpuraContainer, .botonPurpuraContainer2 {
+.options2{
+  margin-top: 0;
+}
+
+
+.botonPurpuraContainer{
   width: auto;
-  height: 60px;
-margin: 20px 10px 20px 20px;
+  margin: 10px;
+height: 80px;
+}
+.botonPurpuraContainer2 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+margin: 0px 10px 20px 20px;
+top: 50%;
+left: 50%;
+}
+
+.botonPurpuraContainer2 div #empezar{
+  position: absolute;
+
+  height: 50px;
+  bottom: 120px;
+  right: 110px;
+
+}
+.botonPurpuraContainer2 div #botonCambiar{
+  height: 50px;
+  position: absolute;
+  bottom: 120px;
+  right: 10px;
+}
+.botonPurpuraContainer2 #listaItemsElegidos {
+  position: absolute;
+  right: 55px;
+top: 120px;
+}
+.botonPurpuraContainer2 #listaItemsElegidos .item div h4{
+  font-size: 0;
 }
 #listaItemsElegidos {
+  
   flex-direction: row;
+  height: 40px;
+}
+
+.x h4{
+  width: 60px;
+  height: 40px;
 }
 
 .botonYPuntuacion{
+  position: absolute; 
+  top: 450px;
+  right: 50%;
   display: flex;
   flex-direction: row;
+  height: fit-content;
 }
 .botonRojoContainer{
   height: 100px;
-  margin: 20px 20px 20px 10px;
+  width: 110px;
+  margin: 10px;
 }
 #puntuacionYResultados{
-  margin: 20px 5px;
+  margin: 10px;
  height: 100px;
+ width: 110px;
 }
+
+
 .itemS, .item{
 font-size: 10px;
-margin: 5px 0 5px 5px;
+margin: 15px 5px 0;
 }
 
 .imgItemS{
@@ -1242,14 +1350,14 @@ margin: 5px 0 5px 5px;
 }
 
 #empezar{
-margin: 5px 10px 5px 20px;
+margin-bottom: 30px;
 
 }
 
 #botonCambiar{
-margin: 5px 20px 5px 10px;
-
+  margin-bottom: 30px;
 }
+
 .créditos, .instrucciones{
   width: 80px;
   font-size: 8px;
@@ -1263,18 +1371,20 @@ margin: 5px 20px 5px 10px;
 .gradientEnemy2::after{
   width: 105%;
 }
-.botonPurpuraContainer2{
-  width: 200px;
-}
+
 }
 
+/* //////////////////////////////////////////////////////////// */
 
 @media only screen and (min-width: 0px) and (max-width: 741px) {
   body{
-    min-height: 600px;
+    min-height: 800px;
   }
+
+
   .options2{
     height: auto;
+    margin: 0;
   }
   bienvenida h2, #bienvenida p {
     margin: 5px;
@@ -1349,6 +1459,7 @@ margin: 5px 20px 5px 10px;
   }
   .imgAvatar{
     width: 100px;
+    height: 100px;
   }
   .enemigoYBarra{
     width: 50%;
@@ -1358,7 +1469,7 @@ margin: 5px 20px 5px 10px;
   
   .log{
     height: 200px;
-    margin: 20px 0;
+    margin: 20px;
     width: 30%;
   }
   
@@ -1368,8 +1479,8 @@ margin: 5px 20px 5px 10px;
   }
   
   .botonPurpuraContainer, .botonPurpuraContainer2 {
-    width: auto;
-
+    width: 200px;
+  height: 200px;
   margin: 20px 10px 20px 20px;
   }
   #listaItemsElegidos {
@@ -1378,15 +1489,20 @@ margin: 5px 20px 5px 10px;
   
   .botonYPuntuacion{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: fit-content;
+    margin-top: 10px;
   }
+
+
+
   .botonRojoContainer{
     height: 100px;
-    margin: 20px 20px 20px 10px;
+    margin: 10px;
   }
   #puntuacionYResultados{
-    margin: 20px 5px;
+    margin: 10px;
+    width: 100px;
    height: 100px;
   }
   .itemS, .item{
@@ -1395,11 +1511,11 @@ margin: 5px 20px 5px 10px;
   }
   
   .imgItemS{
-    width: 40px;
+    width: 30px;
   }
   
   #empezar{
-  margin: 5px 10px 5px 20px;
+  margin: 0;
   background: url(https://img.icons8.com/external-wanicon-flat-wanicon/20/000000/external-videogame-stay-at-home-wanicon-flat-wanicon.png);
   background-repeat: no-repeat;
   background-position-x: center;
@@ -1407,7 +1523,7 @@ margin: 5px 20px 5px 10px;
   }
   
   #botonCambiar{
-  margin: 5px 20px 5px 10px;
+  margin: 0;
   background: url(https://img.icons8.com/external-becris-flat-becris/20/000000/external-transfer-customer-loyalty-program-becris-flat-becris.png);
   background-repeat: no-repeat;
   background-position-x: center;

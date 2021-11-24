@@ -84,6 +84,7 @@
 
  function countdownFinished() {
     $("#listaItemsElegidos").empty()
+    $("#listaItemsElegidos").hide()
     $(".enemigoYBarra").hide()
     $(".lds-hourglass").remove()
     $(".botonPurpuraContainer2").prepend(`<div class="lds-hourglass"></div>`)
