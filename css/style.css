@@ -412,10 +412,11 @@ h2 {
 
 }
 .botonPurpuraContainer2 {
-  width: 170px;
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
   display: flex;
   flex-direction: row;
-  height: fit-content;
   flex-wrap: wrap;
   background-color: rgb(138, 66, 138);
 
@@ -627,7 +628,7 @@ h2 {
   align-items: center;
   /* text-transform: uppercase; */
   color: white;
-  border-radius: var(--border-width);
+  border-radius: auto;
 
 }
 
@@ -1170,5 +1171,264 @@ button:focus::after {
   100% {
 
     transform: rotate(1turn);
+  }
+}
+
+@media only screen and (min-width: 741px) and (max-width: 990px) {
+
+.logoZf, .marvel{
+  margin: 0;
+}
+.logoZf p, .marvel p{
+  font-size: 8px;
+  text-align: center;
+}
+#enemigo{
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.enemigo{
+  display: flex;
+  flex-direction: row;
+}
+.imgEnemigo {
+  max-width: 150px;
+}
+.enemigoYBarra{
+  width: 45%;
+  height: 250px;
+}
+
+.log{
+  height: 200px;
+  margin: 20px 0;
+  width: 45%;
+}
+
+#enemigoRandom{
+  flex-direction: column;
+width: 500px;
+}
+
+.botonPurpuraContainer, .botonPurpuraContainer2 {
+  width: auto;
+  height: 60px;
+margin: 20px 10px 20px 20px;
+}
+#listaItemsElegidos {
+  flex-direction: row;
+}
+
+.botonYPuntuacion{
+  display: flex;
+  flex-direction: row;
+}
+.botonRojoContainer{
+  height: 100px;
+  margin: 20px 20px 20px 10px;
+}
+#puntuacionYResultados{
+  margin: 20px 5px;
+ height: 100px;
+}
+.itemS, .item{
+font-size: 10px;
+margin: 5px 0 5px 5px;
+}
+
+.imgItemS{
+  width: 40px;
+}
+
+#empezar{
+margin: 5px 10px 5px 20px;
+
+}
+
+#botonCambiar{
+margin: 5px 20px 5px 10px;
+
+}
+.créditos, .instrucciones{
+  width: 80px;
+  font-size: 8px;
+
+}
+.boton, #botonCambiar, #empezar {
+  width: 66px;
+  font-size: 8px;
+
+}
+.gradientEnemy2::after{
+  width: 105%;
+}
+.botonPurpuraContainer2{
+  width: 200px;
+}
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 741px) {
+  body{
+    min-height: 600px;
+  }
+  .options2{
+    height: auto;
+  }
+  bienvenida h2, #bienvenida p {
+    margin: 5px;
+    font-size: 10px;
+  }
+  #bienvenida h2{
+    font-size: 12px;
+  }
+  #bienvenidaArticle{
+    height: auto;
+  }
+
+  .mensaje0 div span a img{
+    width: 60px;
+    height: 40px;
+
+  }
+  .mensaje0{
+    margin: 10px;
+  }
+  .mensaje0 div{
+    padding: 0;
+  }
+  .logoZf, .marvel{
+    display: none;
+  }
+ .botones{
+  margin-right: 0px;
+  width: 30px;
+ }
+ .botones div img{
+   width: 30px;
+ }
+  .instrucciones1 div img,.instrucciones2 div img, .instrucciones3 div .instrucciones3{
+    width: 200px;
+    margin: 10px;
+  }
+  .instrucciones3 div{
+    max-width: 300px;
+  }
+  .instrucciones3 div {
+    margin: 0;
+  }
+  .instrucciones3 div img{
+
+  margin: 0;
+  }
+  .instrucciones3b{
+    width: 100px;
+  }
+  #enemigo{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .enemigo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .info-card{
+    font-size: 10px;
+    text-align: center;
+  }
+  .imgEnemigo {
+    max-width: 100px;
+    margin: 0 auto;
+  }
+
+  .log div{
+    font-size: 10px;
+  }
+  .imgAvatar{
+    width: 100px;
+  }
+  .enemigoYBarra{
+    width: 50%;
+    height: 250px;
+    margin: 10px 0;
+  }
+  
+  .log{
+    height: 200px;
+    margin: 20px 0;
+    width: 30%;
+  }
+  
+  #enemigoRandom{
+    flex-direction: column;
+  width: 500px;
+  }
+  
+  .botonPurpuraContainer, .botonPurpuraContainer2 {
+    width: auto;
+
+  margin: 20px 10px 20px 20px;
+  }
+  #listaItemsElegidos {
+    flex-direction: row;
+  }
+  
+  .botonYPuntuacion{
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+  }
+  .botonRojoContainer{
+    height: 100px;
+    margin: 20px 20px 20px 10px;
+  }
+  #puntuacionYResultados{
+    margin: 20px 5px;
+   height: 100px;
+  }
+  .itemS, .item{
+  font-size: 10px;
+  margin: 5px 0 5px 5px;
+  }
+  
+  .imgItemS{
+    width: 40px;
+  }
+  
+  #empezar{
+  margin: 5px 10px 5px 20px;
+  background: url(https://img.icons8.com/external-wanicon-flat-wanicon/20/000000/external-videogame-stay-at-home-wanicon-flat-wanicon.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  }
+  
+  #botonCambiar{
+  margin: 5px 20px 5px 10px;
+  background: url(https://img.icons8.com/external-becris-flat-becris/20/000000/external-transfer-customer-loyalty-program-becris-flat-becris.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  }
+  .créditos, .instrucciones{
+    width: 80px;
+    font-size: 8px;
+  
+  }
+  .boton, #botonCambiar, #empezar {
+    width: 20px;
+    height: 30px;
+    font-size: 0px;
+  
+  }
+  .gradientEnemy2::after{
+    width: 105%;
+  }
+  .botonPurpuraContainer2{
+    width: 200px;
+    border-radius: 200px;
   }
 }

@@ -104,9 +104,6 @@ function actualizarLista() {
             .css("background-size", "cover");
         $(".botonPurpuraContainer").addClass("botonPurpuraContainer2")
         $(".botonPurpuraContainer2").removeClass("botonPurpuraContainer")
-        $(".botonPurpuraContainer2").css("width", "400px")
-            .css("height", "400px")
-            .css("border-radius", "200px");
         $(".botonRojoContainer").addClass("botonRojoContainer2")
         $(".botonRojoContainer2").removeClass("botonRojoContainer")
         $(".botonRojoContainer2").css("border-radius", "200px");
