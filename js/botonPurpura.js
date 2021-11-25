@@ -312,12 +312,8 @@ const enemigoFunciones = () => {
 
                         return $(".imgEnemigo").css("filter", telekinesis)
                             .css("border", "2px solid grey"),
-                            $(".enemigoYBarra").css("background", "url(./img/telekineticBalls.webp)")
-                            .css("background-position-x", "center")
-                            .css("background-position-y", "center"),
-                            enemigosDerrotados >= 20 ? ($(".botonPurpuraContainer2").css("background", "url(./img/telekineticBalls.webp)")
-                                                                                    .css("background-position-x", "center")
-                                                                                    .css("background-position-y", "center")) : null;
+                            $(".enemigoYBarra").css("background", "url(./img/telekineticBalls.webp)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/telekineticBalls.webp)") : null;
 
                         break;
                     case "dimensional":
@@ -325,24 +321,16 @@ const enemigoFunciones = () => {
 
                         return $(".imgEnemigo").css("filter", dimensional)
                             .css("border", "2px solid orange"),
-                            $(".enemigoYBarra").css("background", "url(./img/dimensionBreaking.gif)")
-                            .css("background-position-x", "center")
-                            .css("background-position-y", "center"),
-                            enemigosDerrotados >= 20 ? ($(".botonPurpuraContainer2").css("background", "url(./img/dimensionBreaking.gif)")
-                                                                                    .css("background-position-x", "center")
-                                                                                    .css("background-position-y", "center")) : null;
+                            $(".enemigoYBarra").css("background", "url(./img/dimensionBreaking.gif)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/dimensionBreaking.gif)") : null;
                         break;
                     case "death":
                         let death = "opacity( 0." + (i) + ")"
 
                         return $(".imgEnemigo").css("filter", death)
                             .css("border", "2px solid black"),
-                            $(".enemigoYBarra").css("background", "url(./img/death.gif)")
-                            .css("background-position-x", "center")
-                            .css("background-position-y", "center"),
-                            enemigosDerrotados >= 20 ? ($(".botonPurpuraContainer2").css("background", "url(./img/death.gif)")
-                                                                                    .css("background-position-x", "center")
-                                                                                    .css("background-position-y", "center")) : null;
+                            $(".enemigoYBarra").css("background", "url(./img/death.gif)"),
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/death.gif)") : null;
 
                         break;
                     default:
@@ -370,14 +358,19 @@ const enemigoFunciones = () => {
 
         if (_damage !== undefined && _hitWidth !== undefined && _total >= _total * 1 / 100) {
             log.prepend(`<div class="logs">Enemigo Hp ${_total}: <span class="enemigoDañado"> - ${_damage}</span></div>`);
-            // setTimeout(() => {
-            //     log.children().last().remove();
-            // }, 500);
+            
         } else if (_total === undefined) {
             log.prepend(`<div class="enemigoDañado"> Haz click en "EMPEZAR" para continuar  </div>`);
-
+            setTimeout(() => {
+                $(".log").children("div").remove()
+    
+            }, 500);
         } else {
             log.prepend(`<div class="enemigoDañado"> ${_total} Haz click en "NEXT" para continuar  </div>`);
+            setTimeout(() => {
+                $(".log").children("div").remove()
+    
+            }, 500);
         }
     };
 }
@@ -394,7 +387,7 @@ function generarEnemigo(enemigo) {
                     <h4 class="h4Enemigo">${enemigo.name}</h4>
                     
                     <ul class="ulEnemigo">
-                    <p class="pEnemigo">Estadísticas:</p>
+                    <p class="pEnemigo"></p>
                     
                     <li>Hp: ${hpEnemigo}</li>
                     

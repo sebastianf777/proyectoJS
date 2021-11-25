@@ -322,13 +322,19 @@ h2 {
 }
 
 .gradientEnemy2 .health-bar {
-
+  margin: 0 50px 65px;
   width: auto;
-  top: -40px;
+  top: -10px;
   position: relative;
 }
 
-
+.info-card{
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .espacioClass {
   display: flex;
@@ -421,6 +427,9 @@ h2 {
   flex-wrap: wrap;
   background-color: rgb(138, 66, 138);
   margin-left: 22px;
+  background-position-x: center !important;
+  background-position-y: center !important;
+  background-size: cover !important;
 }
 
 .botonPurpuraContainer2 div #empezar{
@@ -458,6 +467,7 @@ h2 {
 .itemS div h4 {
   text-align: center;
   margin-top: 5px;
+  font-size: 12px;
 }
 
 .info-card {
@@ -473,9 +483,12 @@ h2 {
 
 .poderesAElegir div {
   margin: 0 5px;
+  width: 100px;
+  height: 100px;
 }
 
 .poderesAElegir {
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -578,7 +591,9 @@ h2 {
 .enemigoYBarra {
   margin: 20px 20px 0 0 !important;
   height: 400px;
-
+  background-position-x: center !important;
+  background-position-y: center !important;
+  background-size: cover !important;
 
 }
 
@@ -604,12 +619,17 @@ h2 {
   height: 350px;
   margin: 20px 0;
   padding: 0 25px;
-  /* overflow: hidden; */
+  text-overflow: "-";
 }
+.log div{
+  text-overflow: "-";
 
+}
 .logs {
   min-width: 100%;
   text-align: center;
+  overflow: hidden;
+
 }
 
 .enemigoDañado {
@@ -900,9 +920,9 @@ border-radius: 100px;
 }
 
 .imgAvatar {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 /* TIMER */
@@ -1186,7 +1206,8 @@ nav{
 #espacioAvatars{
   position: absolute;
   z-index: 100;
-  top: 105px;
+  top: 425px;
+  /* margin-right: 30%; */
   left: 0;
   right: 0;
 }
@@ -1197,10 +1218,10 @@ nav{
 #poderes{
   position: absolute;
 z-index: 100;
-width: 49%;
-height: 277px;
+max-width: 35%;
+height: 327px;
 top: 11.3%;
-left: 2%;
+left: 7%;
   /* right: 0; */
 }
 
@@ -1251,9 +1272,6 @@ left: 2%;
   width: 350px;
   height: 350px;
   margin: 0px 40px 10px 0 !important;
-  background-position-x: center !important;
-  background-position-y: center !important;
-  background-size: cover !important;
 }
 
 .log{
@@ -1269,8 +1287,10 @@ left: 2%;
 
 }
 .gradientLogs2{
-  width: 300px;
-  height: 300px;
+  left: 55%;
+  margin: 0 10px;
+  width: 200px;
+  height: 200px;
 }
 
 #enemigoRandom{
@@ -1347,7 +1367,10 @@ top: 120px;
   width: 100px;
   margin: 10px;
 }
-
+.botonRojoContainer2{
+  height: 100px;
+  margin-top: 10px;
+}
 
 
 #puntuacionYResultados{
@@ -1428,6 +1451,7 @@ margin-bottom: 30px;
   #poderes{
     position: absolute;
   z-index: 100;
+  
   left: 0;
     right: 0;
   }
@@ -1482,6 +1506,7 @@ margin-bottom: 30px;
     justify-content: center;
   }
   .info-card{
+    
     font-size: 10px;
     text-align: center;
   }
