@@ -420,7 +420,7 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
   background-color: rgb(138, 66, 138);
-
+  margin-left: 22px;
 }
 
 .botonPurpuraContainer2 div #empezar{
@@ -1221,8 +1221,8 @@ left: 0;
 
 }
 .imgAvatar{
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 .instrucciones1 div img,.instrucciones2 div img, .instrucciones3 div .instrucciones3{
   width: 300px;
@@ -1274,9 +1274,13 @@ width: 500px;
 
 
 .botonPurpuraContainer{
+  position: absolute;
   width: auto;
+  min-width: 100px;
   margin: 10px;
 height: 80px;
+top: 71%;
+left: 40%;
 }
 .botonPurpuraContainer2 {
   position: absolute;
@@ -1323,20 +1327,23 @@ top: 120px;
 .botonYPuntuacion{
   position: absolute; 
   top: 450px;
-  right: 50%;
+  right: 60%;
   display: flex;
   flex-direction: row;
   height: fit-content;
 }
 .botonRojoContainer{
   height: 100px;
-  width: 110px;
+  width: 100px;
   margin: 10px;
 }
+
+
+
 #puntuacionYResultados{
   margin: 10px;
  height: 100px;
- width: 110px;
+ width: 100px;
 }
 
 
@@ -1395,6 +1402,24 @@ margin-bottom: 30px;
   }
   #bienvenidaArticle{
     height: auto;
+  }
+  #espacioAvatars{
+    position: absolute;
+    z-index: 100;
+    top: 65px;
+    left: 0;
+    right: 0;
+    max-width: 350px;
+  }
+  #espacioAvatars div img{
+    width: 100px;
+    height: 100px;
+  }
+  #poderes{
+    position: absolute;
+  z-index: 100;
+  left: 0;
+    right: 0;
   }
 
   .mensaje0 div span a img{

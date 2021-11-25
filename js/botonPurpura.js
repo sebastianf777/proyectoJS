@@ -277,7 +277,7 @@ const enemigoFunciones = () => {
                         return $(".imgEnemigo").css("filter", water)
                             .css("border", "2px solid blue"),
                             $(".enemigoYBarra").css("background", "url(./img/waterGif.gif)"),
-                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/waterGif.webp)") : null;
+                            enemigosDerrotados >= 20 ? $(".botonPurpuraContainer2").css("background", "url(./img/waterGif.gif)") : null;
 
                         break;
                     case "electricity":
