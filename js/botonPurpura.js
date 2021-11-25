@@ -109,8 +109,8 @@ function actualizarLista() {
         $(".botonRojoContainer2").css("border-radius", "200px");
         $(".gradientLogs").addClass("gradientLogs2")
         $(".gradientLogs2").removeClass("gradientLogs")
-        $(".gradientLogs2").css("border-radius", "200px");
-        $(".log").css("width", "200px");
+        // $(".gradientLogs2").css("border-radius", "200px");
+        // $(".log").css("width", "200px");
         $(".gradientEnemy").addClass("gradientEnemy2")
         $(".gradientEnemy2").removeClass("gradientEnemy")
         $(".gradientEnemy2").css("border-radius", "200px");
