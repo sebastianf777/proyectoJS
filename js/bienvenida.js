@@ -84,6 +84,8 @@ $(".creditosLinks").append(`<div id="ocultoB" class="textoImg"><p>- Canciones us
 
             $(".mensaje1").show()
             setTimeout(() => {
+        $("#bienvenidaArticle").fadeOut()
+
             $(".mensaje1").hide()
                 
             }, 4000);
