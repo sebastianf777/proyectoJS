@@ -67,9 +67,7 @@ fetch(urlAPI)
                 let dataFiltrada = dataMarvel[Math.floor(Math.random() * dataMarvel.length)]
                 console.log(dataFiltrada)
 
-                $(".enemigoYBarra").css({
-                    "margin": "20px 20px 20px 40px"
-                })
+              
                 enemigoFunciones()
 
                 generarEnemigo(dataFiltrada)
@@ -90,7 +88,7 @@ fetch(urlAPI)
                 $("#puntuacionYResultados, #botonRojoDiv, .enemigoYBarra, #botonPurpura").hide()
                 $(".gradientLogs2").css("opacity", "1")
                 $("nav").css("opacity", "1")
-                $(".log").prepend(`<div>Eso fue todo gracias! espero que lo hagas disfrutado!</div>`)
+                $(".log").prepend(`<p>Eso fue todo gracias! espero que lo hagas disfrutado!!! <span><img src="https://img.icons8.com/external-soft-fill-juicy-fish/40/000000/external-celebrate-emoji-soft-fill-soft-fill-juicy-fish.png" alt="imagen"></span></p>`)
 
             } else {
                 enemigosDerrotados >= 10 ? ($("#empezar").empty(), $("#botonCambiar").empty(),

@@ -606,7 +606,9 @@ h2 {
 
 .imgEnemigo {
   max-width: 200px;
-  
+  height: 200px;
+width: 200px;
+object-fit: contain;
 }
 
 
@@ -931,6 +933,7 @@ border-radius: 100px;
   width: 150px;
   height: 150px;
   object-fit: cover;
+  object-position: top;
 }
 
 /* TIMER */
@@ -1214,7 +1217,9 @@ nav{
 #espacioAvatars{
   position: absolute;
   z-index: 100;
-  top: 425px;
+  top: 285px;
+  padding: 0;
+  height: 100px;
   /* margin-right: 30%; */
   left: 0;
   right: 0;
@@ -1226,12 +1231,12 @@ nav{
 #poderes{
   position: absolute;
 z-index: 100;
-max-width: 35%;
-height: 320px;
-top: 11.3%;
-left: 0;
+width: 300px;
+height: 270px;
+top: 6.6%;
+left: -40%;
 right: 0;
-min-width: 37%;
+/* min-width: 37%; */
   /* right: 0; */
 }
 
@@ -1279,18 +1284,18 @@ min-width: 37%;
 }
 .enemigoYBarra{
   position: absolute;
-  left: 5%;
-  width: 350px;
-  height: 350px;
+  left: 13%;
+  width: 300px;
+  height: 300px;
   margin: 0px 40px 10px 0 !important;
 }
 
 .log{
   position: absolute;
   right: 5%;
-  height: 350px;
+  height: 300px;
   margin: 0px 10px 10px 0;
-  width: 30%;
+  width: 33%;
 
 }
 .log div{
@@ -1322,7 +1327,7 @@ width: 500px;
   min-width: 400px;
   margin: 10px;
 height: 80px;
-top: 71%;
+top: 41.9%;
 left: 40%;
 }
 .botonPurpuraContainer2 {
@@ -1330,7 +1335,7 @@ left: 40%;
   width: 300px;
   height: 300px;
 margin: 0px 10px 20px 20px;
-top: 50%;
+top: 30%;
 left: 50%;
 }
 
@@ -1371,7 +1376,7 @@ top: 120px;
 }
 .botonYPuntuacion{
   position: absolute; 
-  top: 450px;
+  top: 455px;
   right: 60%;
   display: flex;
   flex-direction: row;
@@ -1436,7 +1441,39 @@ margin-bottom: 30px;
     min-height: 800px;
   }
 
-
+  nav .créditos, nav .instrucciones{
+    font-size: 0 ;
+    height: 20px;
+    width: 20px;
+  }
+  .créditos{
+    background-image: url(https://img.icons8.com/external-itim2101-flat-itim2101/30/000000/external-copyright-copywriting-itim2101-flat-itim2101-7.png) ;
+    background-color: rgb(65, 1, 107);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+  }
+  .instrucciones{
+    background-image: url(https://img.icons8.com/external-prettycons-lineal-color-prettycons/30/000000/external-instructions-office-prettycons-lineal-color-prettycons.png) ;
+    background-color: rgb(65, 1, 107);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+  }
+  #botonJuega{
+    background-image: url(https://img.icons8.com/external-kmg-design-outline-color-kmg-design/30/000000/external-power-ui-essential-kmg-design-outline-color-kmg-design.png) ;
+    /* background-color: rgb(65, 1, 107); */
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+  }
+  #botonRojo{
+    background-image: url(https://img.icons8.com/color-glass/30/000000/cat-profile.png) ;
+    /* background-color: rgb(65, 1, 107); */
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+  }
   .options2{
     height: auto;
     margin: 0;
@@ -1466,8 +1503,9 @@ margin-bottom: 30px;
   #poderes{
     position: absolute;
   z-index: 100;
-  width: 350px;
-  top: 51%;
+  width: 305px;
+  height: 200px;
+  top: 48.8%;
   left: 0;
     right: 0;
   }
@@ -1486,6 +1524,7 @@ margin-bottom: 30px;
   .logoZf, .marvel{
     display: none;
   }
+
  .botones{
   margin-right: 0px;
   width: 30px;
@@ -1515,7 +1554,9 @@ margin-bottom: 30px;
     flex-wrap: wrap;
     margin: 5px 0;
   }
-  
+  .enemigoYBarra{
+    margin-top: 10px !important;
+  }
   .enemigo{
     display: flex;
     flex-direction: column;
@@ -1542,12 +1583,14 @@ margin-bottom: 30px;
   .enemigoYBarra{
     width: 200px;
     height: 200px;
-    margin: 10px 0;
+    left: 3.5%;
+    margin: 10px 5px;
   }
   
   .log{
     height: 200px;
-    margin: 20px 0;
+    margin: 10px 20px 0;
+
     width: 150px !important;
   }
   
@@ -1556,13 +1599,30 @@ margin-bottom: 30px;
   width: 500px;
   }
   
-  .botonPurpuraContainer, .botonPurpuraContainer2 {
+  .botonPurpuraContainer {
     width: 200px;
-  height: 200px;
+  height: 100px;
   margin: 20px 10px 20px 20px;
+  
+  }
+  .botonPurpuraContainer .itemS{
+    margin: 10px;
+  }
+  .botonPurpuraContainer #empezar{
+    margin-bottom: 80px;
+    margin-left: 30px;
+  }
+  .botonPurpuraContainer #botonCambiar{
+    margin-top: 60px;
+    margin-right: 30px;
+  }
+  .botonPurpuraContainer2{
+    width: 200px;
+    height: 200px;
+    margin: 20px 20px 0 0;
   }
   .itemS div h4 {
-
+    
     font-size: 0px;
 }
   #listaItemsElegidos {
@@ -1575,7 +1635,7 @@ margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     height: fit-content;
-    margin: 10px 0 0 25px;
+    margin: 10px 5px 0 10px;
   }
 
 
@@ -1642,6 +1702,9 @@ margin-bottom: 30px;
     font-size: 0px;
   
   }
+  #espacioAvatars {
+    width: 335px;
+  }
   .info-card {
     flex-direction: column;
   }
@@ -1655,4 +1718,29 @@ margin-bottom: 30px;
     width: 200px;
     border-radius: 200px;
   }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 459px) {
+  .log{
+
+    margin: 20px 20px 0 30px;
+  
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 419px) {
+
+  #espacioAvatars {
+    width: 250px;
+    margin-top: 20px;
+  }
+.log{
+
+  margin: 20px 20px 0;
+
+}
+#poderes{
+ 
+top: 49.8%;
+
+}
 }
