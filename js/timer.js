@@ -108,7 +108,7 @@
        $(".log").empty()
 
         
-       enemigosDerrotados >= 30 ? ($(".log").append("Si quieres empezar de nuevo, debes recargar la página. Tendrás tus últimas 3 habilidades elegidas guardadas por el primer intento *_*"), $(".gradientLogs2").css("opacity", "1") ): $(".log").append(`<div>Buen intento! Mientras mayor sea la puntuación, tendrás más poderes disponibles! </div>`)
+       enemigosDerrotados >= 30 ? ($(".log").append("Para empezar de nuevo, recarga la página. Tendrás tus últimos 3 poderes elegidos guardados por el primer intento *_*"), $(".gradientLogs2").css("opacity", "1") ): $(".log").append(`<div>Buen intento! Mientras mayor sea la puntuación, tendrás más poderes disponibles! </div>`)
        $("#enemigoRandom").empty()
        $("#listaItemsElegidos").empty()
        $("#botonJuega").html("Intentar de nuevo!")
