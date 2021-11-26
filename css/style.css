@@ -27,7 +27,8 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 50px;
+  margin: 0 auto;
+  
 
 }
 .logoZf img{
@@ -40,6 +41,8 @@ nav {
 }
 .logoZf p{
   margin-top: 50px;
+  text-align: center;
+margin-bottom: 7px;
 }
  .marvel img{
   width: 100px;
@@ -458,7 +461,7 @@ h2 {
   display: flex;
   object-fit: contain;
   object-position: center;
-  width: 70px;
+  width: 50px;
   margin: 0 auto;
   box-shadow: 12px 12px 24px rgba(252, 251, 253, 0.64);
 
@@ -483,8 +486,10 @@ h2 {
 
 .poderesAElegir div {
   margin: 0 5px;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  font-size: 12px;
 }
 
 .poderesAElegir {
@@ -499,6 +504,7 @@ h2 {
 
 .poderesAElegir::after {
   position: absolute;
+  /* margin: 0 20px; */
   content: "";
   top: calc(-1 * var(--border-width));
   left: calc(-1 * var(--border-width));
@@ -521,13 +527,14 @@ h2 {
 }
 
 .toggleD {
-  display: none;
-}
-
-.toggleS {
   display: flex;
   flex-direction: row;
 }
+
+/* .toggleS {
+  display: flex;
+  flex-direction: row;
+} */
 
 #enemigoRandom {
   display: flex;
@@ -692,8 +699,9 @@ border-radius: 100px;
 }
 .gradientLogs2 {
   background: #222;
-  border-radius: 200px;
+  border-radius: 50px;
   width: 200px;
+  font-size: 12px;
 }
 .gradientLogs::after {
   position: absolute;
@@ -736,7 +744,7 @@ border-radius: 100px;
       hsl(179, 85%, 66%));
   background-size: 300% 300%;
   background-position: 0 50%;
-  border-radius: 200px;
+  border-radius: 50px;
   animation: moveGradient 4s alternate infinite;
 }
 .gradientEnemy {
@@ -1219,9 +1227,11 @@ nav{
   position: absolute;
 z-index: 100;
 max-width: 35%;
-height: 327px;
+height: 320px;
 top: 11.3%;
-left: 7%;
+left: 0;
+right: 0;
+min-width: 37%;
   /* right: 0; */
 }
 
@@ -1261,10 +1271,11 @@ left: 7%;
 
 .enemigo{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .imgEnemigo {
   max-width: 150px;
+  margin: 0 auto;
 }
 .enemigoYBarra{
   position: absolute;
@@ -1301,11 +1312,13 @@ width: 500px;
 .options2{
   margin-top: 0;
 }
-
+/* .poderesAElegir div{
+  text-align: center;
+} */
 
 .botonPurpuraContainer{
   position: absolute;
-  width: auto;
+  width: fit-content;
   min-width: 400px;
   margin: 10px;
 height: 80px;
@@ -1353,7 +1366,9 @@ top: 120px;
   width: 60px;
   height: 40px;
 }
-
+.info-card{
+  flex-direction: column;
+}
 .botonYPuntuacion{
   position: absolute; 
   top: 450px;
@@ -1451,7 +1466,8 @@ margin-bottom: 30px;
   #poderes{
     position: absolute;
   z-index: 100;
-  
+  width: 350px;
+  top: 51%;
   left: 0;
     right: 0;
   }
@@ -1513,6 +1529,7 @@ margin-bottom: 30px;
   .imgEnemigo {
     max-width: 100px;
     margin: 0 auto;
+    height: 100px;
   }
 
   .log div{
@@ -1544,20 +1561,30 @@ margin-bottom: 30px;
   height: 200px;
   margin: 20px 10px 20px 20px;
   }
+  .itemS div h4 {
+
+    font-size: 0px;
+}
   #listaItemsElegidos {
+    position: absolute;
     flex-direction: row;
+ 
   }
   
   .botonYPuntuacion{
     display: flex;
     flex-direction: column;
     height: fit-content;
-    margin-top: 10px;
+    margin: 10px 0 0 25px;
   }
 
 
 
   .botonRojoContainer{
+    height: 100px;
+    margin: 10px;
+  }
+  .botonRojoContainer2{
     height: 100px;
     margin: 10px;
   }
@@ -1567,7 +1594,7 @@ margin-bottom: 30px;
    height: 100px;
   }
   .itemS, .item{
-  font-size: 10px;
+  font-size: 0px;
   margin: 5px 0 5px 5px;
   }
   
@@ -1581,14 +1608,28 @@ margin-bottom: 30px;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
+  height: 55px;
+    left: -60px;
   }
-  
+  .botonPurpuraContainer2 div #empezar {
+    height: 55px;
+    left: -40px;
+}
+
+  .botonPurpuraContainer2 div #botonCambiar  {
+    height: 55px;
+
+    right: -40px;
+}
   #botonCambiar{
   margin: 0;
   background: url(https://img.icons8.com/external-becris-flat-becris/20/000000/external-transfer-customer-loyalty-program-becris-flat-becris.png);
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
+  height: 55px;
+
+    right: -60px;
   }
   .créditos, .instrucciones{
     width: 80px;
@@ -1601,7 +1642,12 @@ margin-bottom: 30px;
     font-size: 0px;
   
   }
-
+  .info-card {
+    flex-direction: column;
+  }
+  .gradientEnemy2 .health-bar {
+    margin: 0px 50px 0px;
+  }
   .gradientEnemy2::after{
     width: 105%;
   }

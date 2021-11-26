@@ -83,10 +83,10 @@ fetch(urlAPI)
 
             $("#listaItemsElegidos").hide()
             enemigosDerrotados++;
-            enemigosDerrotados >= 20 ? ($("#ocultoB").show(), $("#ocultoA").hide()): null
+            enemigosDerrotados >= 20 ? ($("#ocultoB").show(), $("#ocultoA").hide()) : null
 
             if (enemigosDerrotados >= 30) {
-        $(".gradientLogs2").fadeIn()
+                $(".gradientLogs2").fadeIn()
                 $("#puntuacionYResultados, #botonRojoDiv, .enemigoYBarra, #botonPurpura").hide()
                 $(".gradientLogs2").css("opacity", "1")
                 $("nav").css("opacity", "1")
@@ -122,6 +122,13 @@ fetch(urlAPI)
                 }, 1000);
             }
             // }
+        })
+
+        $("#botonCambiar").click(function () {
+            $(".grupo1").css("display") == "none" ? $(".poderDiv1 .toggleD").hide() : $(".poderDiv1 .toggleD").hide() 
+            $(".grupo2").css("display") == "none" ? null : $(".poderDiv2 .toggleD").hide() 
+            $(".grupo3").css("display") == "none" ? null : $(".poderDiv3 .toggleD").hide() 
+            
         })
         $("#resultados").append(`<div>${enemigosDerrotados}</div>`)
 

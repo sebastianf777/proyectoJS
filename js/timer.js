@@ -94,7 +94,7 @@
       $(".botonPurpuraContainer").prepend(`<div class="lds-hourglass"></div>`)
       
        enemigosDerrotados >= 30 ? $(".log").append("Cualquier consulta, tienes la info en créditos/links") : $(".log").prepend(`<div>Se terminó el tiempo! se habrá desbloqueado algo? :O</div>
-       <div class="lds-hourglass"></div>)`)
+       <div class="lds-hourglass"></div>`)
 
        $("#next").hide();
 

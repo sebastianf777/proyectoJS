@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemsStorage = JSON.parse(localStorage.getItem('itemsElegidos'));
     itemsElegidos = itemsStorage || [];
     
-   
     actualizarLista();
     renderProducts(poderes);
     //crear boton empezar

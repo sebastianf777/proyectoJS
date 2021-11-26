@@ -30,7 +30,7 @@ function renderProducts(listadoOpciones) {
     listadoOpciones.forEach(producto => {
         // const html = 
         $("#poderes").append(`
-            <div>
+            <div class="poderDiv${producto.grupo}">
                 
 
                 <div class="grupo${producto.grupo}">
@@ -41,6 +41,8 @@ function renderProducts(listadoOpciones) {
                     <h4>${producto.nombre}</h4>
                     
                 </div>
+                <img src="https://img.icons8.com/nolan/64/lock-2.png" class="imgItemS toggleD">
+
             </div>
         `)
 
