@@ -79,18 +79,7 @@ $(".creditosLinks").append(`<div id="ocultoB" class="textoImg"><p>- Canciones us
         // $("#pB").hide()
         $(".mensaje3").hide()
         // $("#pC").hide()
-        setTimeout(() => {
-            $(".mensaje0").hide()
-
-            $(".mensaje1").show()
-            setTimeout(() => {
-        $("#bienvenidaArticle").fadeOut()
-
-            $(".mensaje1").hide()
-                
-            }, 4000);
-
-        }, 4000);
+        
     }
 
 
