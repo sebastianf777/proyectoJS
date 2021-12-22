@@ -1171,6 +1171,7 @@ button:focus::after {
 #resultados{
   margin: 5px 0 5px 0;
   font-size: 20px;
+  font-weight: 900;
   color: red;
 }
 #puntuacion{
@@ -1341,7 +1342,7 @@ width: 500px;
   min-width: 400px;
   margin: 10px;
 height: 80px;
-top: 41.9%;
+top: 84.9%;
 left: 40%;
 }
 .botonPurpuraContainer2 {
@@ -1735,6 +1736,10 @@ margin-bottom: 30px;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 459px) {
+  .botonPurpuraContainer {
+ 
+    margin: 20px 10px 20px 5px;
+}
   .log{
 
     margin: 20px 20px 0 30px;
