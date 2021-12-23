@@ -1737,13 +1737,10 @@ margin-bottom: 30px;
 
 @media only screen and (min-width: 0px) and (max-width: 459px) {
   .botonPurpuraContainer {
- 
     margin: 20px 10px 20px 5px;
 }
   .log{
-
     margin: 20px 20px 0 30px;
-  
   }
 }
 @media only screen and (min-width: 0px) and (max-width: 419px) {
